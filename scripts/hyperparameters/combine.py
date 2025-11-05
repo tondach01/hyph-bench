@@ -1,3 +1,4 @@
+import os
 import sys
 import metaheuristic
 
@@ -5,9 +6,8 @@ class Combiner:
     """
     Combine samples through levels. Abstract class, instantiate one of its subclasses.
     """
-    def __init__(self, meta: metaheuristic.Metaheuristic, logfile: str = ""):
+    def __init__(self, meta: metaheuristic.Metaheuristic):
         self.meta = meta
-        self.logfile = logfile
         self.level = 0
 
     def run(self):
@@ -21,47 +21,37 @@ class SimpleCombiner(Combiner):
         super().__init__(meta)
 
     def run(self):
-        if self.logfile:
-            log = open(self.logfile, "w")
-        else:
-            log = sys.stdout
-
         s = self.meta.sampler.sample()
         while s is not None:
             self.level += 1
-            print("Running metaheuristic on level", self.level, file=log)
+            print("Running metaheuristic on level", self.level)
 
             prev = self.meta.get_ids().pop()
             candidate = s.copy({"level": self.level, "prev": prev})
             self.meta.scorer.score(candidate)
-            print(str(candidate), file=log)
+            print(str(candidate))
 
             self.meta.population = [candidate]
 
-            self.meta.run_level(log)
-            print("Population selected for next level:", [str(pop) for pop in self.meta.population], file=log)
+            self.meta.run_level()
+            print("Population selected for next level:", [str(pop) for pop in self.meta.population])
+            if self.meta.statistic is not None:
+                self.meta.statistic.level_outputs.append(self.meta.population.copy())
             s = self.meta.sampler.sample()
 
-        if self.logfile:
-            log.close()
 
 class AllWithAllCombiner(Combiner):
-    def __init__(self, meta: metaheuristic.Metaheuristic, n_levels: int, logfile: str = ""):
-        super().__init__(meta, logfile)
+    def __init__(self, meta: metaheuristic.Metaheuristic, n_levels: int):
+        super().__init__(meta)
         self.n_levels = n_levels
 
     def run(self):
         """
         Run the metaheuristic for all levels
         """
-        if self.logfile:
-            log = open(self.logfile, "w")
-        else:
-            log = sys.stdout
-
         while self.level < self.n_levels:
             self.level += 1
-            print("Running metaheuristic on level", self.level, file=log)
+            print("Running metaheuristic on level", self.level)
             fresh = self.meta.sampler.sample_n(self.meta.population_size)
             candidates = []
 
@@ -69,14 +59,17 @@ class AllWithAllCombiner(Combiner):
                 for f in fresh:
                     candidate = f.copy({"level": self.level, "prev": prev})
                     self.meta.scorer.score(candidate)
-                    print(str(candidate), file=log)
+                    print(str(candidate))
                     candidates.append(candidate)
 
             candidates.sort(key=lambda x: (x.n_patterns, x.precision(), x.recall()))
             self.meta.population = candidates[:self.meta.population_size]
 
-            self.meta.run_level(log)
-            print("Population selected for next level:", [str(pop) for pop in self.meta.population], file=log)
+            self.meta.run_level()
+            print("Population selected for next level:", [str(pop) for pop in self.meta.population])
+            if self.meta.statistic is not None:
+                self.meta.statistic.level_outputs.append(self.meta.population.copy())
 
-        if self.logfile:
-            log.close()
+        for run_id in self.meta.get_ids():
+            os.system(f"mv {self.meta.scorer.temp_dir}/{run_id}.pat "
+                      f"{self.meta.scorer.wordlist_path.rsplit('/', maxsplit=1)[0]}/{run_id}.pat")

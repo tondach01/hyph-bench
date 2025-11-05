@@ -1,11 +1,12 @@
 import argparse
 import os
+import time
 
 import score
 import sample
 import metaheuristic
 import combine
-import time
+import stats
 
 if __name__ == "__main__":
     t = time.time()
@@ -48,15 +49,21 @@ if __name__ == "__main__":
         exit(1)
 
     sampler = sample.FileSampler(par_file)
+    statistic = stats.LearningInfo()
 
     meta = metaheuristic.NoMetaheuristic(
         scorer,
         sampler,
-        #logfile="wortliste.log"
+        statistic=statistic
     )
 
     comb = combine.SimpleCombiner(meta)
 
     comb.run()
     print([str(pop) for pop in meta.population])
+    meta.statistic.visualise(metric=["precision", "recall"])
+
+    for s in meta.population:
+        print(str(stats.PatternsInfo(f"{datadir}/{s.run_id}.pat", s)))
+
     print("Ran", round(time.time() - t, 2), "seconds")

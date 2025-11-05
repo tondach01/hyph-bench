@@ -1,5 +1,6 @@
 import sample
 import score
+import stats
 
 PATGEN_MAX_LEVELS = 9
 
@@ -7,27 +8,25 @@ class Metaheuristic:
     """
     Abstract class encompassing all metaheuristics. Should not be instantiated itself.
     """
-    def __init__(self, scorer: score.PatgenScorer, sampler: sample.Sampler, n_samples: int, logfile: str = ""):
+    def __init__(self, scorer: score.PatgenScorer, sampler: sample.Sampler, n_samples: int, statistic: stats.LearningInfo = None):
         self.sampler: sample.Sampler = sampler
         self.scorer: score.PatgenScorer = scorer
         self.population: list = []
         self.population_size: int = n_samples
-        self.logfile = logfile
+        self.statistic = statistic
 
-    def new_population(self, log):
+    def new_population(self):
         """
         Create new population and assign it to self.population. Exact implementation differs for each metaheuristic
-        :param log: opened stream to print logs
         :return: True if new population is different from the old one
         """
         pass
 
-    def run_level(self, log):
+    def run_level(self):
         """
         Compute final population for one level of patgen generation and then remove unused temporary files
-        :param log: opened stream to print logs
         """
-        while self.new_population(log):
+        while self.new_population():
             continue
         self.scorer.clean_unused(self.get_ids())
         self.scorer.clear_cache()
@@ -47,11 +46,11 @@ class HillClimbing(Metaheuristic):
     """
     Hill climbing metaheuristic: always choose the best neighbour
     """
-    def __init__(self, scorer: score.PatgenScorer, sampler: sample.Sampler, n_samples: int = 1, logfile: str = ""):
-        super().__init__(scorer, sampler, n_samples, logfile)
+    def __init__(self, scorer: score.PatgenScorer, sampler: sample.Sampler, n_samples: int = 1, statistic: stats.LearningInfo = None):
+        super().__init__(scorer, sampler, n_samples, statistic)
         self.visited = set()
 
-    def new_population(self, log):
+    def new_population(self):
         climbed = False
 
         for i in range(self.population_size):
@@ -62,7 +61,7 @@ class HillClimbing(Metaheuristic):
 
             for n in self.get_neighbours(i):
                 pat, prec, rec = self.scorer.score(n)
-                print(str(n), file=log)
+                print(str(n))
                 if pat < pat_old and (prec, rec) > acc_old and pat < pat_new:
                     self.population[i] = n
                     pat_new = pat
@@ -95,17 +94,17 @@ class HillClimbing(Metaheuristic):
 
         return neighbours
 
-    def run_level(self, log):
+    def run_level(self):
         self.visited.clear()
-        Metaheuristic.run_level(self, log)
+        Metaheuristic.run_level(self)
 
 
 class NoMetaheuristic(Metaheuristic):
     """
     No metaheuristic
     """
-    def __init__(self, scorer: score.PatgenScorer, sampler: sample.Sampler, logfile: str = ""):
-        super().__init__(scorer, sampler, n_samples=1, logfile=logfile)
+    def __init__(self, scorer: score.PatgenScorer, sampler: sample.Sampler, statistic: stats.LearningInfo = None):
+        super().__init__(scorer, sampler, n_samples=1, statistic=statistic)
 
-    def new_population(self, log):
+    def new_population(self):
         return False
