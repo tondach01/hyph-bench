@@ -23,5 +23,5 @@ translate_other:
 
 # extract data from compressed Wiktionary dump and prepare directory structure
 prepare_wikt:
-	unzip ./data/wikt_dump.zip -d ./data
+	unzip ./wikt_dump.zip -d .
 	$(foreach l,$(WIKT_LANGS),mkdir -p ./data/$(l)/wiktionary;)

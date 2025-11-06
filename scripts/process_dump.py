@@ -44,11 +44,11 @@ if __name__ == "__main__":
                         default="en",
                         choices=["cs", "de", "el", "es", "it", "ms", "nl", "pl", "pt", "ru", "tr", "TBD"],
                         required=True,
-                        help="language to which the dump file belongs")
+                        help="Language to which the dump file belongs")
     parser.add_argument("--outfile",
                         default="",
                         required=False,
-                        help="file to store the output, if not provided ./data/{lang}/wiktionary}/{lang}_{(en)?wiktionary}_{timestamp}.wlh")
+                        help="File to store the output, if not provided ./data/{lang}/wiktionary}/{lang}_{(en)?wiktionary}_{timestamp}.wlh")
     args = parser.parse_args()
 
     dump_files = {
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         "tr": "tr_wiktionary_251001.jsonl"
     }
 
-    dump_filepath = "./data/wikt_dump/" + dump_files[args.lang]
+    dump_filepath = "./wikt_dump/" + dump_files[args.lang]
 
     if not args.outfile:
         name_long = dump_files[args.lang].split(".")[0]
