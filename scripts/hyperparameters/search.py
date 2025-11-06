@@ -60,8 +60,8 @@ if __name__ == "__main__":
     comb = combine.SimpleCombiner(meta)
 
     comb.run()
-    print([str(pop) for pop in meta.population])
-    meta.statistic.visualise(metric=["precision", "recall"])
+    print([(pop.f_score(1.0), pop.f_score(100.0)) for pop in meta.population])
+    meta.statistic.visualise(metric=["patterns"])
 
     for s in meta.population:
         print(str(stats.PatternsInfo(f"{datadir}/{s.run_id}.pat", s)))

@@ -110,6 +110,14 @@ class Sample:
             return -1
         return self.stats["tp"]/(self.stats["tp"]+self.stats["fn"])
 
+    def f_score(self, n: float):
+        if n <= 0:
+            return -1
+        p, r = self.precision(), self.recall()
+        if p == -1 or r == -1:
+            return -1
+        return (1 + n*n) * p * r / ((n*n * p) + r)
+
 
 class Sampler:
     """

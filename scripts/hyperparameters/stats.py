@@ -2,6 +2,7 @@ import os
 import re
 import matplotlib
 import matplotlib.pyplot as plt
+import sys
 
 import sample
 
@@ -12,12 +13,28 @@ class DatasetInfo:
         path = abspath.split("/")
         self.lang = "" if len(path) < 3 else path[-3]
         self.dataset_name = "" if len(path) < 2 else path[-2]
-        with open(file, "rb") as f:
-            self.size_lines = sum(1 for _ in f)
+        self.size_lines = 0
+        len_total = 0
+        hyph_total = 0
+        self.len_min, self.len_max = -1, -1
+        with open(file, "r") as f:
+            for line in f:
+                self.size_lines += 1
+                line_len = len(line.strip())
+                len_total += line_len
+                hyph_total += line.count("-")
+                if self.len_min == -1 or line_len < self.len_min:
+                    self.len_min = line_len
+                if self.len_max == -1 or line_len > self.len_max:
+                    self.len_max = line_len
+        self.len_avg = len_total / self.size_lines
+        self.hyph_avg = hyph_total / self.size_lines
         self.size_bytes = os.path.getsize(file)
 
     def __str__(self):
-        return f"Dataset {self.dataset_name}: lang = {self.lang}, {self.size_bytes} B, {self.size_lines} lines"
+        return (f"Dataset {self.lang}-{self.dataset_name}:\n "
+                f"\tsize: {self.size_bytes} B, {self.size_lines} lines, {round(self.hyph_avg, 2)} hyphenators per line\n"
+                f"\tword lengths (hyphenators incl.): min {self.len_min} max {self.len_max} avg {round(self.len_avg, 2)}")
 
 class LearningInfo:
     def __init__(self):
@@ -25,12 +42,39 @@ class LearningInfo:
 
     def visualise(self, metric = "precision"):
         metric_funcs = list()
+        warn_abs = ("Warning: do not combine absolute accuracy numbers (tp, fp, fn) with "
+                    "relative accuracy metrics (precision, recall, fN), the scales are different")
+        warn_pat = ("Warning: do not combine number of patterns with "
+                    "accuracy metrics, the scales are different")
         if isinstance(metric, str):
             metric = [metric]
-        if "precision" in metric:
-            metric_funcs.append(("precision", sample.Sample.precision))
-        if "recall" in metric:
-            metric_funcs.append(("recall", sample.Sample.recall))
+        for m in metric:
+            f_score = re.match(r"f(?P<n>\d+(\.\d+)?)", m)
+            if m == "precision":
+                metric_funcs.append(("Precision", sample.Sample.precision))
+            elif m == "recall":
+                metric_funcs.append(("Recall", sample.Sample.recall))
+            elif f_score:
+                n = float(f_score["n"])
+                metric_funcs.append((f"F{n}", lambda x: x.f_score(n)))
+            elif m == "tp":
+                if "precision" in metric or "recall" in metric:
+                    print(warn_abs, file=sys.stderr)
+                metric_funcs.append(("True positives", lambda x: x.stats.get("tp", 0)))
+            elif m == "fp":
+                if "precision" in metric or "recall" in metric:
+                    print(warn_abs, file=sys.stderr)
+                metric_funcs.append(("False positives", lambda x: x.stats.get("fp", 0)))
+            elif m == "fn":
+                if "precision" in metric or "recall" in metric:
+                    print(warn_abs, file=sys.stderr)
+                metric_funcs.append(("False negatives", lambda x: x.stats.get("fn", 0)))
+            elif m == "patterns":
+                if len(metric) > 1:
+                    print(warn_pat, file=sys.stderr)
+                metric_funcs.append(("Patterns", lambda x: x.n_patterns))
+            else:
+                print(f"Unknown metric {m} provided", file=sys.stderr)
 
         matplotlib.use('TkAgg')
 
@@ -43,6 +87,8 @@ class LearningInfo:
             plt.plot("level", "metric", data=data.copy(), label=name)
 
         plt.legend()
+        plt.xlabel("Hyphenation level")
+        plt.xticks([n+1 for n in range(len(self.level_outputs))])
         plt.show()
 
 class PatternsInfo:
@@ -54,10 +100,18 @@ class PatternsInfo:
         self.dataset_name = "" if len(path) < 2 else path[-2]
         self.n_patterns = s.n_patterns
         self.size_bytes = os.path.getsize(file)
+        len_total = 0
+        with open(file) as f:
+            for line in f:
+                len_line = len(line.strip())
+                len_total += len_line
+        self.len_avg = len_total / self.n_patterns
         self.s = s
 
     def __str__(self):
-        return f"Patterns for {self.lang}/{self.dataset_name}: {self.size_bytes} B, {self.n_patterns} patterns, precision {self.s.precision()}, recall {self.s.recall()}"
+        return (f"Patterns for {self.lang}-{self.dataset_name}:\n"
+                f"\tsize: {self.size_bytes} B, {self.n_patterns} patterns, avg. length {round(self.len_avg, 2)}\n"
+                f"\tprecision {round(self.s.precision(),3)}, recall {round(self.s.recall(),3)}")
 
 if __name__ == "__main__":
     print(str(DatasetInfo("../../data/it/wiktionary/it_wiktionary_251001.wlh")))
