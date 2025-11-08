@@ -16,6 +16,9 @@ class DatasetInfo:
         self.size_lines = 0
         len_total = 0
         hyph_total = 0
+        words = set()
+        hyphenations = set()
+        self.ambiguous = 0
         self.len_min, self.len_max = -1, -1
         with open(file, "r") as f:
             for line in f:
@@ -23,6 +26,11 @@ class DatasetInfo:
                 line_len = len(line.strip())
                 len_total += line_len
                 hyph_total += line.count("-")
+                line_nohyph = re.sub("-", "", line)
+                if line_nohyph in words and line not in hyphenations:
+                    self.ambiguous += 1
+                words.add(line_nohyph)
+                hyphenations.add(line)
                 if self.len_min == -1 or line_len < self.len_min:
                     self.len_min = line_len
                 if self.len_max == -1 or line_len > self.len_max:
@@ -33,8 +41,9 @@ class DatasetInfo:
 
     def __str__(self):
         return (f"Dataset {self.lang}-{self.dataset_name}:\n "
-                f"\tsize: {self.size_bytes} B, {self.size_lines} lines, {round(self.hyph_avg, 2)} hyphenators per line\n"
-                f"\tword lengths (hyphenators incl.): min {self.len_min} max {self.len_max} avg {round(self.len_avg, 2)}")
+                f"\tsize: {self.size_bytes} B, {self.size_lines} lines\n "
+                f"\t{round(self.hyph_avg, 2)} avg hyphenators per line, {self.ambiguous} ambiguous hyphenations\n"
+                f"\tword lengths: min {self.len_min} max {self.len_max} avg {round(self.len_avg, 2)} (hyphenators incl.)")
 
 class LearningInfo:
     def __init__(self):
@@ -43,9 +52,12 @@ class LearningInfo:
     def visualise(self, metric = "precision"):
         metric_funcs = list()
         warn_abs = ("Warning: do not combine absolute accuracy numbers (tp, fp, fn) with "
-                    "relative accuracy metrics (precision, recall, fN), the scales are different")
-        warn_pat = ("Warning: do not combine number of patterns with "
-                    "accuracy metrics, the scales are different")
+                    "relative accuracy metrics (precision, recall, fN), number of patterns or "
+                    "patgen hyperparameters, the scales are different")
+        warn_pat = ("Warning: do not combine number of patterns with accuracy metrics or "
+                    "patgen hyperparameters, the scales are different")
+        warn_param = ("Warning: do not combine patgen hyperparameters (good_wt, bad_wt, threshold) "
+                      "with accuracy metrics or number of patterns, the scales are different")
         if isinstance(metric, str):
             metric = [metric]
         for m in metric:
@@ -73,6 +85,21 @@ class LearningInfo:
                 if len(metric) > 1:
                     print(warn_pat, file=sys.stderr)
                 metric_funcs.append(("Patterns", lambda x: x.n_patterns))
+            elif m == "good_wt":
+                if ("precision" in metric or "recall" in metric or "tp" in metric or "fp" in metric
+                        or "fn" in metric or "patterns" in metric):
+                    print(warn_param, file=sys.stderr)
+                metric_funcs.append(("Good weight", lambda x: x.good_weight))
+            elif m == "bad_wt":
+                if ("precision" in metric or "recall" in metric or "tp" in metric or "fp" in metric
+                        or "fn" in metric or "patterns" in metric):
+                    print(warn_param, file=sys.stderr)
+                metric_funcs.append(("Bad weight", lambda x: x.bad_weight))
+            elif m == "threshold":
+                if ("precision" in metric or "recall" in metric or "tp" in metric or "fp" in metric
+                        or "fn" in metric or "patterns" in metric):
+                    print(warn_param, file=sys.stderr)
+                metric_funcs.append(("Threshold", lambda x: x.threshold))
             else:
                 print(f"Unknown metric {m} provided", file=sys.stderr)
 
@@ -100,17 +127,23 @@ class PatternsInfo:
         self.dataset_name = "" if len(path) < 2 else path[-2]
         self.n_patterns = s.n_patterns
         self.size_bytes = os.path.getsize(file)
+        self.levels = 0
         len_total = 0
         with open(file) as f:
             for line in f:
                 len_line = len(line.strip())
                 len_total += len_line
+                levels = re.findall("\d+", line)
+                for level in levels:
+                    if int(level) > self.levels:
+                        self.levels = int(level)
         self.len_avg = len_total / self.n_patterns
         self.s = s
 
     def __str__(self):
         return (f"Patterns for {self.lang}-{self.dataset_name}:\n"
-                f"\tsize: {self.size_bytes} B, {self.n_patterns} patterns, avg. length {round(self.len_avg, 2)}\n"
+                f"\tsize: {self.size_bytes} B, {self.n_patterns} patterns\n"
+                f"\tavg. length {round(self.len_avg, 2)}, {self.levels} levels\n"
                 f"\tprecision {round(self.s.precision(),3)}, recall {round(self.s.recall(),3)}")
 
 if __name__ == "__main__":
