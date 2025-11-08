@@ -27,4 +27,4 @@ prepare_wikt:
 	$(foreach l,$(WIKT_LANGS),mkdir -p ./data/$(l)/wiktionary;)
 
 prepare_other:
-	python ./scripts/expand_weights.py ./data/cssk/cshyphen/cssk_all_weighted.wlh
+	python ./scripts/expand_weights.py ./data/cssk/cshyphen/cssk_all-weighted.wlh
