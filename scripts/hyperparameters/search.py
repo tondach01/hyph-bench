@@ -33,7 +33,7 @@ if __name__ == "__main__":
         exit(1)
 
     scorer = score.PatgenScorer(
-        "patgen", wl_file, tr_file
+        "patgen", wl_file, tr_file, verbose=True
     )
 
     par_file = ""
@@ -57,7 +57,7 @@ if __name__ == "__main__":
         statistic=statistic
     )
 
-    comb = combine.SimpleCombiner(meta)
+    comb = combine.SimpleCombiner(meta, verbose=True)
 
     comb.run()
     #print([(pop.f_score(1.0), pop.f_score(100.0)) for pop in meta.population])

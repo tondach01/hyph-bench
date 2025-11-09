@@ -8,10 +8,11 @@ class PatgenScorer:
     """
     Class for patgen hyperparameter setting evaluation
     """
-    def __init__(self, patgen_path: str, wordlist_path: str, translate_path: str):
+    def __init__(self, patgen_path: str, wordlist_path: str, translate_path: str, verbose: bool = False):
         self.patgen_path: str = patgen_path
         self.wordlist_path: str = wordlist_path
         self.translate_path: str = translate_path
+        self.verbose = verbose
 
         if "tmp" not in os.listdir("."):
             os.mkdir("tmp")
@@ -68,6 +69,9 @@ class PatgenScorer:
         s.stats = stats
         s.n_patterns = n_patterns
         s.timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
+
+        if self.verbose:
+            print(str(s))
 
         return n_patterns, s.precision(), s.recall()
 

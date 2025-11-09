@@ -61,7 +61,6 @@ class HillClimbing(Metaheuristic):
 
             for n in self.get_neighbours(i):
                 pat, prec, rec = self.scorer.score(n)
-                print(str(n))
                 if pat < pat_old and (prec, rec) > acc_old and pat < pat_new:
                     self.population[i] = n
                     pat_new = pat
