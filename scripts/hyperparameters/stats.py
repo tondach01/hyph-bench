@@ -8,6 +8,9 @@ from . import sample
 
 class DatasetInfo:
     def __init__(self, file: str):
+        if not file:
+            # file can be unspecified when reporting only tabular header
+            return
         abspath = os.path.abspath(file)
         abspath = re.sub(r"\\+", "/", abspath)
         path = abspath.split("/")
@@ -39,9 +42,33 @@ class DatasetInfo:
         self.hyph_avg = hyph_total / self.size_lines
         self.size_bytes = os.path.getsize(file)
 
+    def report(self, tabular: bool = True, header: bool = False):
+        """
+        Report the statistics of the dataset
+        :param tabular: output in LaTeX tabular format
+        :param header: only tabular header is returned
+        :return: statistics in desired format
+        """
+        if not tabular and not header:
+            return str(self)
+        elif header:
+            return " & ".join(["Language", "Dataset", "# bytes", "# lines", "avg. line length", "avg. hyphenations per line"]) + " \\\\"
+        return " & ".join([self.lang, self.dataset_name, self.convert_bytes(), str(self.size_lines), str(round(self.len_avg, 2)), str(round(self.hyph_avg, 2))]) + " \\\\"
+
+    def convert_bytes(self):
+        unit = "B"
+        size_converted = self.size_bytes
+        if size_converted > 1024:
+            unit = "kB"
+            size_converted /= 1024
+        if size_converted > 1024:
+            unit = "MB"
+            size_converted /= 1024
+        return f"{round(size_converted, 2)} {unit}"
+
     def __str__(self):
         return (f"Dataset {self.lang}/{self.dataset_name}:\n "
-                f"\tsize: {self.size_bytes} B, {self.size_lines} lines\n "
+                f"\tsize: {self.convert_bytes()}, {self.size_lines} lines\n "
                 f"\t{round(self.hyph_avg, 2)} avg hyphenators per line, {self.ambiguous} ambiguous hyphenations\n"
                 f"\tword lengths: min {self.len_min} max {self.len_max} avg {round(self.len_avg, 2)} (hyphenators incl.)")
 
