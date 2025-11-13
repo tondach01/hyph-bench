@@ -79,9 +79,3 @@ class Trie:
             for line in wl:
                 if not self.insert(line.strip(), outputs=outputs):
                     break
-
-
-if __name__ == "__main__":
-    trie = Trie()
-    trie.populate("../../data/it/wiktionary/20251109093112-3.pat")
-    print(trie.find(".adi"))
