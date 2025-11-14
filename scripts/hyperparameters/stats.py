@@ -53,11 +53,11 @@ class DatasetInfo:
 
     def convert_kilobytes(self):
         val = round(self.size_bytes/1024, 1)
-        return f"{val:.1f} kB"
+        return f"{val:.1f}"
 
     def __str__(self):
         return (f"Dataset {self.lang}/{self.dataset_name}:\n "
-                f"\tsize: {self.convert_kilobytes()}, {self.size_lines} lines\n "
+                f"\tsize: {self.convert_kilobytes()} kB, {self.size_lines} lines\n "
                 f"\t{round(self.hyph_avg, 2)} avg hyphenators per line, {self.ambiguous} ambiguous hyphenations\n"
                 f"\tword lengths: min {self.len_min} max {self.len_max} avg {round(self.len_avg, 2)} (hyphenators incl.)")
 
