@@ -2,6 +2,9 @@ import re
 import argparse
 
 
+WORD_LEN_LIMIT = 50
+
+
 def hyph_indices(word: str, hyphenation_mark: str = "-"):
     """
     Find indices of hyphenation points within given word
@@ -63,6 +66,8 @@ def disambiguate(file: str, hyphenation_mark: str = "-", outfile: str = ""):
     with open(outfile, "w") as out:
         for word in sorted(words.keys()):
             for hyphenation in sorted(words[word]):
+                if len(hyphenation) > WORD_LEN_LIMIT:
+                    continue
                 out.write(hyphenation + "\n")
 
     return found, found - disambiguated
