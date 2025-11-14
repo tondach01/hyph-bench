@@ -6,8 +6,14 @@ WIKT_LANGS = cs de el es it ms nl pl pt ru tr
 CSSK = cssk/cshyphen
 OTHER_DATASETS = cs/cshyphen_cstenten cs/cshyphen_ujc is/hyphenation-is th/orchid de/wortliste
 
+# cross-validate all datasets
+cross_validate_all: translate_all
+	@$(foreach d,$(wildcard data/*/*),echo $(d); python ./scripts/train_test.py -v -n 2 $(d);)
+	@$(foreach d,$(wildcard data/*/*/*.train),rm -f $(d);)
+	@$(foreach d,$(wildcard data/*/*/*.test),rm -f $(d);)
+
 # get statistics of all datasets
-stats_all_datasets: #process_wikt prepare_other
+stats_all_datasets: process_wikt prepare_other
 	@$(foreach d,$(wildcard data/*/*/*_dis.wlh),python ./scripts/statistics.py -d -t $(d);)
 
 # parse Wiktionary dumps into wordlists
@@ -30,7 +36,7 @@ translate_other: disambiguate_other
 	@rm -f ./data/$(CSSK)/*.tra
 	@python ./scripts/make_tr.py ./data/$(CSSK)/*_dis.wlh
 
-disambiguate_wikt: #process_wikt
+disambiguate_wikt: process_wikt
 	@$(foreach d,$(wildcard data/*/wiktionary/*_dis.wlh),rm -f $(d);)
 	@$(foreach d,$(WIKT_LANGS),python ./scripts/disambiguate.py ./data/$(d)/wiktionary/*.wlh;)
 
