@@ -144,7 +144,7 @@ def extract_files(data_directory: str):
     """
     wl_file, tr_file = "", ""
     for file in os.listdir(data_directory):
-        if file.endswith(".wlh"):
+        if file.endswith("_dis.wlh"):
             wl_file = data_directory + "/" + file
         elif file.endswith(".tra"):
             tr_file = data_directory + "/" + file
@@ -169,16 +169,18 @@ def extract_files(data_directory: str):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("datadir", type=str, help="Directory with wordlist and translate file")
+    parser.add_argument("-n", "--nfold", type=int, default=10, required=False, help="Number of folds to use in cross-validation")
+    parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose printout")
     args = parser.parse_args()
 
     datadir = args.datadir.rstrip("/")
     wl, tr, par = extract_files(datadir)
 
     # wordlist is empty so that error is raised when scorer is used prior to setting it
-    scorer = score.PatgenScorer("patgen", "", tr, verbose=True)
+    scorer = score.PatgenScorer("patgen", "", tr, verbose=False)
     sampler = sample.FileSampler(par)
     meta = metaheuristic.NoMetaheuristic(scorer, sampler)
-    combiner = combine.SimpleCombiner(meta, verbose=True)
+    combiner = combine.SimpleCombiner(meta, verbose=False)
 
-    validator = NFoldCrossValidator(combiner, 10)
-    print(validator.validate(wl, verbose=True))
+    validator = NFoldCrossValidator(combiner, args.nfold)
+    print(validator.validate(wl, verbose=args.verbose))
