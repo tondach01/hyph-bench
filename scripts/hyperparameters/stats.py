@@ -49,7 +49,8 @@ class DatasetInfo:
             return str(self)
         len_avg = round(self.len_avg, 2)
         hyph_avg = round(self.hyph_avg, 2)
-        return f"{self.lang} & {self.dataset_name} & {self.convert_kilobytes()} & {self.size_lines} & {len_avg:.2f} & {hyph_avg:.2f} \\\\"
+        name = re.sub("_", "\\_", self.dataset_name)
+        return f"{self.lang} & {name} & {self.convert_kilobytes()} & {self.size_lines} & {len_avg:.2f} & {hyph_avg:.2f} \\\\"
 
     def convert_kilobytes(self):
         val = round(self.size_bytes/1024, 1)
