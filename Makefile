@@ -8,7 +8,7 @@ OTHER_DATASETS = cs/cshyphen_cstenten cs/cshyphen_ujc is/hyphenation-is th/orchi
 
 # cross-validate all datasets
 cross_validate_all: translate_all
-	@$(foreach d,$(wildcard data/*/*),echo $(d); python ./scripts/train_test.py -v -n 10 $(d);)
+	@$(foreach d,$(wildcard data/*/*),echo $(d); python ./scripts/train_test.py -t -v -n 10 $(d);)
 
 # get statistics of all datasets
 stats_all_datasets: disambiguate_all

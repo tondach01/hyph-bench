@@ -1,5 +1,6 @@
 import argparse
 import os
+import re
 import sys
 
 from hyperparameters import combine, score, sample, metaheuristic
@@ -16,6 +17,55 @@ class Validator:
         """
         self.model = model
         self.hyphenation_mark = "-"
+        self.results = None
+
+    def process_results(self, results: list):
+        """
+        Aggregate results from validation runs by averaging
+        :param results: validation run results
+        :return: nothing, set .results attribute
+        """
+        self.results = dict()
+        good_total, bad_total, missed_total = 0, 0, 0
+        for (good, bad, missed) in results:
+            good_total += good
+            bad_total += bad
+            missed_total += missed
+        self.results["good"] = good_total / len(results)
+        self.results["bad"] = bad_total / len(results)
+        self.results["missed"] = missed_total / len(results)
+
+    def precision(self):
+        """
+        Compute precision of the results
+        :return: precision as (good) / (good + bad), or 0 if .results is not set or does not contain required values
+        """
+        if self.results is None or "good" not in self.results or "bad" not in self.results or self.results["good"] == 0:
+            return 0
+        return self.results["good"] / (self.results["good"] + self.results["bad"])
+
+    def recall(self):
+        """
+        Compute recall of the results
+        :return: recall as (good) / (good + missed), or 0 if .results is not set or does not contain required values
+        """
+        if self.results is None or "good" not in self.results or "missed" not in self.results or self.results["good"] == 0:
+            return 0
+        return self.results["good"] / (self.results["good"] + self.results["missed"])
+
+    def report(self, lang: str = "", name: str = "", tabular: bool = False):
+        """
+        Report the validation results
+        :param lang: dataset language ID
+        :param name: dataset name
+        :param tabular: output in LaTeX tabular format
+        :return: statistics in desired format
+        """
+        if not tabular:
+            return str(self.precision(), self.recall())
+        precision = round(self.precision(), 4)
+        recall = round(self.recall(), 4)
+        return f"{lang} & {name} & {precision:.4f} & {recall:.4f} \\\\"
 
     def train_patterns(self, train_file: str, pattern_file: str = ""):
         """
@@ -136,6 +186,7 @@ class NFoldCrossValidator(Validator):
             os.remove(train)
             os.remove(test)
             os.remove(patterns)
+        self.process_results(results)
         return results
 
 
@@ -174,6 +225,7 @@ if __name__ == "__main__":
     parser.add_argument("datadir", type=str, help="Directory with wordlist and translate file")
     parser.add_argument("-n", "--nfold", type=int, default=10, required=False, help="Number of folds to use in cross-validation")
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose printout")
+    parser.add_argument("-t", "--tabular", action="store_true", help="Output in LateX tabular format")
     args = parser.parse_args()
 
     datadir = args.datadir.rstrip("/")
@@ -186,4 +238,10 @@ if __name__ == "__main__":
     combiner = combine.SimpleCombiner(meta, verbose=False)
 
     validator = NFoldCrossValidator(combiner, args.nfold)
-    print(validator.validate(wl, verbose=args.verbose))
+    validator.validate(wl, verbose=args.verbose)
+
+    path = args.datadir.split("/")
+    language = "" if len(path) < 3 else path[-3]
+    d_name = "" if len(path) < 2 else path[-2]
+    validator.report(lang=language, name=d_name, tabular=args.tabular)
+
