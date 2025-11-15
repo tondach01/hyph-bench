@@ -100,6 +100,8 @@ class Sample:
         if (not isinstance(self.stats, dict) or "tp" not in self.stats or "fp" not in self.stats
                 or not isinstance(self.stats["tp"], int) or not isinstance(self.stats["fp"], int)):
             return -1
+        if self.stats["tp"] == 0:
+            return 0
         return self.stats["tp"]/(self.stats["tp"]+self.stats["fp"])
 
     def recall(self):
@@ -110,6 +112,8 @@ class Sample:
         if (not isinstance(self.stats, dict) or "tp" not in self.stats or "fn" not in self.stats
                 or not isinstance(self.stats["tp"], int) or not isinstance(self.stats["fn"], int)):
             return -1
+        if self.stats["tp"] == 0:
+            return 0
         return self.stats["tp"]/(self.stats["tp"]+self.stats["fn"])
 
     def f_score(self, n: float):
