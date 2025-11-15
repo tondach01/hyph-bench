@@ -142,6 +142,16 @@ class PatgenScorer:
         """
         Reset the object to initial state
         """
+        wl_dir = self.wordlist_path.split("/")
+        if len(wl_dir) > 1:
+            tmp_path = "/".join(wl_dir[:-1])
+        else:
+            tmp_path = "."
+        if "tmp" not in os.listdir(tmp_path):
+            os.mkdir(tmp_path + "/tmp")
+
+        self.temp_dir: str = tmp_path + "/tmp"
+
         if "0.pat" not in os.listdir(self.temp_dir):
             os.system(f"touch {self.temp_dir}/0.pat")
 

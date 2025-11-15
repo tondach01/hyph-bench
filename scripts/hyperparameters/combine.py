@@ -12,28 +12,28 @@ class Combiner:
         self.level = 0
         self.verbose = verbose
 
-    def run(self, pattern_file: str = ""):
+    def run(self, out_dir: str = ""):
         """
         Run the metaheuristic for all levels. Exact implementation depends on subclasses.
-        :param pattern_file: output pattern file name (<timestamp>-<run_id>.pat by default)
+        :param out_dir: output directory name (. by default)
         :return: pattern file name
         """
         return NotImplemented
 
-    def final_patterns(self, pattern_file: str = ""):
+    def final_patterns(self, out_dir: str = ""):
         """
-        Determine the best sample out of the final population and move its generated patterns into dataset directory.
-        Afterward the temporaries are cleaned.
-        :param pattern_file: output pattern file name (<timestamp>-<run_id>.pat by default)
-        :return: pattern file names
+        Determine the best sample out of the final population and move its generated patterns into specified directory.
+        Afterward the temporaries are cleaned.<timestamp>-<run_id>.pat
+        :param out_dir: output directory name (. by default)
+        :return: pattern file name
         """
         best = self.meta.population[0] #TODO determine the best sample out of the final population
-        if not pattern_file:
-            pattern_file = f"{best.timestamp}-{best.run_id}.pat"
-        new_patfile = f"{self.meta.scorer.wordlist_path.rsplit('/', maxsplit=1)[0]}/{pattern_file}"
+        pattern_file = f"{best.timestamp}-{best.run_id}.pat"
+        if not out_dir:
+            out_dir = "."
+        new_patfile = f"{out_dir}/{pattern_file}"
         command = f"mv {self.meta.scorer.temp_dir}/{best.run_id}.pat {new_patfile}"
         os.system(command)
-        self.meta.scorer.clean()
         return new_patfile
 
     def reset(self):
@@ -52,7 +52,7 @@ class SimpleCombiner(Combiner):
     def __init__(self, meta: metaheuristic.Metaheuristic, verbose: bool = False):
         super().__init__(meta, verbose)
 
-    def run(self, pattern_file: str = ""):
+    def run(self, out_dir: str = ""):
         s = self.meta.sampler.sample()
         while s is not None:
             self.level += 1
@@ -71,7 +71,7 @@ class SimpleCombiner(Combiner):
             if self.meta.statistic is not None:
                 self.meta.statistic.level_outputs.append(self.meta.population.copy())
             s = self.meta.sampler.sample()
-        return Combiner.final_patterns(self, pattern_file)
+        return Combiner.final_patterns(self, out_dir)
 
 
 class AllWithAllCombiner(Combiner):
@@ -82,7 +82,7 @@ class AllWithAllCombiner(Combiner):
         super().__init__(meta, verbose)
         self.n_levels = n_levels
 
-    def run(self, pattern_file: str = ""):
+    def run(self, out_dir: str = ""):
         while self.level < self.n_levels:
             self.level += 1
             if self.verbose:
@@ -104,4 +104,4 @@ class AllWithAllCombiner(Combiner):
                 print("Population selected for next level:", [str(pop) for pop in self.meta.population])
             if self.meta.statistic is not None:
                 self.meta.statistic.level_outputs.append(self.meta.population.copy())
-        return Combiner.final_patterns(self, pattern_file)
+        return Combiner.final_patterns(self, out_dir)

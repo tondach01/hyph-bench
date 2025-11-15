@@ -1,6 +1,5 @@
 import argparse
 import os
-import re
 import sys
 
 from hyperparameters import combine, score, sample, metaheuristic
@@ -67,19 +66,16 @@ class Validator:
         recall = round(self.recall(), 4)
         return f"{lang} & {name} & {precision:.4f} & {recall:.4f} \\\\"
 
-    def train_patterns(self, train_file: str, pattern_file: str = ""):
+    def train_patterns(self, train_file: str):
         """
         Create patterns from train split
         :param train_file: path to train dataset
-        :param pattern_file: path to output pattern file (out.pat by default)
         :return: path to pattern file
         """
-        if not pattern_file:
-            pattern_file = self.model.meta.scorer.temp_dir + "/out.pat"
 
         self.model.meta.scorer.wordlist_path = train_file
         self.model.reset()
-        pattern_file = self.model.run(pattern_file)
+        pattern_file = self.model.run(self.model.meta.scorer.temp_dir)
         self.model.meta.scorer.wordlist_path = ""
 
         return pattern_file
@@ -145,12 +141,21 @@ class NFoldCrossValidator(Validator):
         :param outfile_test: name of output test file (<file>.test by default)
         :return: (train file name, test file name)
         """
+        p = wordlist_file.rsplit("/", maxsplit=1)
+        if len(p) == 1:
+            wl_dir = "."
+        else:
+            wl_dir = p[0]
+
+        if "test" not in os.listdir(wl_dir):
+            os.mkdir(wl_dir + "/test")
+
         if not outfile_train:
-            outfile_train = self.model.meta.scorer.temp_dir + "/data.train"
+            outfile_train = wl_dir + "/test/data.train"
         train = open(outfile_train, "w")
 
         if not outfile_test:
-            outfile_test = self.model.meta.scorer.temp_dir + "/data.test"
+            outfile_test = wl_dir + "/test/data.test"
         test = open(outfile_test, "w")
 
         with open(wordlist_file) as wordlist:
@@ -232,10 +237,10 @@ if __name__ == "__main__":
     wl, tr, par = extract_files(datadir)
 
     # wordlist is empty so that error is raised when scorer is used prior to setting it
-    scorer = score.PatgenScorer("patgen", "", tr, verbose=False)
+    scorer = score.PatgenScorer("patgen", "", tr, verbose=args.verbose)
     sampler = sample.FileSampler(par)
     meta = metaheuristic.NoMetaheuristic(scorer, sampler)
-    combiner = combine.SimpleCombiner(meta, verbose=False)
+    combiner = combine.SimpleCombiner(meta, verbose=args.verbose)
 
     validator = NFoldCrossValidator(combiner, args.nfold)
     validator.validate(wl, verbose=args.verbose)
