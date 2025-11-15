@@ -75,7 +75,7 @@ class Validator:
         :return: path to pattern file
         """
         if not pattern_file:
-            pattern_file = "out.pat"
+            pattern_file = self.model.meta.scorer.temp_dir + "/out.pat"
 
         self.model.meta.scorer.wordlist_path = train_file
         self.model.reset()
@@ -146,11 +146,11 @@ class NFoldCrossValidator(Validator):
         :return: (train file name, test file name)
         """
         if not outfile_train:
-            outfile_train = wordlist_file + ".train"
+            outfile_train = self.model.meta.scorer.temp_dir + "/data.train"
         train = open(outfile_train, "w")
 
         if not outfile_test:
-            outfile_test = wordlist_file + ".test"
+            outfile_test = self.model.meta.scorer.temp_dir + "/data.test"
         test = open(outfile_test, "w")
 
         with open(wordlist_file) as wordlist:

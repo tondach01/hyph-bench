@@ -15,10 +15,15 @@ class PatgenScorer:
         self.translate_path: str = translate_path
         self.verbose = verbose
 
-        if "tmp" not in os.listdir("."):
-            os.mkdir("tmp")
+        wl_dir = wordlist_path.split("/")
+        if len(wl_dir) > 1:
+            tmp_path = "/".join(wl_dir[:-1])
+        else:
+            tmp_path = "."
+        if "tmp" not in os.listdir(tmp_path):
+            os.mkdir(tmp_path+"/tmp")
 
-        self.temp_dir: str = "tmp"
+        self.temp_dir: str = tmp_path+"/tmp"
 
         if "0.pat" not in os.listdir(self.temp_dir):
             os.system(f"touch {self.temp_dir}/0.pat")
@@ -111,7 +116,7 @@ class PatgenScorer:
         """
         Delete al temporary files used during computations.
         """
-        os.system("rm -r " + self.temp_dir)
+        os.system("rm -rf "+self.temp_dir)
 
     def clean_unused(self, ids: set):
         """
@@ -121,11 +126,11 @@ class PatgenScorer:
         for file in os.listdir(self.temp_dir):
             match = re.match(r"(?P<id>\d+).pat", file)
             if match is not None and int(match["id"]) not in ids:
-                os.system("rm " + f"{self.temp_dir}/{file}")
+                os.remove(f"{self.temp_dir}/{file}")
                 if int(match["id"]) == 0:
                     continue
-                os.system("rm " + f"{self.temp_dir}/{match['id']}.log")
-                os.system("rm " + f"{self.temp_dir}/{match['id']}.in")
+                os.remove(f"{self.temp_dir}/{match['id']}.log")
+                os.remove(f"{self.temp_dir}/{match['id']}.in")
 
     def clear_cache(self):
         """
@@ -137,10 +142,15 @@ class PatgenScorer:
         """
         Reset the object to initial state
         """
-        if "tmp" not in os.listdir("."):
-            os.mkdir("tmp")
+        wl_dir = self.wordlist_path.split("/")
+        if len(wl_dir) > 1:
+            tmp_path = "/".join(wl_dir[:-1])
+        else:
+            tmp_path = "."
+        if "tmp" not in os.listdir(tmp_path):
+            os.mkdir(tmp_path + "/tmp")
 
-        self.temp_dir: str = "tmp"
+        self.temp_dir: str = tmp_path + "/tmp"
 
         if "0.pat" not in os.listdir(self.temp_dir):
             os.system(f"touch {self.temp_dir}/0.pat")
