@@ -26,13 +26,16 @@ class Validator:
         """
         self.results = dict()
         good_total, bad_total, missed_total = 0, 0, 0
-        for (good, bad, missed) in results:
+        nodes_total = 0
+        for (good, bad, missed), trie_nodes in results:
             good_total += good
             bad_total += bad
             missed_total += missed
+            nodes_total += trie_nodes
         self.results["good"] = good_total / len(results)
         self.results["bad"] = bad_total / len(results)
         self.results["missed"] = missed_total / len(results)
+        self.results["trie_nodes"] = nodes_total / len(results)
 
     def precision(self):
         """
@@ -52,33 +55,45 @@ class Validator:
             return 0
         return self.results["good"] / (self.results["good"] + self.results["missed"])
 
-    def report(self, lang: str = "", name: str = "", tabular: bool = False):
+    def f_score(self, n: float):
+        """
+        Compute F-n score of the results
+        :param n: weight of precision
+        :return: (1 + n*n) * precision * recall / ((n*n * precision) + recall)
+        """
+        p, r = self.precision(), self.recall()
+        if p == 0 or r == 0:
+            return 0
+        return (1 + n * n) * p * r / ((n * n * p) + r)
+
+    def report(self, lang: str = "", name: str = "", profile: str = "", tabular: bool = False):
         """
         Report the validation results
         :param lang: dataset language ID
         :param name: dataset name
+        :param profile: parameter profile name
         :param tabular: output in LaTeX tabular format
         :return: statistics in desired format
         """
         if not tabular:
             return str(self.precision(), self.recall())
-        precision = round(self.precision(), 4)
-        recall = round(self.recall(), 4)
-        return f"{lang} & {name} & {precision:.4f} & {recall:.4f} \\\\"
+        f_score = round(self.f_score(1/7), 4)
+        trie_nodes = round(self.results["trie_nodes"], 1)
+        return f"{lang} & {name} & {profile} & {f_score:.4f} & {trie_nodes:.1f} \\\\"
 
     def train_patterns(self, train_file: str):
         """
         Create patterns from train split
         :param train_file: path to train dataset
-        :return: path to pattern file
+        :return: path to pattern file, the number of nodes in pattern trie
         """
 
         self.model.meta.scorer.wordlist_path = train_file
         self.model.reset()
-        pattern_file = self.model.run(self.model.meta.scorer.temp_dir)
+        pattern_file, trie_nodes = self.model.run(self.model.meta.scorer.temp_dir)
         self.model.meta.scorer.wordlist_path = ""
 
-        return pattern_file
+        return pattern_file, trie_nodes
 
     def validate_patterns(self, test_file: str, pattern_file: str):
         """
@@ -184,10 +199,10 @@ class NFoldCrossValidator(Validator):
             train, test = self.n_fold_split(wordlist_file, index=i)
             if verbose:
                 print("Generating patterns...")
-            patterns = self.train_patterns(train)
+            patterns, trie_nodes = self.train_patterns(train)
             if verbose:
                 print("Validation on test set...")
-            results.append(self.validate_patterns(test, patterns))
+            results.append((self.validate_patterns(test, patterns), trie_nodes))
             os.remove(train)
             os.remove(test)
             os.remove(patterns)
@@ -229,6 +244,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("datadir", type=str, help="Directory with wordlist and translate file")
     parser.add_argument("-n", "--nfold", type=int, default=10, required=False, help="Number of folds to use in cross-validation")
+    parser.add_argument("-p", "--profile", type=str, default="", required=False, help="Parameter profile to use")
     parser.add_argument("-v", "--verbose", action="store_true", help="Enable verbose printout")
     parser.add_argument("-t", "--tabular", action="store_true", help="Output in LateX tabular format")
     args = parser.parse_args()
@@ -238,7 +254,7 @@ if __name__ == "__main__":
 
     # wordlist is empty so that error is raised when scorer is used prior to setting it
     scorer = score.PatgenScorer("patgen", "", tr, verbose=args.verbose)
-    sampler = sample.FileSampler(par)
+    sampler = sample.FileSampler(par if not args.profile else args.profile)
     meta = metaheuristic.NoMetaheuristic(scorer, sampler)
     combiner = combine.SimpleCombiner(meta, verbose=args.verbose)
 
@@ -248,5 +264,5 @@ if __name__ == "__main__":
     path = datadir.split("/")
     language = "" if len(path) < 2 else path[-2]
     d_name = "" if len(path) < 1 else path[-1]
-    print(validator.report(lang=language, name=d_name, tabular=args.tabular))
+    print(validator.report(lang=language, name=d_name, profile=args.profile, tabular=args.tabular))
 

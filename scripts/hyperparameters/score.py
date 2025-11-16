@@ -81,7 +81,7 @@ class PatgenScorer:
         if self.verbose:
             print(str(s))
 
-        return n_patterns, s.precision(), s.recall()
+        return s.stats["trie_nodes"], s.f_score(1/7)
 
     def count_patterns(self, run_id: int):
         """
@@ -97,10 +97,12 @@ class PatgenScorer:
 
     def get_statistics(self, run_id: int):
         """
-        Analyze dumped output from patgen run (<run_id>.out) to find information about hyphenation accuracy
-        :return: dictionary of ('tp' true positives, 'fp' false positives, 'fn' false negatives)
+        Analyze dumped output from patgen run (<run_id>.log) to find information about hyphenation accuracy
+        :return: dictionary of ('tp' true positives, 'fp' false positives, 'fn' false negatives, 'trie_nodes'
+        the number of nodes in pattern trie)
         """
         tp, fp, fn = 0, 0, 0
+        trie_nodes = 0
 
         with open(f"{self.temp_dir}/{run_id}.log") as out:
             for line in out:
@@ -109,8 +111,11 @@ class PatgenScorer:
                     tp = int(stat["tp"])
                     fp = int(stat["fp"])
                     fn = int(stat["fn"])
+                stat = re.match(r"pattern trie has (?P<trie_nodes>\d+) nodes, trie_max = \d+, \d+ outputs", line)
+                if stat is not None:
+                    trie_nodes = int(stat["trie_nodes"])
 
-        return {"tp": tp, "fp": fp, "fn": fn}
+        return {"tp": tp, "fp": fp, "fn": fn, "trie_nodes" : trie_nodes}
 
     def clean(self):
         """

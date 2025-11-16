@@ -16,7 +16,7 @@ class Combiner:
         """
         Run the metaheuristic for all levels. Exact implementation depends on subclasses.
         :param out_dir: output directory name (. by default)
-        :return: pattern file name
+        :return: pattern file name, the number of nodes in pattern trie
         """
         return NotImplemented
 
@@ -25,7 +25,7 @@ class Combiner:
         Determine the best sample out of the final population and move its generated patterns into specified directory.
         Afterward the temporaries are cleaned.<timestamp>-<run_id>.pat
         :param out_dir: output directory name (. by default)
-        :return: pattern file name
+        :return: pattern file name, the number of nodes in pattern trie
         """
         best = self.meta.population[0] #TODO determine the best sample out of the final population
         pattern_file = f"{best.timestamp}-{best.run_id}.pat"
@@ -34,7 +34,7 @@ class Combiner:
         new_patfile = f"{out_dir}/{pattern_file}"
         command = f"mv {self.meta.scorer.temp_dir}/{best.run_id}.pat {new_patfile}"
         os.system(command)
-        return new_patfile
+        return new_patfile, best.stats["trie_nodes"]
 
     def reset(self):
         """

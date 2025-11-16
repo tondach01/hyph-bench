@@ -69,15 +69,15 @@ class HillClimbing(Metaheuristic):
 
         for i in range(self.population_size):
 
-            pat_old = self.population[i].n_patterns
-            pat_new = pat_old
-            acc_old = (self.population[i].precision(), self.population[i].recall())
+            nodes_old = self.population[i].stats["trie_nodes"]
+            nodes_new = nodes_old
+            f_old = self.population[i].f_score(1/7)
 
             for n in self.get_neighbours(i):
-                pat, prec, rec = self.scorer.score(n)
-                if pat < pat_old and (prec, rec) > acc_old and pat < pat_new:
+                trie_nodes, f = self.scorer.score(n)
+                if trie_nodes < nodes_old and f > f_old and trie_nodes < nodes_new:
                     self.population[i] = n
-                    pat_new = pat
+                    nodes_new = trie_nodes
                     climbed = True
 
         return climbed
