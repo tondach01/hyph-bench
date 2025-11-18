@@ -9,14 +9,19 @@ DEACCENTED = {
     "ù": "u", "ú": "u",
     "ì": "i", "í": "i",
     "è": "e", "é": "e",
-    "ò": "o", "ó": "o"
+    "ò": "o", "ó": "o",
+    "ѝ": "и", "ѐ": "е",
+    "ý": "у"
 }
 ACCENTED = {
     "a": "àá",
     "e": "èé",
     "i": "ìí",
     "o": "òó",
-    "u": "ùú"
+    "u": "ùú",
+    "и": "ѝ",
+    "е": "ѐ",
+    "у": "ý"
 }
 
 def process_accents(hyph, base_word):
@@ -126,10 +131,18 @@ if __name__ == "__main__":
             else:
                 continue
 
+            if args.lang == "ru":
+                hyphenations = re.sub("[•·̀́]", "", hyphenations)
+                hyphenations = re.sub("à", "а", hyphenations)
+                hyphenations = re.sub("ó", "о", hyphenations)
+                hyphenations = re.sub("é", "е", hyphenations)
+                hyphenations = re.sub("á", "а", hyphenations)
             hyphenations = re.sub(f"[{ALLOWED_HYPHENATORS}]", "-", hyphenations)  # different hyphenation marks
             regex = build_regex(word, accents)
             candidates = re.findall(regex, hyphenations)
             processed = process_hyph(candidates, word, has_accents=accents)
+            if hyphenations and not candidates:
+                print(word, hyphenations, candidates)
 
             hyphenations = []
             for p in processed:
