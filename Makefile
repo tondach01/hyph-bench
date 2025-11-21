@@ -4,7 +4,7 @@ WIKT_LANGS = cs de el es it ms nl pl pt ru tr
 # non-Wiktionary datasets
 # cssk/cshyphen is special as it is weighted
 CSSK = cssk/cshyphen
-OTHER_DATASETS = cs/cshyphen_cstenten cs/cshyphen_ujc is/hyphenation-is th/orchid de/wortliste
+OTHER_DATASETS = cs/cshyphen_cstenten cs/cshyphen_ujc is/hyphenation-is th/orchid de/wortliste uk/wiktionary
 
 # cross-validate all datasets
 cross_validate_all: translate_all
