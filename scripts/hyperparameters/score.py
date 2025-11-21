@@ -112,6 +112,9 @@ class PatgenScorer:
                 stat = re.match(r"total of (?P<level_patterns>\d+) patterns at hyph_level \d+", line)
                 if stat is not None:
                     level_patterns = int(stat["level_patterns"])
+                stat = re.match(r"(?P<nodes_deleted>\d+) nodes and \d+ outputs deleted", line)
+                if stat is not None:
+                    trie_nodes -= int(stat["nodes_deleted"])
 
         return {"tp": tp, "fp": fp, "fn": fn, "trie_nodes" : trie_nodes, "level_patterns": level_patterns}
 
