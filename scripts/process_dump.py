@@ -149,6 +149,8 @@ if __name__ == "__main__":
                 hyphenations += p.split() # process multi-word entries
 
             for hyphenation in hyphenations:
+                if args.lang == "ru" and "-" not in hyphenation:
+                    continue
                 if hyphenation in word_buf:
                     continue
                 outfile.write(hyphenation + "\n")
