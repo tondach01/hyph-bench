@@ -7,7 +7,7 @@ def expand_line(line: str, out):
     :param line: single input line
     :param out: open (for writing) output file
     """
-    parsed = re.match("(?P<weight>\d+)(?P<word>\S+)", line)
+    parsed = re.match(r"(?P<weight>\d+)(?P<word>\S+)", line)
     if parsed is None:
         return
     for _ in range(int(parsed["weight"])):

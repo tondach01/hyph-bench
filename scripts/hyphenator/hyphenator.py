@@ -27,7 +27,7 @@ class Hyphenator:
         :param word: string to be hyphenated
         :return: word with injected hyphenation marks
         """
-        word_bounded = self.word_boundary + re.sub(self.hyphenation_mark, "", word.lower()) + self.word_boundary
+        word_bounded = self.word_boundary + re.sub(re.escape(self.hyphenation_mark), "", word.lower()) + self.word_boundary
         levels = [0 for _ in range(len(word_bounded)-1)]
 
         for i in range(len(word_bounded)-1):
@@ -39,7 +39,7 @@ class Hyphenator:
                 for index, value in outputs:
                     levels[i + index - 1] = max(int(value), levels[i + index - 1])
         hyphenated = ""
-        for i,letter in enumerate(re.sub(self.hyphenation_mark, "", word)):
+        for i,letter in enumerate(re.sub(re.escape(self.hyphenation_mark), "", word)):
             if levels[i] > 0 and levels[i] % 2 == 1 and self.left_hyphen_min <= i <= len(word) - self.right_hyphen_min:
                 hyphenated += self.hyphenation_mark
             hyphenated += letter

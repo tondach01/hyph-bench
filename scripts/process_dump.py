@@ -1,5 +1,6 @@
 import argparse
 import json
+import os
 import re
 
 
@@ -35,7 +36,7 @@ def process_accents(hyph, base_word):
             deaccented += base_word[i_word]
             i_word += 1
         elif hyph[i_hyph] == "-":
-            if word[i_word] == " ":
+            if base_word[i_word] == " ":
                 i_word += 1
                 continue
             deaccented += "-"
@@ -51,7 +52,7 @@ def build_regex(base_word: str, has_accents: bool = False):
             letters.append(f"[{letter}{ACCENTED.get(letter, '')}]")
         else:
             letters.append(f"[{letter}]")
-    return (f"[-]?".join([letter for letter in letters]))+"\s"
+    return f"[-]?".join(letters) + r"\s"
 
 def process_hyph(data: list, base_word: str, has_accents: bool = False):
     translated = set()
@@ -70,24 +71,29 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--lang",
                         default="en",
-                        choices=["cs", "de", "el", "es", "it", "ms", "nl", "pl", "pt", "ru", "tr", "TBD"],
+                        choices=["cs", "de", "el", "es", "it", "nl", "pl", "pt", "ru", "tr", "TBD"],
                         required=True,
                         help="Language to which the dump file belongs")
+    parser.add_argument("--dump",
+                        default="",
+                        required=False,
+                        help="Path to the JSONL dump, if not provided ./wikt_dump/{lang}_(en)?wiktionary.jsonl")
     parser.add_argument("--outfile",
                         default="",
                         required=False,
-                        help="File to store the output, if not provided ./data/{lang}/wiktionary/{en}?wiktionary.wlhamb")
+                        help="File to store the output, if not provided ./data/{lang}/wiktionary/{lang}_(en)?wiktionary.wlh")
     args = parser.parse_args()
 
-    data_dir = "./data/" + args.lang + "/wiktionary/"
     if args.lang in ["pl", "pt"]:
-        dump_filepath = data_dir + args.lang + "_enwiktionary.jsonl"
+        dump_name = args.lang + "_enwiktionary"
     else:
-        dump_filepath = data_dir + args.lang + "_wiktionary.jsonl"
+        dump_name = args.lang + "_wiktionary"
+    dump_filepath = args.dump or "./wikt_dump/" + dump_name + ".jsonl"
 
     if not args.outfile:
-        name_long = dump_filepath[12:-6]
-        outfilename = dump_filepath.rsplit(".", 1)[0] + ".wlhamb"
+        data_dir = "./data/" + args.lang + "/wiktionary/"
+        os.makedirs(data_dir, exist_ok=True)
+        outfilename = data_dir + dump_name + ".wlh"
     else:
         outfilename = args.outfile
 
@@ -150,3 +156,4 @@ if __name__ == "__main__":
     outfile.close()
 
     print(f"Parsed {counter} words from {dump_filepath} into {outfilename}.")
+    

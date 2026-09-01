@@ -1,0 +1,448 @@
+Proportional trie_normalizer for it/wiktionary: |D| = 77351
+Objective: F17+Trie(w=0.0005)
+Dataset: /home/dev/hyph-bench/data/it/wiktionary/it_wiktionary.wlh_dis.wlh
+Translate: /home/dev/hyph-bench/data/it/wiktionary/it_wiktionary.wlh_dis.wlh.tra
+Method: tpe | Threshold mode: perlayer
+Search space (8-D): [(1, 30), (1, 30), (1, 30), (1, 30), (1, 5), (1, 5), (1, 5), (1, 5)]
+Split counts: train=61881, validation=7735, test=7735
+Pattern ranges: [(1, 4), (2, 5), (2, 6), (2, 7)]
+Budget: 30 rounds x 5 + 3 final = 153 patgen evaluations; 3 parallel workers
+
+============================================================
+Round 1/30
+  Tested: params=(12, 29, 22, 18, 1, 1, 1, 5)
+  validation: F_1/7=0.995349, precision=0.996190, recall=0.955822, good=21441, bad=82, missed=991, trie_nodes=1855, patterns=1013, objective=0.995337
+  Tested: params=(19, 22, 1, 30, 5, 2, 1, 1)
+  validation: F_1/7=0.994263, precision=0.995080, recall=0.955777, good=21440, bad=106, missed=992, trie_nodes=2264, patterns=1348, objective=0.994248
+  Tested: params=(10, 16, 13, 9, 4, 1, 2, 2)
+  validation: F_1/7=0.995361, precision=0.996192, recall=0.956268, good=21451, bad=82, missed=981, trie_nodes=1778, patterns=868, objective=0.995349
+  Tested: params=(14, 24, 6, 16, 3, 1, 4, 1)
+  validation: F_1/7=0.995613, precision=0.996467, recall=0.955510, good=21434, bad=76, missed=998, trie_nodes=1645, patterns=920, objective=0.995603
+  Tested: params=(2, 29, 29, 25, 2, 1, 4, 3)
+  validation: F_1/7=0.989834, precision=0.990505, recall=0.958006, good=21490, bad=206, missed=942, trie_nodes=1746, patterns=843, objective=0.989822
+  Best so far: params=(14, 24, 6, 16, 3, 1, 4, 1), score=0.995603, elapsed=7.7s
+
+============================================================
+Round 2/30
+  Tested: params=(4, 15, 2, 28, 2, 4, 2, 3)
+  validation: F_1/7=0.991346, precision=0.992057, recall=0.957694, good=21483, bad=172, missed=949, trie_nodes=1784, patterns=864, objective=0.991334
+  Tested: params=(17, 6, 30, 24, 5, 5, 3, 5)
+  validation: F_1/7=0.994937, precision=0.995773, recall=0.955644, good=21437, bad=91, missed=995, trie_nodes=1754, patterns=889, objective=0.994926
+  Tested: params=(3, 6, 2, 10, 2, 2, 5, 2)
+  validation: F_1/7=0.993292, precision=0.994070, recall=0.956580, good=21458, bad=128, missed=974, trie_nodes=1509, patterns=759, objective=0.993282
+  Tested: params=(9, 17, 5, 25, 1, 5, 4, 1)
+  validation: F_1/7=0.994781, precision=0.995592, recall=0.956580, good=21458, bad=95, missed=974, trie_nodes=1520, patterns=771, objective=0.994771
+  Tested: params=(1, 25, 22, 22, 4, 1, 2, 1)
+  validation: F_1/7=0.989444, precision=0.990099, recall=0.958408, good=21499, bad=215, missed=933, trie_nodes=1921, patterns=936, objective=0.989432
+  Best so far: params=(14, 24, 6, 16, 3, 1, 4, 1), score=0.995603, elapsed=15.5s
+
+============================================================
+Round 3/30
+  Tested: params=(28, 1, 10, 1, 3, 3, 5, 4)
+  validation: F_1/7=0.996547, precision=0.997439, recall=0.954752, good=21417, bad=55, missed=1015, trie_nodes=1701, patterns=1011, objective=0.996536
+  Tested: params=(27, 1, 9, 1, 3, 3, 5, 4)
+  validation: F_1/7=0.995868, precision=0.996743, recall=0.954841, good=21419, bad=70, missed=1013, trie_nodes=1657, patterns=997, objective=0.995858
+  Tested: params=(28, 1, 10, 1, 3, 3, 5, 4)
+  validation: F_1/7=0.996547, precision=0.997439, recall=0.954752, good=21417, bad=55, missed=1015, trie_nodes=1701, patterns=1011, objective=0.996536
+  Tested: params=(28, 11, 10, 1, 3, 3, 5, 4)
+  validation: F_1/7=0.996504, precision=0.997392, recall=0.954841, good=21419, bad=56, missed=1013, trie_nodes=1700, patterns=1001, objective=0.996493
+  Tested: params=(26, 21, 10, 4, 3, 3, 5, 4)
+  validation: F_1/7=0.995873, precision=0.996743, recall=0.955020, good=21423, bad=70, missed=1009, trie_nodes=1681, patterns=990, objective=0.995862
+  Best so far: params=(28, 1, 10, 1, 3, 3, 5, 4), score=0.996536, elapsed=23.0s
+
+============================================================
+Round 4/30
+  Tested: params=(22, 1, 17, 7, 4, 4, 4, 4)
+  validation: F_1/7=0.995815, precision=0.996695, recall=0.954529, good=21412, bad=71, missed=1020, trie_nodes=1360, patterns=731, objective=0.995806
+  Tested: params=(22, 1, 16, 8, 4, 4, 4, 4)
+  validation: F_1/7=0.995815, precision=0.996695, recall=0.954529, good=21412, bad=71, missed=1020, trie_nodes=1360, patterns=731, objective=0.995806
+  Tested: params=(22, 1, 17, 8, 4, 4, 4, 4)
+  validation: F_1/7=0.995815, precision=0.996695, recall=0.954529, good=21412, bad=71, missed=1020, trie_nodes=1360, patterns=731, objective=0.995806
+  Tested: params=(30, 1, 16, 8, 4, 4, 4, 4)
+  validation: F_1/7=0.996946, precision=0.997856, recall=0.954306, good=21407, bad=46, missed=1025, trie_nodes=1407, patterns=747, objective=0.996937
+  Tested: params=(22, 1, 17, 7, 4, 4, 4, 4)
+  validation: F_1/7=0.995815, precision=0.996695, recall=0.954529, good=21412, bad=71, missed=1020, trie_nodes=1360, patterns=731, objective=0.995806
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=30.6s
+
+============================================================
+Round 5/30
+  Tested: params=(30, 6, 22, 12, 5, 2, 3, 5)
+  validation: F_1/7=0.996605, precision=0.997486, recall=0.955243, good=21428, bad=54, missed=1004, trie_nodes=2014, patterns=1113, objective=0.996592
+  Tested: params=(30, 6, 21, 12, 5, 2, 3, 5)
+  validation: F_1/7=0.996515, precision=0.997394, recall=0.955287, good=21429, bad=56, missed=1003, trie_nodes=1988, patterns=1100, objective=0.996502
+  Tested: params=(30, 6, 21, 12, 5, 2, 3, 5)
+  validation: F_1/7=0.996515, precision=0.997394, recall=0.955287, good=21429, bad=56, missed=1003, trie_nodes=1988, patterns=1100, objective=0.996502
+  Tested: params=(30, 7, 21, 14, 5, 2, 3, 5)
+  validation: F_1/7=0.996515, precision=0.997394, recall=0.955287, good=21429, bad=56, missed=1003, trie_nodes=1988, patterns=1100, objective=0.996502
+  Tested: params=(30, 6, 22, 14, 5, 2, 3, 5)
+  validation: F_1/7=0.996605, precision=0.997486, recall=0.955243, good=21428, bad=54, missed=1004, trie_nodes=2014, patterns=1113, objective=0.996592
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=38.1s
+
+============================================================
+Round 6/30
+  Tested: params=(25, 11, 26, 19, 5, 2, 3, 5)
+  validation: F_1/7=0.995747, precision=0.996605, recall=0.955421, good=21432, bad=73, missed=1000, trie_nodes=1990, patterns=1093, objective=0.995734
+  Tested: params=(25, 9, 26, 18, 5, 2, 3, 5)
+  validation: F_1/7=0.995746, precision=0.996605, recall=0.955376, good=21431, bad=73, missed=1001, trie_nodes=1989, patterns=1095, objective=0.995733
+  Tested: params=(25, 10, 25, 17, 5, 2, 3, 5)
+  validation: F_1/7=0.995746, precision=0.996605, recall=0.955376, good=21431, bad=73, missed=1001, trie_nodes=1989, patterns=1095, objective=0.995733
+  Tested: params=(25, 9, 25, 19, 5, 2, 3, 5)
+  validation: F_1/7=0.995746, precision=0.996605, recall=0.955376, good=21431, bad=73, missed=1001, trie_nodes=1989, patterns=1095, objective=0.995733
+  Tested: params=(25, 10, 24, 19, 5, 2, 3, 5)
+  validation: F_1/7=0.995746, precision=0.996605, recall=0.955376, good=21431, bad=73, missed=1001, trie_nodes=1985, patterns=1092, objective=0.995733
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=46.0s
+
+============================================================
+Round 7/30
+  Tested: params=(20, 4, 19, 5, 4, 5, 2, 3)
+  validation: F_1/7=0.995660, precision=0.996513, recall=0.955555, good=21435, bad=75, missed=997, trie_nodes=1961, patterns=1076, objective=0.995647
+  Tested: params=(20, 4, 19, 14, 4, 5, 2, 3)
+  validation: F_1/7=0.995660, precision=0.996513, recall=0.955555, good=21435, bad=75, missed=997, trie_nodes=1961, patterns=1076, objective=0.995647
+  Tested: params=(20, 3, 19, 14, 4, 5, 2, 3)
+  validation: F_1/7=0.995659, precision=0.996513, recall=0.955510, good=21434, bad=75, missed=998, trie_nodes=1963, patterns=1076, objective=0.995646
+  Tested: params=(19, 4, 19, 14, 4, 5, 2, 3)
+  validation: F_1/7=0.995298, precision=0.996143, recall=0.955599, good=21436, bad=83, missed=996, trie_nodes=1945, patterns=1037, objective=0.995286
+  Tested: params=(19, 4, 19, 14, 4, 5, 2, 3)
+  validation: F_1/7=0.995298, precision=0.996143, recall=0.955599, good=21436, bad=83, missed=996, trie_nodes=1945, patterns=1037, objective=0.995286
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=55.4s
+
+============================================================
+Round 8/30
+  Tested: params=(28, 3, 14, 11, 2, 3, 1, 4)
+  validation: F_1/7=0.996288, precision=0.997161, recall=0.955287, good=21429, bad=61, missed=1003, trie_nodes=1987, patterns=1126, objective=0.996275
+  Tested: params=(28, 14, 13, 11, 2, 3, 1, 4)
+  validation: F_1/7=0.996289, precision=0.997162, recall=0.955332, good=21430, bad=61, missed=1002, trie_nodes=1986, patterns=1124, objective=0.996276
+  Tested: params=(28, 13, 13, 4, 2, 3, 1, 4)
+  validation: F_1/7=0.996288, precision=0.997161, recall=0.955287, good=21429, bad=61, missed=1003, trie_nodes=1985, patterns=1124, objective=0.996275
+  Tested: params=(28, 8, 13, 4, 2, 3, 1, 4)
+  validation: F_1/7=0.996289, precision=0.997162, recall=0.955332, good=21430, bad=61, missed=1002, trie_nodes=1985, patterns=1125, objective=0.996276
+  Tested: params=(28, 13, 13, 4, 2, 3, 1, 4)
+  validation: F_1/7=0.996288, precision=0.997161, recall=0.955287, good=21429, bad=61, missed=1003, trie_nodes=1985, patterns=1124, objective=0.996275
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=63.7s
+
+============================================================
+Round 9/30
+  Tested: params=(13, 3, 28, 6, 3, 1, 4, 2)
+  validation: F_1/7=0.995698, precision=0.996559, recall=0.955287, good=21429, bad=74, missed=1003, trie_nodes=1603, patterns=887, objective=0.995688
+  Tested: params=(13, 18, 8, 16, 3, 1, 4, 2)
+  validation: F_1/7=0.995704, precision=0.996559, recall=0.955510, good=21434, bad=74, missed=998, trie_nodes=1630, patterns=907, objective=0.995693
+  Tested: params=(13, 3, 7, 6, 3, 1, 4, 2)
+  validation: F_1/7=0.995610, precision=0.996466, recall=0.955376, good=21431, bad=76, missed=1001, trie_nodes=1616, patterns=907, objective=0.995599
+  Tested: params=(13, 3, 7, 6, 3, 1, 4, 2)
+  validation: F_1/7=0.995610, precision=0.996466, recall=0.955376, good=21431, bad=76, missed=1001, trie_nodes=1616, patterns=907, objective=0.995599
+  Tested: params=(13, 19, 6, 16, 3, 1, 4, 5)
+  validation: F_1/7=0.995568, precision=0.996420, recall=0.955510, good=21434, bad=77, missed=998, trie_nodes=1545, patterns=878, objective=0.995558
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=71.9s
+
+============================================================
+Round 10/30
+  Tested: params=(30, 5, 11, 2, 1, 4, 5, 5)
+  validation: F_1/7=0.996327, precision=0.997207, recall=0.955020, good=21423, bad=60, missed=1009, trie_nodes=1633, patterns=928, objective=0.996316
+  Tested: params=(10, 7, 4, 2, 1, 4, 5, 5)
+  validation: F_1/7=0.994410, precision=0.995221, recall=0.956223, good=21450, bad=103, missed=982, trie_nodes=1228, patterns=612, objective=0.994402
+  Tested: params=(7, 5, 4, 2, 1, 4, 5, 5)
+  validation: F_1/7=0.993792, precision=0.994578, recall=0.956758, good=21462, bad=117, missed=970, trie_nodes=1157, patterns=579, objective=0.993785
+  Tested: params=(6, 26, 11, 2, 1, 4, 5, 5)
+  validation: F_1/7=0.991418, precision=0.992144, recall=0.957115, good=21470, bad=170, missed=962, trie_nodes=1180, patterns=567, objective=0.991411
+  Tested: params=(8, 5, 11, 2, 3, 4, 5, 5)
+  validation: F_1/7=0.994331, precision=0.995131, recall=0.956669, good=21460, bad=105, missed=972, trie_nodes=1199, patterns=589, objective=0.994324
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=80.1s
+
+============================================================
+Round 11/30
+  Tested: params=(16, 2, 15, 9, 4, 3, 5, 4)
+  validation: F_1/7=0.995862, precision=0.996742, recall=0.954574, good=21413, bad=70, missed=1019, trie_nodes=1409, patterns=746, objective=0.995853
+  Tested: params=(23, 2, 15, 9, 4, 3, 5, 4)
+  validation: F_1/7=0.996083, precision=0.996973, recall=0.954351, good=21408, bad=65, missed=1024, trie_nodes=1471, patterns=794, objective=0.996074
+  Tested: params=(27, 2, 23, 10, 4, 3, 5, 4)
+  validation: F_1/7=0.996218, precision=0.997112, recall=0.954306, good=21407, bad=62, missed=1025, trie_nodes=1523, patterns=835, objective=0.996209
+  Tested: params=(23, 2, 15, 10, 4, 3, 5, 4)
+  validation: F_1/7=0.996083, precision=0.996973, recall=0.954351, good=21408, bad=65, missed=1024, trie_nodes=1471, patterns=794, objective=0.996074
+  Tested: params=(27, 2, 15, 9, 4, 3, 5, 4)
+  validation: F_1/7=0.996129, precision=0.997019, recall=0.954351, good=21408, bad=64, missed=1024, trie_nodes=1494, patterns=821, objective=0.996119
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=87.9s
+
+============================================================
+Round 12/30
+  Tested: params=(30, 7, 21, 12, 5, 2, 3, 5)
+  validation: F_1/7=0.996515, precision=0.997394, recall=0.955287, good=21429, bad=56, missed=1003, trie_nodes=1988, patterns=1100, objective=0.996502
+  Tested: params=(30, 6, 22, 12, 5, 2, 3, 5)
+  validation: F_1/7=0.996605, precision=0.997486, recall=0.955243, good=21428, bad=54, missed=1004, trie_nodes=2014, patterns=1113, objective=0.996592
+  Tested: params=(30, 7, 23, 12, 5, 2, 3, 5)
+  validation: F_1/7=0.996605, precision=0.997486, recall=0.955243, good=21428, bad=54, missed=1004, trie_nodes=2014, patterns=1113, objective=0.996592
+  Tested: params=(30, 6, 21, 12, 5, 2, 3, 5)
+  validation: F_1/7=0.996515, precision=0.997394, recall=0.955287, good=21429, bad=56, missed=1003, trie_nodes=1988, patterns=1100, objective=0.996502
+  Tested: params=(30, 7, 21, 12, 5, 2, 3, 5)
+  validation: F_1/7=0.996515, precision=0.997394, recall=0.955287, good=21429, bad=56, missed=1003, trie_nodes=1988, patterns=1100, objective=0.996502
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=95.0s
+
+============================================================
+Round 13/30
+  Tested: params=(29, 8, 23, 22, 5, 2, 3, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2014, patterns=1112, objective=0.996546
+  Tested: params=(29, 8, 23, 21, 5, 2, 3, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2014, patterns=1112, objective=0.996546
+  Tested: params=(29, 8, 23, 28, 5, 2, 3, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2014, patterns=1112, objective=0.996546
+  Tested: params=(29, 9, 23, 29, 5, 2, 3, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2014, patterns=1112, objective=0.996546
+  Tested: params=(29, 9, 23, 22, 5, 2, 3, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2014, patterns=1112, objective=0.996546
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=102.2s
+
+============================================================
+Round 14/30
+  Tested: params=(26, 8, 28, 22, 5, 2, 3, 5)
+  validation: F_1/7=0.995746, precision=0.996605, recall=0.955376, good=21431, bad=73, missed=1001, trie_nodes=1999, patterns=1115, objective=0.995733
+  Tested: params=(26, 11, 27, 22, 5, 2, 3, 5)
+  validation: F_1/7=0.995747, precision=0.996605, recall=0.955421, good=21432, bad=73, missed=1000, trie_nodes=2000, patterns=1113, objective=0.995734
+  Tested: params=(26, 12, 28, 23, 5, 2, 3, 5)
+  validation: F_1/7=0.995747, precision=0.996605, recall=0.955421, good=21432, bad=73, missed=1000, trie_nodes=2000, patterns=1113, objective=0.995734
+  Tested: params=(26, 11, 27, 22, 5, 2, 3, 5)
+  validation: F_1/7=0.995747, precision=0.996605, recall=0.955421, good=21432, bad=73, missed=1000, trie_nodes=2000, patterns=1113, objective=0.995734
+  Tested: params=(26, 11, 28, 23, 5, 2, 3, 5)
+  validation: F_1/7=0.995747, precision=0.996605, recall=0.955421, good=21432, bad=73, missed=1000, trie_nodes=2000, patterns=1113, objective=0.995734
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=109.8s
+
+============================================================
+Round 15/30
+  Tested: params=(29, 16, 25, 15, 5, 1, 2, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2015, patterns=1111, objective=0.996546
+  Tested: params=(29, 5, 24, 26, 5, 1, 2, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2014, patterns=1112, objective=0.996546
+  Tested: params=(29, 5, 25, 15, 5, 1, 2, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2014, patterns=1112, objective=0.996546
+  Tested: params=(29, 5, 25, 20, 5, 1, 2, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2014, patterns=1112, objective=0.996546
+  Tested: params=(29, 5, 25, 20, 5, 1, 2, 5)
+  validation: F_1/7=0.996559, precision=0.997440, recall=0.955243, good=21428, bad=55, missed=1004, trie_nodes=2014, patterns=1112, objective=0.996546
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=117.8s
+
+============================================================
+Round 16/30
+  Tested: params=(27, 8, 22, 26, 5, 2, 3, 5)
+  validation: F_1/7=0.995746, precision=0.996605, recall=0.955376, good=21431, bad=73, missed=1001, trie_nodes=1995, patterns=1112, objective=0.995733
+  Tested: params=(27, 8, 22, 27, 5, 2, 3, 5)
+  validation: F_1/7=0.995746, precision=0.996605, recall=0.955376, good=21431, bad=73, missed=1001, trie_nodes=1995, patterns=1112, objective=0.995733
+  Tested: params=(27, 8, 22, 26, 5, 2, 3, 5)
+  validation: F_1/7=0.995746, precision=0.996605, recall=0.955376, good=21431, bad=73, missed=1001, trie_nodes=1995, patterns=1112, objective=0.995733
+  Tested: params=(27, 8, 22, 27, 5, 2, 3, 5)
+  validation: F_1/7=0.995746, precision=0.996605, recall=0.955376, good=21431, bad=73, missed=1001, trie_nodes=1995, patterns=1112, objective=0.995733
+  Tested: params=(27, 7, 20, 27, 5, 2, 3, 5)
+  validation: F_1/7=0.995703, precision=0.996559, recall=0.955465, good=21433, bad=74, missed=999, trie_nodes=1972, patterns=1104, objective=0.995690
+  Best so far: params=(30, 1, 16, 8, 4, 4, 4, 4), score=0.996937, elapsed=125.2s
+
+============================================================
+Round 17/30
+  Tested: params=(24, 10, 18, 13, 5, 2, 4, 5)
+  validation: F_1/7=0.996176, precision=0.997066, recall=0.954440, good=21410, bad=63, missed=1022, trie_nodes=1487, patterns=800, objective=0.996167
+  Tested: params=(30, 10, 18, 13, 5, 2, 4, 1)
+  validation: F_1/7=0.997217, precision=0.998135, recall=0.954217, good=21405, bad=40, missed=1027, trie_nodes=1536, patterns=824, objective=0.997207
+  Tested: params=(24, 10, 20, 13, 5, 2, 4, 5)
+  validation: F_1/7=0.996176, precision=0.997066, recall=0.954440, good=21410, bad=63, missed=1022, trie_nodes=1488, patterns=800, objective=0.996167
+  Tested: params=(30, 10, 30, 13, 5, 2, 4, 1)
+  validation: F_1/7=0.997352, precision=0.998274, recall=0.954173, good=21404, bad=37, missed=1028, trie_nodes=1545, patterns=826, objective=0.997342
+  Tested: params=(30, 10, 18, 13, 5, 2, 4, 5)
+  validation: F_1/7=0.997171, precision=0.998088, recall=0.954217, good=21405, bad=41, missed=1027, trie_nodes=1491, patterns=807, objective=0.997162
+  Best so far: params=(30, 10, 30, 13, 5, 2, 4, 1), score=0.997342, elapsed=132.6s
+
+============================================================
+Round 18/30
+  Tested: params=(30, 13, 17, 17, 5, 2, 4, 1)
+  validation: F_1/7=0.997217, precision=0.998135, recall=0.954217, good=21405, bad=40, missed=1027, trie_nodes=1537, patterns=824, objective=0.997207
+  Tested: params=(30, 12, 17, 11, 5, 2, 4, 1)
+  validation: F_1/7=0.997216, precision=0.998135, recall=0.954173, good=21404, bad=40, missed=1028, trie_nodes=1536, patterns=824, objective=0.997206
+  Tested: params=(30, 13, 30, 17, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 17, 17, 5, 2, 4, 1)
+  validation: F_1/7=0.997217, precision=0.998135, recall=0.954217, good=21405, bad=40, missed=1027, trie_nodes=1537, patterns=824, objective=0.997207
+  Tested: params=(30, 13, 17, 11, 5, 2, 4, 1)
+  validation: F_1/7=0.997216, precision=0.998135, recall=0.954173, good=21404, bad=40, missed=1028, trie_nodes=1536, patterns=824, objective=0.997206
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=141.2s
+
+============================================================
+Round 19/30
+  Tested: params=(28, 15, 30, 18, 4, 2, 4, 1)
+  validation: F_1/7=0.997129, precision=0.998042, recall=0.954351, good=21408, bad=42, missed=1024, trie_nodes=1545, patterns=828, objective=0.997119
+  Tested: params=(28, 15, 30, 18, 4, 2, 4, 1)
+  validation: F_1/7=0.997129, precision=0.998042, recall=0.954351, good=21408, bad=42, missed=1024, trie_nodes=1545, patterns=828, objective=0.997119
+  Tested: params=(28, 15, 30, 17, 4, 2, 4, 1)
+  validation: F_1/7=0.997129, precision=0.998042, recall=0.954351, good=21408, bad=42, missed=1024, trie_nodes=1545, patterns=828, objective=0.997119
+  Tested: params=(28, 15, 17, 17, 4, 2, 4, 1)
+  validation: F_1/7=0.997038, precision=0.997949, recall=0.954351, good=21408, bad=44, missed=1024, trie_nodes=1537, patterns=826, objective=0.997028
+  Tested: params=(28, 15, 30, 18, 4, 2, 4, 1)
+  validation: F_1/7=0.997129, precision=0.998042, recall=0.954351, good=21408, bad=42, missed=1024, trie_nodes=1545, patterns=828, objective=0.997119
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=151.2s
+
+============================================================
+Round 20/30
+  Tested: params=(30, 13, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 18, 15, 5, 2, 4, 1)
+  validation: F_1/7=0.997218, precision=0.998135, recall=0.954262, good=21406, bad=40, missed=1026, trie_nodes=1537, patterns=824, objective=0.997208
+  Tested: params=(30, 13, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=161.3s
+
+============================================================
+Round 21/30
+  Tested: params=(29, 14, 27, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(29, 14, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(29, 14, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(29, 14, 27, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(29, 14, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=169.7s
+
+============================================================
+Round 22/30
+  Tested: params=(29, 14, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(29, 14, 29, 15, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(29, 14, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(29, 14, 27, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(29, 14, 29, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=178.3s
+
+============================================================
+Round 23/30
+  Tested: params=(28, 17, 26, 14, 5, 2, 4, 1)
+  validation: F_1/7=0.997127, precision=0.998042, recall=0.954262, good=21406, bad=42, missed=1026, trie_nodes=1546, patterns=829, objective=0.997117
+  Tested: params=(28, 17, 26, 19, 5, 2, 4, 1)
+  validation: F_1/7=0.997127, precision=0.998042, recall=0.954262, good=21406, bad=42, missed=1026, trie_nodes=1546, patterns=829, objective=0.997117
+  Tested: params=(28, 16, 26, 19, 5, 2, 4, 1)
+  validation: F_1/7=0.997127, precision=0.998042, recall=0.954262, good=21406, bad=42, missed=1026, trie_nodes=1546, patterns=829, objective=0.997117
+  Tested: params=(1, 17, 29, 19, 5, 2, 4, 1)
+  validation: F_1/7=0.991128, precision=0.991830, recall=0.957917, good=21488, bad=177, missed=944, trie_nodes=1639, patterns=785, objective=0.991118
+  Tested: params=(28, 16, 26, 19, 5, 2, 4, 1)
+  validation: F_1/7=0.997127, precision=0.998042, recall=0.954262, good=21406, bad=42, missed=1026, trie_nodes=1546, patterns=829, objective=0.997117
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=186.9s
+
+============================================================
+Round 24/30
+  Tested: params=(17, 12, 29, 15, 5, 2, 4, 2)
+  validation: F_1/7=0.995953, precision=0.996834, recall=0.954574, good=21413, bad=68, missed=1019, trie_nodes=1471, patterns=755, objective=0.995943
+  Tested: params=(29, 12, 29, 15, 5, 2, 4, 2)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(29, 12, 29, 15, 5, 2, 4, 2)
+  validation: F_1/7=0.997308, precision=0.998228, recall=0.954217, good=21405, bad=38, missed=1027, trie_nodes=1546, patterns=825, objective=0.997298
+  Tested: params=(17, 12, 29, 15, 5, 2, 4, 2)
+  validation: F_1/7=0.995953, precision=0.996834, recall=0.954574, good=21413, bad=68, missed=1019, trie_nodes=1471, patterns=755, objective=0.995943
+  Tested: params=(17, 12, 29, 15, 5, 2, 4, 2)
+  validation: F_1/7=0.995953, precision=0.996834, recall=0.954574, good=21413, bad=68, missed=1019, trie_nodes=1471, patterns=755, objective=0.995943
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=195.0s
+
+============================================================
+Round 25/30
+  Tested: params=(27, 14, 28, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.996359, precision=0.997252, recall=0.954485, good=21411, bad=59, missed=1021, trie_nodes=1556, patterns=839, objective=0.996349
+  Tested: params=(27, 14, 28, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.996359, precision=0.997252, recall=0.954485, good=21411, bad=59, missed=1021, trie_nodes=1556, patterns=839, objective=0.996349
+  Tested: params=(27, 14, 28, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.996359, precision=0.997252, recall=0.954485, good=21411, bad=59, missed=1021, trie_nodes=1556, patterns=839, objective=0.996349
+  Tested: params=(27, 13, 28, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.996359, precision=0.997252, recall=0.954485, good=21411, bad=59, missed=1021, trie_nodes=1556, patterns=839, objective=0.996349
+  Tested: params=(4, 14, 28, 16, 5, 2, 4, 1)
+  validation: F_1/7=0.992177, precision=0.992923, recall=0.956937, good=21466, bad=153, missed=966, trie_nodes=1442, patterns=672, objective=0.992167
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=202.7s
+
+============================================================
+Round 26/30
+  Tested: params=(30, 13, 30, 18, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 27, 18, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 27, 18, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 27, 18, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 27, 18, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=210.9s
+
+============================================================
+Round 27/30
+  Tested: params=(30, 11, 27, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 11, 27, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 11, 27, 18, 5, 2, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 11, 27, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 11, 27, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=220.5s
+
+============================================================
+Round 28/30
+  Tested: params=(30, 11, 27, 20, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 11, 27, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 11, 27, 20, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 11, 27, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 11, 27, 20, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=228.4s
+
+============================================================
+Round 29/30
+  Tested: params=(30, 13, 30, 17, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 30, 17, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 30, 30, 17, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Tested: params=(30, 13, 26, 17, 5, 3, 4, 1)
+  validation: F_1/7=0.997352, precision=0.998274, recall=0.954173, good=21404, bad=37, missed=1028, trie_nodes=1545, patterns=826, objective=0.997342
+  Tested: params=(30, 13, 30, 17, 5, 3, 4, 1)
+  validation: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=235.9s
+
+============================================================
+Round 30/30
+  Tested: params=(28, 12, 28, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997128, precision=0.998042, recall=0.954306, good=21407, bad=42, missed=1025, trie_nodes=1547, patterns=829, objective=0.997118
+  Tested: params=(28, 12, 24, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997127, precision=0.998042, recall=0.954262, good=21406, bad=42, missed=1026, trie_nodes=1546, patterns=829, objective=0.997117
+  Tested: params=(28, 12, 24, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997127, precision=0.998042, recall=0.954262, good=21406, bad=42, missed=1026, trie_nodes=1546, patterns=829, objective=0.997117
+  Tested: params=(28, 12, 28, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997128, precision=0.998042, recall=0.954306, good=21407, bad=42, missed=1025, trie_nodes=1547, patterns=829, objective=0.997118
+  Tested: params=(28, 12, 24, 18, 5, 3, 4, 1)
+  validation: F_1/7=0.997127, precision=0.998042, recall=0.954262, good=21406, bad=42, missed=1026, trie_nodes=1546, patterns=829, objective=0.997117
+  Best so far: params=(30, 13, 30, 17, 5, 2, 4, 1), score=0.997343, elapsed=245.2s
+
+============================================================
+Final phase: 3 evaluations
+  Tested: params=(29, 9, 26, 21, 5, 3, 4, 1)
+  validation: F_1/7=0.997306, precision=0.998228, recall=0.954128, good=21403, bad=38, missed=1029, trie_nodes=1544, patterns=825, objective=0.997296
+  Tested: params=(29, 10, 26, 19, 5, 3, 4, 1)
+  validation: F_1/7=0.997307, precision=0.998228, recall=0.954173, good=21404, bad=38, missed=1028, trie_nodes=1545, patterns=825, objective=0.997297
+  Tested: params=(29, 9, 26, 21, 5, 3, 4, 1)
+  validation: F_1/7=0.997306, precision=0.998228, recall=0.954128, good=21403, bad=38, missed=1029, trie_nodes=1544, patterns=825, objective=0.997296
+
+============================================================
+Threshold ablation run complete
+Best parameters (b1..b4 thr1..thr4): (30, 13, 30, 17, 5, 2, 4, 1)
+Thresholds: {'mode': 'perlayer', 'shared': None, 'per_level': [5, 2, 4, 1]}
+  validation-selected: F_1/7=0.997353, precision=0.998274, recall=0.954217, good=21405, bad=37, missed=1027, trie_nodes=1546, patterns=826, objective=0.997343
+  held-out test: F_1/7=0.996893, precision=0.997812, recall=0.953817, good=21438, bad=47, missed=1038, trie_nodes=1546, patterns=826
+Summary: results/threshold_ablation/it/wiktionary/perlayer_tpe/summary.json
+History: results/threshold_ablation/it/wiktionary/perlayer_tpe/history.csv
+Wall time: 254.1s

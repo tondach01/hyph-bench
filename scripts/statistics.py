@@ -1,6 +1,6 @@
 import argparse
 
-from hyperparameters import stats
+from .hyperparameters import stats
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

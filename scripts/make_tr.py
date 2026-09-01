@@ -17,8 +17,6 @@ def main(args):
                 if c == args.hyphmark:
                     hyph_indices.append(i)
                     continue
-                elif c in "123456789":
-                    continue
                 chars.add(c.lower())
             if hyph_indices and (left_hyph_min == -1 or hyph_indices[0] < left_hyph_min):
                 left_hyph_min = hyph_indices[0]
@@ -31,23 +29,23 @@ def main(args):
         right_hyph_min = args.right_hyphen_min
 
     upper_used = set()
-    with open(args.wordlist.rsplit(".", 1)[0] + ".tr", "w") as translate_file:
-        print(f"{left_hyph_min:>2}{right_hyph_min:>2}", file=translate_file)
+    with open(args.wordlist + ".tra", "w") as tra:
+        print(f" {left_hyph_min:<2}{right_hyph_min:<2}  {args.hyphmark}", file=tra)
         for char in sorted(chars):
             if char != char.upper() and len(char.upper()) == 1 and char.upper() not in upper_used:
-                print(f" {char} {char.upper()}", file=translate_file)
+                print(f" {char} {char.upper()}", file=tra)
                 upper_used.add(char.upper())
             else:
-                print(f" {char}", file=translate_file)
+                print(f" {char}", file=tra)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("wordlist", help="Path to wordlist, for which the translate file will be created.")
     parser.add_argument("--hyphmark", default="-", required=False, help="Hyphenation mark used in wordlist.")
-    parser.add_argument("--left_hyphen_min", required=False, type=int, help="Fixed value for patgen left_hyphen_min hyperparameter")
-    parser.add_argument("--right_hyphen_min", required=False, type=int, help="Fixed value for patgen right_hyphen_min hyperparameter")
+    parser.add_argument("--left_hyphen_min", required=False, type=int, default=2, help="Fixed value for patgen left_hyphen_min hyperparameter")
+    parser.add_argument("--right_hyphen_min", required=False, type=int, default=2, help="Fixed value for patgen right_hyphen_min hyperparameter")
     args = parser.parse_args()
 
     main(args)
-    print(f"Created translate file {args.wordlist.rsplit('.', 1)[0]}.tr for {args.wordlist}")
+    print(f"Created translate file {args.wordlist}.tra for {args.wordlist}")

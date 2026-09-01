@@ -2,7 +2,7 @@ import time
 import argparse
 import os
 
-from hyperparameters import sample, metaheuristic, combine, score, stats
+from .hyperparameters import combine, metaheuristic, sample, score, stats
 
 if __name__ == "__main__":
     t = time.time()

@@ -1,0 +1,3864 @@
+{
+  "protocol": "validation-only baseline and candidate selection over stored final histories; held-out test evaluated after selection",
+  "results_dir": "/home/dev/hyph-bench/results/gpopt260828",
+  "datasets": 17,
+  "history_rows_per_dataset": 153,
+  "rules": [
+    "max_objective",
+    "max_validation_f17",
+    "min_trie_above_baseline",
+    "vc_0.002",
+    "vc_0.005",
+    "vc_0.010"
+  ],
+  "summaries": [
+    {
+      "rule": "max_objective",
+      "datasets": 17,
+      "wins_f17_vs_baseline": 17,
+      "smaller_tries_vs_baseline": 17,
+      "tries_within_5pct_of_baseline": 17,
+      "test_f17_within_0.005_of_best_selector": 17,
+      "changed_from_max_objective": 0,
+      "fallbacks": 0,
+      "median_delta_test_f17": 0.03479960306295127,
+      "median_trie_ratio": 0.34837758112094397
+    },
+    {
+      "rule": "max_validation_f17",
+      "datasets": 17,
+      "wins_f17_vs_baseline": 17,
+      "smaller_tries_vs_baseline": 17,
+      "tries_within_5pct_of_baseline": 17,
+      "test_f17_within_0.005_of_best_selector": 17,
+      "changed_from_max_objective": 0,
+      "fallbacks": 0,
+      "median_delta_test_f17": 0.03479960306295127,
+      "median_trie_ratio": 0.34837758112094397
+    },
+    {
+      "rule": "min_trie_above_baseline",
+      "datasets": 17,
+      "wins_f17_vs_baseline": 15,
+      "smaller_tries_vs_baseline": 17,
+      "tries_within_5pct_of_baseline": 17,
+      "test_f17_within_0.005_of_best_selector": 2,
+      "changed_from_max_objective": 17,
+      "fallbacks": 0,
+      "median_delta_test_f17": 0.01929066075622765,
+      "median_trie_ratio": 0.16590126291618829
+    },
+    {
+      "rule": "vc_0.002",
+      "datasets": 17,
+      "wins_f17_vs_baseline": 17,
+      "smaller_tries_vs_baseline": 17,
+      "tries_within_5pct_of_baseline": 17,
+      "test_f17_within_0.005_of_best_selector": 17,
+      "changed_from_max_objective": 16,
+      "fallbacks": 0,
+      "median_delta_test_f17": 0.03272090173465603,
+      "median_trie_ratio": 0.2867889382433013
+    },
+    {
+      "rule": "vc_0.005",
+      "datasets": 17,
+      "wins_f17_vs_baseline": 16,
+      "smaller_tries_vs_baseline": 17,
+      "tries_within_5pct_of_baseline": 17,
+      "test_f17_within_0.005_of_best_selector": 15,
+      "changed_from_max_objective": 17,
+      "fallbacks": 0,
+      "median_delta_test_f17": 0.031195596319287033,
+      "median_trie_ratio": 0.19952692361207736
+    },
+    {
+      "rule": "vc_0.010",
+      "datasets": 17,
+      "wins_f17_vs_baseline": 16,
+      "smaller_tries_vs_baseline": 17,
+      "tries_within_5pct_of_baseline": 17,
+      "test_f17_within_0.005_of_best_selector": 5,
+      "changed_from_max_objective": 17,
+      "fallbacks": 0,
+      "median_delta_test_f17": 0.027784033299056765,
+      "median_trie_ratio": 0.1902140879313838
+    }
+  ],
+  "rows": [
+    {
+      "dataset": "cs/cshyphen_cstenten",
+      "rule": "max_objective",
+      "observation": 66,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          1,
+          29,
+          6
+        ],
+        "thresholds": [
+          37,
+          8,
+          14,
+          31
+        ]
+      },
+      "validation_f17": 0.9716365831744779,
+      "validation_objective": 0.9716320312622392,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9368085936262263,
+      "test_f17": 0.9713118297550516,
+      "baseline_test_f17": 0.9365122266921003,
+      "delta_test_f17": 0.03479960306295127,
+      "trie_nodes": 5434,
+      "baseline_trie_nodes": 8847,
+      "trie_ratio": 0.6142195094382277
+    },
+    {
+      "dataset": "cs/cshyphen_cstenten",
+      "rule": "max_validation_f17",
+      "observation": 66,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          1,
+          29,
+          6
+        ],
+        "thresholds": [
+          37,
+          8,
+          14,
+          31
+        ]
+      },
+      "validation_f17": 0.9716365831744779,
+      "validation_objective": 0.9716320312622392,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9368085936262263,
+      "test_f17": 0.9713118297550516,
+      "baseline_test_f17": 0.9365122266921003,
+      "delta_test_f17": 0.03479960306295127,
+      "trie_nodes": 5434,
+      "baseline_trie_nodes": 8847,
+      "trie_ratio": 0.6142195094382277
+    },
+    {
+      "dataset": "cs/cshyphen_cstenten",
+      "rule": "min_trie_above_baseline",
+      "observation": 144,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          13,
+          1,
+          15,
+          20
+        ],
+        "thresholds": [
+          35,
+          42,
+          42,
+          25
+        ]
+      },
+      "validation_f17": 0.9650971705354869,
+      "validation_objective": 0.9650950503864483,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9368085936262263,
+      "test_f17": 0.9642962599911571,
+      "baseline_test_f17": 0.9365122266921003,
+      "delta_test_f17": 0.027784033299056765,
+      "trie_nodes": 2531,
+      "baseline_trie_nodes": 8847,
+      "trie_ratio": 0.286085678761162
+    },
+    {
+      "dataset": "cs/cshyphen_cstenten",
+      "rule": "vc_0.002",
+      "observation": 146,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          21,
+          3,
+          13,
+          10
+        ],
+        "thresholds": [
+          39,
+          3,
+          42,
+          36
+        ]
+      },
+      "validation_f17": 0.9696555417831646,
+      "validation_objective": 0.9696526208192381,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9368085936262263,
+      "test_f17": 0.9692331284267564,
+      "baseline_test_f17": 0.9365122266921003,
+      "delta_test_f17": 0.03272090173465603,
+      "trie_nodes": 3487,
+      "baseline_trie_nodes": 8847,
+      "trie_ratio": 0.39414490787837686
+    },
+    {
+      "dataset": "cs/cshyphen_cstenten",
+      "rule": "vc_0.005",
+      "observation": 126,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          15,
+          1,
+          21,
+          1
+        ],
+        "thresholds": [
+          30,
+          33,
+          41,
+          37
+        ]
+      },
+      "validation_f17": 0.9681257901447353,
+      "validation_objective": 0.9681232679129078,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9368085936262263,
+      "test_f17": 0.9677078230113874,
+      "baseline_test_f17": 0.9365122266921003,
+      "delta_test_f17": 0.031195596319287033,
+      "trie_nodes": 3011,
+      "baseline_trie_nodes": 8847,
+      "trie_ratio": 0.34034135865265064
+    },
+    {
+      "dataset": "cs/cshyphen_cstenten",
+      "rule": "vc_0.010",
+      "observation": 144,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          13,
+          1,
+          15,
+          20
+        ],
+        "thresholds": [
+          35,
+          42,
+          42,
+          25
+        ]
+      },
+      "validation_f17": 0.9650971705354869,
+      "validation_objective": 0.9650950503864483,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9368085936262263,
+      "test_f17": 0.9642962599911571,
+      "baseline_test_f17": 0.9365122266921003,
+      "delta_test_f17": 0.027784033299056765,
+      "trie_nodes": 2531,
+      "baseline_trie_nodes": 8847,
+      "trie_ratio": 0.286085678761162
+    },
+    {
+      "dataset": "cs/cshyphen_ujc",
+      "rule": "max_objective",
+      "observation": 135,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          3,
+          1,
+          3
+        ],
+        "bad_weights": [
+          30,
+          1,
+          28,
+          1
+        ],
+        "thresholds": [
+          23,
+          6,
+          39,
+          1
+        ]
+      },
+      "validation_f17": 0.9897968311767585,
+      "validation_objective": 0.9897827557883065,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9169649810313052,
+      "test_f17": 0.9901175920130658,
+      "baseline_test_f17": 0.9199389135860376,
+      "delta_test_f17": 0.07017867842702818,
+      "trie_nodes": 2935,
+      "baseline_trie_nodes": 13693,
+      "trie_ratio": 0.21434309501204996
+    },
+    {
+      "dataset": "cs/cshyphen_ujc",
+      "rule": "max_validation_f17",
+      "observation": 135,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          3,
+          1,
+          3
+        ],
+        "bad_weights": [
+          30,
+          1,
+          28,
+          1
+        ],
+        "thresholds": [
+          23,
+          6,
+          39,
+          1
+        ]
+      },
+      "validation_f17": 0.9897968311767585,
+      "validation_objective": 0.9897827557883065,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9169649810313052,
+      "test_f17": 0.9901175920130658,
+      "baseline_test_f17": 0.9199389135860376,
+      "delta_test_f17": 0.07017867842702818,
+      "trie_nodes": 2935,
+      "baseline_trie_nodes": 13693,
+      "trie_ratio": 0.21434309501204996
+    },
+    {
+      "dataset": "cs/cshyphen_ujc",
+      "rule": "min_trie_above_baseline",
+      "observation": 97,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          12,
+          25,
+          28,
+          1
+        ],
+        "thresholds": [
+          41,
+          42,
+          39,
+          19
+        ]
+      },
+      "validation_f17": 0.9722953051525554,
+      "validation_objective": 0.9722902217073223,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9169649810313052,
+      "test_f17": 0.9705895562235001,
+      "baseline_test_f17": 0.9199389135860376,
+      "delta_test_f17": 0.05065064263746244,
+      "trie_nodes": 1060,
+      "baseline_trie_nodes": 13693,
+      "trie_ratio": 0.07741181625648141
+    },
+    {
+      "dataset": "cs/cshyphen_ujc",
+      "rule": "vc_0.002",
+      "observation": 129,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          1,
+          29,
+          2
+        ],
+        "thresholds": [
+          40,
+          29,
+          32,
+          1
+        ]
+      },
+      "validation_f17": 0.9889171983716837,
+      "validation_objective": 0.9889032236929958,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9169649810313052,
+      "test_f17": 0.9887832039706993,
+      "baseline_test_f17": 0.9199389135860376,
+      "delta_test_f17": 0.06884429038466167,
+      "trie_nodes": 2914,
+      "baseline_trie_nodes": 13693,
+      "trie_ratio": 0.2128094646899876
+    },
+    {
+      "dataset": "cs/cshyphen_ujc",
+      "rule": "vc_0.005",
+      "observation": 146,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "bad_weights": [
+          30,
+          29,
+          27,
+          1
+        ],
+        "thresholds": [
+          41,
+          34,
+          39,
+          36
+        ]
+      },
+      "validation_f17": 0.9851929153682798,
+      "validation_objective": 0.9851865370832232,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9169649810313052,
+      "test_f17": 0.9845574544999665,
+      "baseline_test_f17": 0.9199389135860376,
+      "delta_test_f17": 0.06461854091392882,
+      "trie_nodes": 1330,
+      "baseline_trie_nodes": 13693,
+      "trie_ratio": 0.09712992039728328
+    },
+    {
+      "dataset": "cs/cshyphen_ujc",
+      "rule": "vc_0.010",
+      "observation": 146,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "bad_weights": [
+          30,
+          29,
+          27,
+          1
+        ],
+        "thresholds": [
+          41,
+          34,
+          39,
+          36
+        ]
+      },
+      "validation_f17": 0.9851929153682798,
+      "validation_objective": 0.9851865370832232,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9169649810313052,
+      "test_f17": 0.9845574544999665,
+      "baseline_test_f17": 0.9199389135860376,
+      "delta_test_f17": 0.06461854091392882,
+      "trie_nodes": 1330,
+      "baseline_trie_nodes": 13693,
+      "trie_ratio": 0.09712992039728328
+    },
+    {
+      "dataset": "cs/wiktionary",
+      "rule": "max_objective",
+      "observation": 153,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          4
+        ],
+        "bad_weights": [
+          25,
+          6,
+          16,
+          1
+        ],
+        "thresholds": [
+          41,
+          41,
+          40,
+          3
+        ]
+      },
+      "validation_f17": 0.9779074887804147,
+      "validation_objective": 0.9778920804884915,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9065683226539909,
+      "test_f17": 0.9791687540419174,
+      "baseline_test_f17": 0.9062322367556458,
+      "delta_test_f17": 0.0729365172862716,
+      "trie_nodes": 1662,
+      "baseline_trie_nodes": 8159,
+      "trie_ratio": 0.2037014339992646
+    },
+    {
+      "dataset": "cs/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 153,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          4
+        ],
+        "bad_weights": [
+          25,
+          6,
+          16,
+          1
+        ],
+        "thresholds": [
+          41,
+          41,
+          40,
+          3
+        ]
+      },
+      "validation_f17": 0.9779074887804147,
+      "validation_objective": 0.9778920804884915,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9065683226539909,
+      "test_f17": 0.9791687540419174,
+      "baseline_test_f17": 0.9062322367556458,
+      "delta_test_f17": 0.0729365172862716,
+      "trie_nodes": 1662,
+      "baseline_trie_nodes": 8159,
+      "trie_ratio": 0.2037014339992646
+    },
+    {
+      "dataset": "cs/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 57,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          14,
+          30,
+          27,
+          26
+        ],
+        "thresholds": [
+          37,
+          32,
+          35,
+          42
+        ]
+      },
+      "validation_f17": 0.9568047288153888,
+      "validation_objective": 0.956797553112652,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9065683226539909,
+      "test_f17": 0.9604416525420326,
+      "baseline_test_f17": 0.9062322367556458,
+      "delta_test_f17": 0.05420941578638683,
+      "trie_nodes": 774,
+      "baseline_trie_nodes": 8159,
+      "trie_ratio": 0.09486456673611962
+    },
+    {
+      "dataset": "cs/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 152,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "bad_weights": [
+          28,
+          1,
+          27,
+          3
+        ],
+        "thresholds": [
+          34,
+          3,
+          37,
+          8
+        ]
+      },
+      "validation_f17": 0.976394173165451,
+      "validation_objective": 0.9763839658673719,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9065683226539909,
+      "test_f17": 0.9790225726689531,
+      "baseline_test_f17": 0.9062322367556458,
+      "delta_test_f17": 0.0727903359133073,
+      "trie_nodes": 1101,
+      "baseline_trie_nodes": 8159,
+      "trie_ratio": 0.1349430077215345
+    },
+    {
+      "dataset": "cs/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 106,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          28,
+          18,
+          30,
+          30
+        ],
+        "thresholds": [
+          32,
+          16,
+          41,
+          33
+        ]
+      },
+      "validation_f17": 0.9739171171502189,
+      "validation_objective": 0.973908142886331,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9065683226539909,
+      "test_f17": 0.9764650907832838,
+      "baseline_test_f17": 0.9062322367556458,
+      "delta_test_f17": 0.07023285402763801,
+      "trie_nodes": 968,
+      "baseline_trie_nodes": 8159,
+      "trie_ratio": 0.1186419904400049
+    },
+    {
+      "dataset": "cs/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 82,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "bad_weights": [
+          27,
+          1,
+          9,
+          1
+        ],
+        "thresholds": [
+          41,
+          41,
+          42,
+          38
+        ]
+      },
+      "validation_f17": 0.9723931391233325,
+      "validation_objective": 0.9723849343469474,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9065683226539909,
+      "test_f17": 0.9731827043366166,
+      "baseline_test_f17": 0.9062322367556458,
+      "delta_test_f17": 0.06695046758097078,
+      "trie_nodes": 885,
+      "baseline_trie_nodes": 8159,
+      "trie_ratio": 0.10846917514401275
+    },
+    {
+      "dataset": "cssk/cshyphen",
+      "rule": "max_objective",
+      "observation": 97,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          11,
+          24,
+          15
+        ],
+        "thresholds": [
+          42,
+          3,
+          24,
+          9
+        ]
+      },
+      "validation_f17": 0.9837352603986308,
+      "validation_objective": 0.9837312976915942,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9268607004169518,
+      "test_f17": 0.9834559321887181,
+      "baseline_test_f17": 0.9275348056474918,
+      "delta_test_f17": 0.055921126541226274,
+      "trie_nodes": 6611,
+      "baseline_trie_nodes": 11461,
+      "trie_ratio": 0.5768257569147544
+    },
+    {
+      "dataset": "cssk/cshyphen",
+      "rule": "max_validation_f17",
+      "observation": 97,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          11,
+          24,
+          15
+        ],
+        "thresholds": [
+          42,
+          3,
+          24,
+          9
+        ]
+      },
+      "validation_f17": 0.9837352603986308,
+      "validation_objective": 0.9837312976915942,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9268607004169518,
+      "test_f17": 0.9834559321887181,
+      "baseline_test_f17": 0.9275348056474918,
+      "delta_test_f17": 0.055921126541226274,
+      "trie_nodes": 6611,
+      "baseline_trie_nodes": 11461,
+      "trie_ratio": 0.5768257569147544
+    },
+    {
+      "dataset": "cssk/cshyphen",
+      "rule": "min_trie_above_baseline",
+      "observation": 96,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          3
+        ],
+        "bad_weights": [
+          21,
+          1,
+          18,
+          1
+        ],
+        "thresholds": [
+          42,
+          41,
+          41,
+          32
+        ]
+      },
+      "validation_f17": 0.9717421958851346,
+      "validation_objective": 0.9717398120270367,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9268607004169518,
+      "test_f17": 0.9717529579963665,
+      "baseline_test_f17": 0.9275348056474918,
+      "delta_test_f17": 0.04421815234887472,
+      "trie_nodes": 3977,
+      "baseline_trie_nodes": 11461,
+      "trie_ratio": 0.3470028793299014
+    },
+    {
+      "dataset": "cssk/cshyphen",
+      "rule": "vc_0.002",
+      "observation": 148,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "bad_weights": [
+          30,
+          29,
+          27,
+          1
+        ],
+        "thresholds": [
+          41,
+          34,
+          39,
+          36
+        ]
+      },
+      "validation_f17": 0.9834354148468837,
+      "validation_objective": 0.9834325526586973,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9268607004169518,
+      "test_f17": 0.983011892060383,
+      "baseline_test_f17": 0.9275348056474918,
+      "delta_test_f17": 0.055477086412891174,
+      "trie_nodes": 4775,
+      "baseline_trie_nodes": 11461,
+      "trie_ratio": 0.4166303114911439
+    },
+    {
+      "dataset": "cssk/cshyphen",
+      "rule": "vc_0.005",
+      "observation": 107,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          28,
+          21,
+          7,
+          30
+        ],
+        "thresholds": [
+          42,
+          35,
+          38,
+          27
+        ]
+      },
+      "validation_f17": 0.9794165236465618,
+      "validation_objective": 0.9794138394834837,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9268607004169518,
+      "test_f17": 0.9788541760383012,
+      "baseline_test_f17": 0.9275348056474918,
+      "delta_test_f17": 0.05131937039080936,
+      "trie_nodes": 4478,
+      "baseline_trie_nodes": 11461,
+      "trie_ratio": 0.390716342378501
+    },
+    {
+      "dataset": "cssk/cshyphen",
+      "rule": "vc_0.010",
+      "observation": 67,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          24,
+          5,
+          27,
+          25
+        ],
+        "thresholds": [
+          41,
+          38,
+          42,
+          42
+        ]
+      },
+      "validation_f17": 0.9769066880586124,
+      "validation_objective": 0.9769042730311354,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9268607004169518,
+      "test_f17": 0.9763820977968583,
+      "baseline_test_f17": 0.9275348056474918,
+      "delta_test_f17": 0.04884729214936645,
+      "trie_nodes": 4029,
+      "baseline_trie_nodes": 11461,
+      "trie_ratio": 0.3515400052351453
+    },
+    {
+      "dataset": "de/wiktionary",
+      "rule": "max_objective",
+      "observation": 130,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          1,
+          29,
+          2
+        ],
+        "thresholds": [
+          40,
+          29,
+          32,
+          1
+        ]
+      },
+      "validation_f17": 0.9948808462501898,
+      "validation_objective": 0.9948733209697572,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9760010072634686,
+      "test_f17": 0.994861868272987,
+      "baseline_test_f17": 0.9763565045773831,
+      "delta_test_f17": 0.01850536369560385,
+      "trie_nodes": 12148,
+      "baseline_trie_nodes": 29614,
+      "trie_ratio": 0.4102113865063821
+    },
+    {
+      "dataset": "de/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 130,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          1,
+          29,
+          2
+        ],
+        "thresholds": [
+          40,
+          29,
+          32,
+          1
+        ]
+      },
+      "validation_f17": 0.9948808462501898,
+      "validation_objective": 0.9948733209697572,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9760010072634686,
+      "test_f17": 0.994861868272987,
+      "baseline_test_f17": 0.9763565045773831,
+      "delta_test_f17": 0.01850536369560385,
+      "trie_nodes": 12148,
+      "baseline_trie_nodes": 29614,
+      "trie_ratio": 0.4102113865063821
+    },
+    {
+      "dataset": "de/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 27,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          15,
+          14,
+          30,
+          30
+        ],
+        "thresholds": [
+          38,
+          40,
+          35,
+          42
+        ]
+      },
+      "validation_f17": 0.9828767087912863,
+      "validation_objective": 0.9828736653518094,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9760010072634686,
+      "test_f17": 0.9837770479323957,
+      "baseline_test_f17": 0.9763565045773831,
+      "delta_test_f17": 0.007420543355012632,
+      "trie_nodes": 4913,
+      "baseline_trie_nodes": 29614,
+      "trie_ratio": 0.16590126291618829
+    },
+    {
+      "dataset": "de/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 3,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "bad_weights": [
+          24,
+          12,
+          11,
+          1
+        ],
+        "thresholds": [
+          37,
+          7,
+          21,
+          9
+        ]
+      },
+      "validation_f17": 0.9929512294864281,
+      "validation_objective": 0.992944751104574,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9760010072634686,
+      "test_f17": 0.9929198518540358,
+      "baseline_test_f17": 0.9763565045773831,
+      "delta_test_f17": 0.01656334727665265,
+      "trie_nodes": 10458,
+      "baseline_trie_nodes": 29614,
+      "trie_ratio": 0.3531437833457149
+    },
+    {
+      "dataset": "de/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 97,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          3
+        ],
+        "bad_weights": [
+          21,
+          1,
+          18,
+          1
+        ],
+        "thresholds": [
+          42,
+          41,
+          41,
+          32
+        ]
+      },
+      "validation_f17": 0.9902658825243131,
+      "validation_objective": 0.9902623051046145,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9760010072634686,
+      "test_f17": 0.9904097005006317,
+      "baseline_test_f17": 0.9763565045773831,
+      "delta_test_f17": 0.014053195923248607,
+      "trie_nodes": 5775,
+      "baseline_trie_nodes": 29614,
+      "trie_ratio": 0.1950091173093807
+    },
+    {
+      "dataset": "de/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 76,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          18,
+          25,
+          24,
+          30
+        ],
+        "thresholds": [
+          36,
+          41,
+          34,
+          27
+        ]
+      },
+      "validation_f17": 0.9852965997933063,
+      "validation_objective": 0.985293110337867,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9760010072634686,
+      "test_f17": 0.9857878139155756,
+      "baseline_test_f17": 0.9763565045773831,
+      "delta_test_f17": 0.009431309338192473,
+      "trie_nodes": 5633,
+      "baseline_trie_nodes": 29614,
+      "trie_ratio": 0.1902140879313838
+    },
+    {
+      "dataset": "de/wortliste",
+      "rule": "max_objective",
+      "observation": 84,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "bad_weights": [
+          20,
+          15,
+          23,
+          1
+        ],
+        "thresholds": [
+          41,
+          1,
+          39,
+          2
+        ]
+      },
+      "validation_f17": 0.9922246918082845,
+      "validation_objective": 0.9922115608545392,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9772454112284215,
+      "test_f17": 0.9924866405743862,
+      "baseline_test_f17": 0.9778114846740187,
+      "delta_test_f17": 0.014675155900367498,
+      "trie_nodes": 15353,
+      "baseline_trie_nodes": 44070,
+      "trie_ratio": 0.34837758112094397
+    },
+    {
+      "dataset": "de/wortliste",
+      "rule": "max_validation_f17",
+      "observation": 84,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "bad_weights": [
+          20,
+          15,
+          23,
+          1
+        ],
+        "thresholds": [
+          41,
+          1,
+          39,
+          2
+        ]
+      },
+      "validation_f17": 0.9922246918082845,
+      "validation_objective": 0.9922115608545392,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9772454112284215,
+      "test_f17": 0.9924866405743862,
+      "baseline_test_f17": 0.9778114846740187,
+      "delta_test_f17": 0.014675155900367498,
+      "trie_nodes": 15353,
+      "baseline_trie_nodes": 44070,
+      "trie_ratio": 0.34837758112094397
+    },
+    {
+      "dataset": "de/wortliste",
+      "rule": "min_trie_above_baseline",
+      "observation": 66,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          24,
+          5,
+          27,
+          25
+        ],
+        "thresholds": [
+          41,
+          38,
+          42,
+          42
+        ]
+      },
+      "validation_f17": 0.980052344866939,
+      "validation_objective": 0.9800476417395603,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9772454112284215,
+      "test_f17": 0.9809191737027325,
+      "baseline_test_f17": 0.9778114846740187,
+      "delta_test_f17": 0.0031076890287138337,
+      "trie_nodes": 5499,
+      "baseline_trie_nodes": 44070,
+      "trie_ratio": 0.12477876106194691
+    },
+    {
+      "dataset": "de/wortliste",
+      "rule": "vc_0.002",
+      "observation": 146,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          8,
+          1,
+          27,
+          18
+        ],
+        "thresholds": [
+          42,
+          4,
+          40,
+          40
+        ]
+      },
+      "validation_f17": 0.9907727185015904,
+      "validation_objective": 0.990763814290072,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9772454112284215,
+      "test_f17": 0.9912258243829986,
+      "baseline_test_f17": 0.9778114846740187,
+      "delta_test_f17": 0.013414339708979872,
+      "trie_nodes": 10411,
+      "baseline_trie_nodes": 44070,
+      "trie_ratio": 0.23623780349444065
+    },
+    {
+      "dataset": "de/wortliste",
+      "rule": "vc_0.005",
+      "observation": 42,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          4
+        ],
+        "bad_weights": [
+          18,
+          1,
+          26,
+          1
+        ],
+        "thresholds": [
+          32,
+          40,
+          33,
+          42
+        ]
+      },
+      "validation_f17": 0.9876847493906918,
+      "validation_objective": 0.9876789232943646,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9772454112284215,
+      "test_f17": 0.9883716229278402,
+      "baseline_test_f17": 0.9778114846740187,
+      "delta_test_f17": 0.010560138253821516,
+      "trie_nodes": 6812,
+      "baseline_trie_nodes": 44070,
+      "trie_ratio": 0.15457227138643068
+    },
+    {
+      "dataset": "de/wortliste",
+      "rule": "vc_0.010",
+      "observation": 52,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "bad_weights": [
+          10,
+          28,
+          1,
+          1
+        ],
+        "thresholds": [
+          37,
+          15,
+          42,
+          24
+        ]
+      },
+      "validation_f17": 0.9861900335479725,
+      "validation_objective": 0.9861844452165863,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9772454112284215,
+      "test_f17": 0.9865785365712123,
+      "baseline_test_f17": 0.9778114846740187,
+      "delta_test_f17": 0.008767051897193623,
+      "trie_nodes": 6534,
+      "baseline_trie_nodes": 44070,
+      "trie_ratio": 0.14826412525527569
+    },
+    {
+      "dataset": "el/wiktionary",
+      "rule": "max_objective",
+      "observation": 152,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          4,
+          1,
+          5
+        ],
+        "bad_weights": [
+          1,
+          1,
+          19,
+          1
+        ],
+        "thresholds": [
+          40,
+          36,
+          6,
+          7
+        ]
+      },
+      "validation_f17": 0.9738422380938332,
+      "validation_objective": 0.9738257573095752,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9128608424192278,
+      "test_f17": 0.9737748908995018,
+      "baseline_test_f17": 0.9025168397487106,
+      "delta_test_f17": 0.0712580511507912,
+      "trie_nodes": 928,
+      "baseline_trie_nodes": 2722,
+      "trie_ratio": 0.3409257898603968
+    },
+    {
+      "dataset": "el/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 152,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          4,
+          1,
+          5
+        ],
+        "bad_weights": [
+          1,
+          1,
+          19,
+          1
+        ],
+        "thresholds": [
+          40,
+          36,
+          6,
+          7
+        ]
+      },
+      "validation_f17": 0.9738422380938332,
+      "validation_objective": 0.9738257573095752,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9128608424192278,
+      "test_f17": 0.9737748908995018,
+      "baseline_test_f17": 0.9025168397487106,
+      "delta_test_f17": 0.0712580511507912,
+      "trie_nodes": 928,
+      "baseline_trie_nodes": 2722,
+      "trie_ratio": 0.3409257898603968
+    },
+    {
+      "dataset": "el/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 69,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "bad_weights": [
+          1,
+          1,
+          14,
+          23
+        ],
+        "thresholds": [
+          20,
+          40,
+          40,
+          9
+        ]
+      },
+      "validation_f17": 0.936941569711384,
+      "validation_objective": 0.9369328675731443,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9128608424192278,
+      "test_f17": 0.9339183967515882,
+      "baseline_test_f17": 0.9025168397487106,
+      "delta_test_f17": 0.03140155700287761,
+      "trie_nodes": 490,
+      "baseline_trie_nodes": 2722,
+      "trie_ratio": 0.18001469507714915
+    },
+    {
+      "dataset": "el/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 152,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          4,
+          1,
+          5
+        ],
+        "bad_weights": [
+          1,
+          1,
+          19,
+          1
+        ],
+        "thresholds": [
+          40,
+          36,
+          6,
+          7
+        ]
+      },
+      "validation_f17": 0.9738422380938332,
+      "validation_objective": 0.9738257573095752,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9128608424192278,
+      "test_f17": 0.9737748908995018,
+      "baseline_test_f17": 0.9025168397487106,
+      "delta_test_f17": 0.0712580511507912,
+      "trie_nodes": 928,
+      "baseline_trie_nodes": 2722,
+      "trie_ratio": 0.3409257898603968
+    },
+    {
+      "dataset": "el/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 112,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          4,
+          1,
+          1
+        ],
+        "bad_weights": [
+          1,
+          1,
+          18,
+          30
+        ],
+        "thresholds": [
+          40,
+          38,
+          11,
+          20
+        ]
+      },
+      "validation_f17": 0.9695309439611919,
+      "validation_objective": 0.969519737738275,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9128608424192278,
+      "test_f17": 0.9690468826551419,
+      "baseline_test_f17": 0.9025168397487106,
+      "delta_test_f17": 0.06653004290643139,
+      "trie_nodes": 631,
+      "baseline_trie_nodes": 2722,
+      "trie_ratio": 0.23181484202792066
+    },
+    {
+      "dataset": "el/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 138,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "bad_weights": [
+          1,
+          1,
+          23,
+          30
+        ],
+        "thresholds": [
+          41,
+          20,
+          7,
+          15
+        ]
+      },
+      "validation_f17": 0.966983427274377,
+      "validation_objective": 0.9669726827975709,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9128608424192278,
+      "test_f17": 0.9652845182802426,
+      "baseline_test_f17": 0.9025168397487106,
+      "delta_test_f17": 0.06276767853153209,
+      "trie_nodes": 605,
+      "baseline_trie_nodes": 2722,
+      "trie_ratio": 0.22226304188096987
+    },
+    {
+      "dataset": "es/wiktionary",
+      "rule": "max_objective",
+      "observation": 45,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          4,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          1,
+          24,
+          30
+        ],
+        "thresholds": [
+          40,
+          20,
+          40,
+          1
+        ]
+      },
+      "validation_f17": 0.9852545193105787,
+      "validation_objective": 0.9852537736349464,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.968214286233366,
+      "test_f17": 0.9854029277390675,
+      "baseline_test_f17": 0.9686116190539599,
+      "delta_test_f17": 0.016791308685107587,
+      "trie_nodes": 1218,
+      "baseline_trie_nodes": 1851,
+      "trie_ratio": 0.6580226904376013
+    },
+    {
+      "dataset": "es/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 45,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          4,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          1,
+          24,
+          30
+        ],
+        "thresholds": [
+          40,
+          20,
+          40,
+          1
+        ]
+      },
+      "validation_f17": 0.9852545193105787,
+      "validation_objective": 0.9852537736349464,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.968214286233366,
+      "test_f17": 0.9854029277390675,
+      "baseline_test_f17": 0.9686116190539599,
+      "delta_test_f17": 0.016791308685107587,
+      "trie_nodes": 1218,
+      "baseline_trie_nodes": 1851,
+      "trie_ratio": 0.6580226904376013
+    },
+    {
+      "dataset": "es/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 122,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          5,
+          24,
+          29,
+          23
+        ],
+        "thresholds": [
+          42,
+          18,
+          34,
+          41
+        ]
+      },
+      "validation_f17": 0.9690698193738124,
+      "validation_objective": 0.9690694520459148,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.968214286233366,
+      "test_f17": 0.969549498676565,
+      "baseline_test_f17": 0.9686116190539599,
+      "delta_test_f17": 0.0009378796226051644,
+      "trie_nodes": 600,
+      "baseline_trie_nodes": 1851,
+      "trie_ratio": 0.3241491085899514
+    },
+    {
+      "dataset": "es/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 27,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          20,
+          27,
+          5,
+          30
+        ],
+        "thresholds": [
+          41,
+          41,
+          42,
+          21
+        ]
+      },
+      "validation_f17": 0.9837778535072815,
+      "validation_objective": 0.9837774659763494,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.968214286233366,
+      "test_f17": 0.9838742575124672,
+      "baseline_test_f17": 0.9686116190539599,
+      "delta_test_f17": 0.015262638458507283,
+      "trie_nodes": 633,
+      "baseline_trie_nodes": 1851,
+      "trie_ratio": 0.3419773095623987
+    },
+    {
+      "dataset": "es/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 132,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          9,
+          3,
+          26,
+          18
+        ],
+        "thresholds": [
+          37,
+          41,
+          42,
+          36
+        ]
+      },
+      "validation_f17": 0.9830198143617013,
+      "validation_objective": 0.9830194439727378,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.968214286233366,
+      "test_f17": 0.9831357285734796,
+      "baseline_test_f17": 0.9686116190539599,
+      "delta_test_f17": 0.014524109519519768,
+      "trie_nodes": 605,
+      "baseline_trie_nodes": 1851,
+      "trie_ratio": 0.3268503511615343
+    },
+    {
+      "dataset": "es/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 132,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          9,
+          3,
+          26,
+          18
+        ],
+        "thresholds": [
+          37,
+          41,
+          42,
+          36
+        ]
+      },
+      "validation_f17": 0.9830198143617013,
+      "validation_objective": 0.9830194439727378,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.968214286233366,
+      "test_f17": 0.9831357285734796,
+      "baseline_test_f17": 0.9686116190539599,
+      "delta_test_f17": 0.014524109519519768,
+      "trie_nodes": 605,
+      "baseline_trie_nodes": 1851,
+      "trie_ratio": 0.3268503511615343
+    },
+    {
+      "dataset": "is/hyphenation-is",
+      "rule": "max_objective",
+      "observation": 124,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          3,
+          1,
+          1
+        ],
+        "bad_weights": [
+          26,
+          1,
+          21,
+          15
+        ],
+        "thresholds": [
+          42,
+          26,
+          40,
+          1
+        ]
+      },
+      "validation_f17": 0.9795523902086043,
+      "validation_objective": 0.9795420905402459,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9202556227042216,
+      "test_f17": 0.9801919729836631,
+      "baseline_test_f17": 0.9189980217399875,
+      "delta_test_f17": 0.06119395124367566,
+      "trie_nodes": 4497,
+      "baseline_trie_nodes": 27816,
+      "trie_ratio": 0.1616695427092321
+    },
+    {
+      "dataset": "is/hyphenation-is",
+      "rule": "max_validation_f17",
+      "observation": 124,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          3,
+          1,
+          1
+        ],
+        "bad_weights": [
+          26,
+          1,
+          21,
+          15
+        ],
+        "thresholds": [
+          42,
+          26,
+          40,
+          1
+        ]
+      },
+      "validation_f17": 0.9795523902086043,
+      "validation_objective": 0.9795420905402459,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9202556227042216,
+      "test_f17": 0.9801919729836631,
+      "baseline_test_f17": 0.9189980217399875,
+      "delta_test_f17": 0.06119395124367566,
+      "trie_nodes": 4497,
+      "baseline_trie_nodes": 27816,
+      "trie_ratio": 0.1616695427092321
+    },
+    {
+      "dataset": "is/hyphenation-is",
+      "rule": "min_trie_above_baseline",
+      "observation": 38,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "bad_weights": [
+          11,
+          2,
+          23,
+          1
+        ],
+        "thresholds": [
+          41,
+          19,
+          41,
+          7
+        ]
+      },
+      "validation_f17": 0.9711859520866815,
+      "validation_objective": 0.9711801460694948,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9202556227042216,
+      "test_f17": 0.9721038731151106,
+      "baseline_test_f17": 0.9189980217399875,
+      "delta_test_f17": 0.053105851375123136,
+      "trie_nodes": 2535,
+      "baseline_trie_nodes": 27816,
+      "trie_ratio": 0.09113459879206212
+    },
+    {
+      "dataset": "is/hyphenation-is",
+      "rule": "vc_0.002",
+      "observation": 108,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          30,
+          24,
+          22
+        ],
+        "thresholds": [
+          41,
+          2,
+          42,
+          7
+        ]
+      },
+      "validation_f17": 0.9779556442028968,
+      "validation_objective": 0.9779485166583267,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9202556227042216,
+      "test_f17": 0.9789827619744533,
+      "baseline_test_f17": 0.9189980217399875,
+      "delta_test_f17": 0.05998474023446587,
+      "trie_nodes": 3112,
+      "baseline_trie_nodes": 27816,
+      "trie_ratio": 0.11187805579522576
+    },
+    {
+      "dataset": "is/hyphenation-is",
+      "rule": "vc_0.005",
+      "observation": 153,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          3,
+          1,
+          1
+        ],
+        "bad_weights": [
+          23,
+          1,
+          27,
+          23
+        ],
+        "thresholds": [
+          40,
+          21,
+          38,
+          4
+        ]
+      },
+      "validation_f17": 0.9759570098922,
+      "validation_objective": 0.9759506312894919,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9202556227042216,
+      "test_f17": 0.977303950600503,
+      "baseline_test_f17": 0.9189980217399875,
+      "delta_test_f17": 0.058305928860515555,
+      "trie_nodes": 2785,
+      "baseline_trie_nodes": 27816,
+      "trie_ratio": 0.10012223180903078
+    },
+    {
+      "dataset": "is/hyphenation-is",
+      "rule": "vc_0.010",
+      "observation": 38,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "bad_weights": [
+          11,
+          2,
+          23,
+          1
+        ],
+        "thresholds": [
+          41,
+          19,
+          41,
+          7
+        ]
+      },
+      "validation_f17": 0.9711859520866815,
+      "validation_objective": 0.9711801460694948,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9202556227042216,
+      "test_f17": 0.9721038731151106,
+      "baseline_test_f17": 0.9189980217399875,
+      "delta_test_f17": 0.053105851375123136,
+      "trie_nodes": 2535,
+      "baseline_trie_nodes": 27816,
+      "trie_ratio": 0.09113459879206212
+    },
+    {
+      "dataset": "it/wiktionary",
+      "rule": "max_objective",
+      "observation": 75,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          27,
+          13,
+          22,
+          25
+        ],
+        "thresholds": [
+          14,
+          1,
+          27,
+          2
+        ]
+      },
+      "validation_f17": 0.9981995716516442,
+      "validation_objective": 0.9981942171416982,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9950297542333942,
+      "test_f17": 0.9978947606172482,
+      "baseline_test_f17": 0.9946886234489157,
+      "delta_test_f17": 0.0032061371683325124,
+      "trie_nodes": 828,
+      "baseline_trie_nodes": 1927,
+      "trie_ratio": 0.4296834457706279
+    },
+    {
+      "dataset": "it/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 75,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          27,
+          13,
+          22,
+          25
+        ],
+        "thresholds": [
+          14,
+          1,
+          27,
+          2
+        ]
+      },
+      "validation_f17": 0.9981995716516442,
+      "validation_objective": 0.9981942171416982,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9950297542333942,
+      "test_f17": 0.9978947606172482,
+      "baseline_test_f17": 0.9946886234489157,
+      "delta_test_f17": 0.0032061371683325124,
+      "trie_nodes": 828,
+      "baseline_trie_nodes": 1927,
+      "trie_ratio": 0.4296834457706279
+    },
+    {
+      "dataset": "it/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 16,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          1,
+          1,
+          22,
+          6
+        ],
+        "thresholds": [
+          15,
+          32,
+          42,
+          24
+        ]
+      },
+      "validation_f17": 0.9950873336586338,
+      "validation_objective": 0.9950837057841414,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9950297542333942,
+      "test_f17": 0.9943500164791187,
+      "baseline_test_f17": 0.9946886234489157,
+      "delta_test_f17": -0.0003386069697970395,
+      "trie_nodes": 561,
+      "baseline_trie_nodes": 1927,
+      "trie_ratio": 0.2911261027503892
+    },
+    {
+      "dataset": "it/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 26,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          7,
+          6,
+          20,
+          11
+        ],
+        "thresholds": [
+          23,
+          5,
+          40,
+          42
+        ]
+      },
+      "validation_f17": 0.9967772336060919,
+      "validation_objective": 0.9967735216632068,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9950297542333942,
+      "test_f17": 0.9957768017163318,
+      "baseline_test_f17": 0.9946886234489157,
+      "delta_test_f17": 0.001088178267416029,
+      "trie_nodes": 574,
+      "baseline_trie_nodes": 1927,
+      "trie_ratio": 0.2978723404255319
+    },
+    {
+      "dataset": "it/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 16,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          1,
+          1,
+          22,
+          6
+        ],
+        "thresholds": [
+          15,
+          32,
+          42,
+          24
+        ]
+      },
+      "validation_f17": 0.9950873336586338,
+      "validation_objective": 0.9950837057841414,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9950297542333942,
+      "test_f17": 0.9943500164791187,
+      "baseline_test_f17": 0.9946886234489157,
+      "delta_test_f17": -0.0003386069697970395,
+      "trie_nodes": 561,
+      "baseline_trie_nodes": 1927,
+      "trie_ratio": 0.2911261027503892
+    },
+    {
+      "dataset": "it/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 16,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          1,
+          1,
+          22,
+          6
+        ],
+        "thresholds": [
+          15,
+          32,
+          42,
+          24
+        ]
+      },
+      "validation_f17": 0.9950873336586338,
+      "validation_objective": 0.9950837057841414,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9950297542333942,
+      "test_f17": 0.9943500164791187,
+      "baseline_test_f17": 0.9946886234489157,
+      "delta_test_f17": -0.0003386069697970395,
+      "trie_nodes": 561,
+      "baseline_trie_nodes": 1927,
+      "trie_ratio": 0.2911261027503892
+    },
+    {
+      "dataset": "nl/wiktionary",
+      "rule": "max_objective",
+      "observation": 31,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          23,
+          1,
+          30,
+          28
+        ],
+        "thresholds": [
+          7,
+          1,
+          36,
+          11
+        ]
+      },
+      "validation_f17": 0.9921158019350051,
+      "validation_objective": 0.9921047487605297,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9807939441249409,
+      "test_f17": 0.9918699325892351,
+      "baseline_test_f17": 0.9807521007767116,
+      "delta_test_f17": 0.01111783181252346,
+      "trie_nodes": 11680,
+      "baseline_trie_nodes": 27916,
+      "trie_ratio": 0.4183980512967474
+    },
+    {
+      "dataset": "nl/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 31,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          23,
+          1,
+          30,
+          28
+        ],
+        "thresholds": [
+          7,
+          1,
+          36,
+          11
+        ]
+      },
+      "validation_f17": 0.9921158019350051,
+      "validation_objective": 0.9921047487605297,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9807939441249409,
+      "test_f17": 0.9918699325892351,
+      "baseline_test_f17": 0.9807521007767116,
+      "delta_test_f17": 0.01111783181252346,
+      "trie_nodes": 11680,
+      "baseline_trie_nodes": 27916,
+      "trie_ratio": 0.4183980512967474
+    },
+    {
+      "dataset": "nl/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 144,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          4
+        ],
+        "bad_weights": [
+          12,
+          1,
+          16,
+          1
+        ],
+        "thresholds": [
+          42,
+          35,
+          35,
+          41
+        ]
+      },
+      "validation_f17": 0.9862318001141368,
+      "validation_objective": 0.9862272738013358,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9807939441249409,
+      "test_f17": 0.9860235882877092,
+      "baseline_test_f17": 0.9807521007767116,
+      "delta_test_f17": 0.005271487510997597,
+      "trie_nodes": 4783,
+      "baseline_trie_nodes": 27916,
+      "trie_ratio": 0.17133543487605674
+    },
+    {
+      "dataset": "nl/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 128,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "bad_weights": [
+          19,
+          26,
+          23,
+          1
+        ],
+        "thresholds": [
+          40,
+          42,
+          32,
+          5
+        ]
+      },
+      "validation_f17": 0.9919996651794574,
+      "validation_objective": 0.9919920888340078,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9807939441249409,
+      "test_f17": 0.9918071838163756,
+      "baseline_test_f17": 0.9807521007767116,
+      "delta_test_f17": 0.01105508303966396,
+      "trie_nodes": 8006,
+      "baseline_trie_nodes": 27916,
+      "trie_ratio": 0.2867889382433013
+    },
+    {
+      "dataset": "nl/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 93,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          25,
+          29,
+          29
+        ],
+        "thresholds": [
+          36,
+          3,
+          40,
+          16
+        ]
+      },
+      "validation_f17": 0.989219636350383,
+      "validation_objective": 0.9892131946587174,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9807939441249409,
+      "test_f17": 0.9892347409428633,
+      "baseline_test_f17": 0.9807521007767116,
+      "delta_test_f17": 0.008482640166151745,
+      "trie_nodes": 6807,
+      "baseline_trie_nodes": 27916,
+      "trie_ratio": 0.24383865883364378
+    },
+    {
+      "dataset": "nl/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 144,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          4
+        ],
+        "bad_weights": [
+          12,
+          1,
+          16,
+          1
+        ],
+        "thresholds": [
+          42,
+          35,
+          35,
+          41
+        ]
+      },
+      "validation_f17": 0.9862318001141368,
+      "validation_objective": 0.9862272738013358,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9807939441249409,
+      "test_f17": 0.9860235882877092,
+      "baseline_test_f17": 0.9807521007767116,
+      "delta_test_f17": 0.005271487510997597,
+      "trie_nodes": 4783,
+      "baseline_trie_nodes": 27916,
+      "trie_ratio": 0.17133543487605674
+    },
+    {
+      "dataset": "pl/wiktionary",
+      "rule": "max_objective",
+      "observation": 22,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          29,
+          1,
+          28,
+          29
+        ],
+        "thresholds": [
+          24,
+          1,
+          35,
+          30
+        ]
+      },
+      "validation_f17": 0.9918807947786906,
+      "validation_objective": 0.9918724523366047,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9442927089126225,
+      "test_f17": 0.9913391894880138,
+      "baseline_test_f17": 0.9432741593099482,
+      "delta_test_f17": 0.048065030178065626,
+      "trie_nodes": 2366,
+      "baseline_trie_nodes": 7187,
+      "trie_ratio": 0.32920550994851816
+    },
+    {
+      "dataset": "pl/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 22,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          29,
+          1,
+          28,
+          29
+        ],
+        "thresholds": [
+          24,
+          1,
+          35,
+          30
+        ]
+      },
+      "validation_f17": 0.9918807947786906,
+      "validation_objective": 0.9918724523366047,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9442927089126225,
+      "test_f17": 0.9913391894880138,
+      "baseline_test_f17": 0.9432741593099482,
+      "delta_test_f17": 0.048065030178065626,
+      "trie_nodes": 2366,
+      "baseline_trie_nodes": 7187,
+      "trie_ratio": 0.32920550994851816
+    },
+    {
+      "dataset": "pl/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 114,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          12,
+          1,
+          4,
+          1
+        ],
+        "thresholds": [
+          42,
+          31,
+          42,
+          19
+        ]
+      },
+      "validation_f17": 0.9730361652716463,
+      "validation_objective": 0.9730320152064158,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9442927089126225,
+      "test_f17": 0.9740470981819606,
+      "baseline_test_f17": 0.9432741593099482,
+      "delta_test_f17": 0.03077293887201238,
+      "trie_nodes": 1177,
+      "baseline_trie_nodes": 7187,
+      "trie_ratio": 0.16376791428968973
+    },
+    {
+      "dataset": "pl/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 148,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "bad_weights": [
+          30,
+          29,
+          27,
+          1
+        ],
+        "thresholds": [
+          41,
+          34,
+          39,
+          36
+        ]
+      },
+      "validation_f17": 0.9902993065185172,
+      "validation_objective": 0.9902940246173149,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9442927089126225,
+      "test_f17": 0.9901335947567494,
+      "baseline_test_f17": 0.9432741593099482,
+      "delta_test_f17": 0.04685943544680127,
+      "trie_nodes": 1498,
+      "baseline_trie_nodes": 7187,
+      "trie_ratio": 0.20843189091415054
+    },
+    {
+      "dataset": "pl/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 83,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "bad_weights": [
+          27,
+          1,
+          9,
+          1
+        ],
+        "thresholds": [
+          41,
+          41,
+          42,
+          38
+        ]
+      },
+      "validation_f17": 0.9896017377015838,
+      "validation_objective": 0.989596681462382,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9442927089126225,
+      "test_f17": 0.9891187248144515,
+      "baseline_test_f17": 0.9432741593099482,
+      "delta_test_f17": 0.04584456550450333,
+      "trie_nodes": 1434,
+      "baseline_trie_nodes": 7187,
+      "trie_ratio": 0.19952692361207736
+    },
+    {
+      "dataset": "pl/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 108,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          18,
+          1,
+          11,
+          30
+        ],
+        "thresholds": [
+          42,
+          37,
+          38,
+          15
+        ]
+      },
+      "validation_f17": 0.9864656523823303,
+      "validation_objective": 0.9864607900714104,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9442927089126225,
+      "test_f17": 0.9865512570791052,
+      "baseline_test_f17": 0.9432741593099482,
+      "delta_test_f17": 0.043277097769157,
+      "trie_nodes": 1379,
+      "baseline_trie_nodes": 7187,
+      "trie_ratio": 0.19187421733685822
+    },
+    {
+      "dataset": "pt/wiktionary",
+      "rule": "max_objective",
+      "observation": 60,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          1,
+          22,
+          22
+        ],
+        "thresholds": [
+          23,
+          2,
+          6,
+          10
+        ]
+      },
+      "validation_f17": 0.9927737942644392,
+      "validation_objective": 0.9927629475184631,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9727089576243927,
+      "test_f17": 0.9932405678063206,
+      "baseline_test_f17": 0.9745562712865841,
+      "delta_test_f17": 0.018684296519736576,
+      "trie_nodes": 961,
+      "baseline_trie_nodes": 1405,
+      "trie_ratio": 0.6839857651245551
+    },
+    {
+      "dataset": "pt/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 60,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          1,
+          22,
+          22
+        ],
+        "thresholds": [
+          23,
+          2,
+          6,
+          10
+        ]
+      },
+      "validation_f17": 0.9927737942644392,
+      "validation_objective": 0.9927629475184631,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9727089576243927,
+      "test_f17": 0.9932405678063206,
+      "baseline_test_f17": 0.9745562712865841,
+      "delta_test_f17": 0.018684296519736576,
+      "trie_nodes": 961,
+      "baseline_trie_nodes": 1405,
+      "trie_ratio": 0.6839857651245551
+    },
+    {
+      "dataset": "pt/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 131,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          13,
+          2,
+          10,
+          12
+        ],
+        "thresholds": [
+          42,
+          11,
+          42,
+          35
+        ]
+      },
+      "validation_f17": 0.9878009284249163,
+      "validation_objective": 0.987796063755285,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9727089576243927,
+      "test_f17": 0.9888751545117429,
+      "baseline_test_f17": 0.9745562712865841,
+      "delta_test_f17": 0.01431888322515884,
+      "trie_nodes": 431,
+      "baseline_trie_nodes": 1405,
+      "trie_ratio": 0.30676156583629893
+    },
+    {
+      "dataset": "pt/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 147,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          21,
+          3,
+          13,
+          10
+        ],
+        "thresholds": [
+          39,
+          3,
+          42,
+          36
+        ]
+      },
+      "validation_f17": 0.9910943852812698,
+      "validation_objective": 0.9910889788386864,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9727089576243927,
+      "test_f17": 0.9912862952332796,
+      "baseline_test_f17": 0.9745562712865841,
+      "delta_test_f17": 0.016730023946695538,
+      "trie_nodes": 479,
+      "baseline_trie_nodes": 1405,
+      "trie_ratio": 0.3409252669039146
+    },
+    {
+      "dataset": "pt/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 131,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          13,
+          2,
+          10,
+          12
+        ],
+        "thresholds": [
+          42,
+          11,
+          42,
+          35
+        ]
+      },
+      "validation_f17": 0.9878009284249163,
+      "validation_objective": 0.987796063755285,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9727089576243927,
+      "test_f17": 0.9888751545117429,
+      "baseline_test_f17": 0.9745562712865841,
+      "delta_test_f17": 0.01431888322515884,
+      "trie_nodes": 431,
+      "baseline_trie_nodes": 1405,
+      "trie_ratio": 0.30676156583629893
+    },
+    {
+      "dataset": "pt/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 131,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          13,
+          2,
+          10,
+          12
+        ],
+        "thresholds": [
+          42,
+          11,
+          42,
+          35
+        ]
+      },
+      "validation_f17": 0.9878009284249163,
+      "validation_objective": 0.987796063755285,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9727089576243927,
+      "test_f17": 0.9888751545117429,
+      "baseline_test_f17": 0.9745562712865841,
+      "delta_test_f17": 0.01431888322515884,
+      "trie_nodes": 431,
+      "baseline_trie_nodes": 1405,
+      "trie_ratio": 0.30676156583629893
+    },
+    {
+      "dataset": "ru/wiktionary",
+      "rule": "max_objective",
+      "observation": 56,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          4
+        ],
+        "bad_weights": [
+          30,
+          5,
+          13,
+          1
+        ],
+        "thresholds": [
+          42,
+          26,
+          33,
+          1
+        ]
+      },
+      "validation_f17": 0.9580003580178265,
+      "validation_objective": 0.9579665759627597,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.8943420860800776,
+      "test_f17": 0.9557802827177697,
+      "baseline_test_f17": 0.8905373520744011,
+      "delta_test_f17": 0.06524293064336861,
+      "trie_nodes": 10299,
+      "baseline_trie_nodes": 46978,
+      "trie_ratio": 0.21923027800246925
+    },
+    {
+      "dataset": "ru/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 56,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          4
+        ],
+        "bad_weights": [
+          30,
+          5,
+          13,
+          1
+        ],
+        "thresholds": [
+          42,
+          26,
+          33,
+          1
+        ]
+      },
+      "validation_f17": 0.9580003580178265,
+      "validation_objective": 0.9579665759627597,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.8943420860800776,
+      "test_f17": 0.9557802827177697,
+      "baseline_test_f17": 0.8905373520744011,
+      "delta_test_f17": 0.06524293064336861,
+      "trie_nodes": 10299,
+      "baseline_trie_nodes": 46978,
+      "trie_ratio": 0.21923027800246925
+    },
+    {
+      "dataset": "ru/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 102,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          4,
+          1,
+          1
+        ],
+        "bad_weights": [
+          3,
+          1,
+          13,
+          19
+        ],
+        "thresholds": [
+          37,
+          42,
+          30,
+          21
+        ]
+      },
+      "validation_f17": 0.9122607345535,
+      "validation_objective": 0.9122563883817393,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.8943420860800776,
+      "test_f17": 0.9098280128306288,
+      "baseline_test_f17": 0.8905373520744011,
+      "delta_test_f17": 0.01929066075622765,
+      "trie_nodes": 1325,
+      "baseline_trie_nodes": 46978,
+      "trie_ratio": 0.028204691557750437
+    },
+    {
+      "dataset": "ru/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 72,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          4,
+          1,
+          1
+        ],
+        "bad_weights": [
+          17,
+          1,
+          28,
+          29
+        ],
+        "thresholds": [
+          42,
+          2,
+          21,
+          30
+        ]
+      },
+      "validation_f17": 0.9567846042491591,
+      "validation_objective": 0.9567594030132063,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.8943420860800776,
+      "test_f17": 0.953483800729824,
+      "baseline_test_f17": 0.8905373520744011,
+      "delta_test_f17": 0.06294644865542287,
+      "trie_nodes": 7683,
+      "baseline_trie_nodes": 46978,
+      "trie_ratio": 0.16354463791562007
+    },
+    {
+      "dataset": "ru/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 99,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          4
+        ],
+        "bad_weights": [
+          18,
+          1,
+          17,
+          1
+        ],
+        "thresholds": [
+          41,
+          42,
+          36,
+          6
+        ]
+      },
+      "validation_f17": 0.9536032452852883,
+      "validation_objective": 0.9535924536588032,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.8943420860800776,
+      "test_f17": 0.9492831126915006,
+      "baseline_test_f17": 0.8905373520744011,
+      "delta_test_f17": 0.05874576061709946,
+      "trie_nodes": 3290,
+      "baseline_trie_nodes": 46978,
+      "trie_ratio": 0.07003278130188599
+    },
+    {
+      "dataset": "ru/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 126,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          21,
+          26,
+          27,
+          16
+        ],
+        "thresholds": [
+          34,
+          41,
+          42,
+          21
+        ]
+      },
+      "validation_f17": 0.9493870331591682,
+      "validation_objective": 0.949380328574203,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.8943420860800776,
+      "test_f17": 0.9445474835431599,
+      "baseline_test_f17": 0.8905373520744011,
+      "delta_test_f17": 0.05401013146875877,
+      "trie_nodes": 2044,
+      "baseline_trie_nodes": 46978,
+      "trie_ratio": 0.04350972795776747
+    },
+    {
+      "dataset": "th/orchid",
+      "rule": "max_objective",
+      "observation": 26,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          25,
+          1,
+          30,
+          15
+        ],
+        "thresholds": [
+          17,
+          1,
+          14,
+          25
+        ]
+      },
+      "validation_f17": 0.9809421080982608,
+      "validation_objective": 0.9808697053417081,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9575650029265854,
+      "test_f17": 0.9825119564266115,
+      "baseline_test_f17": 0.9609447472521935,
+      "delta_test_f17": 0.02156720917441801,
+      "trie_nodes": 5022,
+      "baseline_trie_nodes": 26810,
+      "trie_ratio": 0.18731816486385677
+    },
+    {
+      "dataset": "th/orchid",
+      "rule": "max_validation_f17",
+      "observation": 26,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          5,
+          1,
+          1
+        ],
+        "bad_weights": [
+          25,
+          1,
+          30,
+          15
+        ],
+        "thresholds": [
+          17,
+          1,
+          14,
+          25
+        ]
+      },
+      "validation_f17": 0.9809421080982608,
+      "validation_objective": 0.9808697053417081,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9575650029265854,
+      "test_f17": 0.9825119564266115,
+      "baseline_test_f17": 0.9609447472521935,
+      "delta_test_f17": 0.02156720917441801,
+      "trie_nodes": 5022,
+      "baseline_trie_nodes": 26810,
+      "trie_ratio": 0.18731816486385677
+    },
+    {
+      "dataset": "th/orchid",
+      "rule": "min_trie_above_baseline",
+      "observation": 122,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          14,
+          1,
+          13,
+          3
+        ],
+        "thresholds": [
+          42,
+          14,
+          42,
+          42
+        ]
+      },
+      "validation_f17": 0.9700456895532756,
+      "validation_objective": 0.9700227951730674,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9575650029265854,
+      "test_f17": 0.9708807562589646,
+      "baseline_test_f17": 0.9609447472521935,
+      "delta_test_f17": 0.009936009006771163,
+      "trie_nodes": 1588,
+      "baseline_trie_nodes": 26810,
+      "trie_ratio": 0.059231629988810146
+    },
+    {
+      "dataset": "th/orchid",
+      "rule": "vc_0.002",
+      "observation": 81,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          29,
+          13,
+          30,
+          3
+        ],
+        "thresholds": [
+          27,
+          2,
+          15,
+          42
+        ]
+      },
+      "validation_f17": 0.9795070687516372,
+      "validation_objective": 0.9794488956885767,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9575650029265854,
+      "test_f17": 0.9798767069271342,
+      "baseline_test_f17": 0.9609447472521935,
+      "delta_test_f17": 0.018931959674940768,
+      "trie_nodes": 4035,
+      "baseline_trie_nodes": 26810,
+      "trie_ratio": 0.1505035434539351
+    },
+    {
+      "dataset": "th/orchid",
+      "rule": "vc_0.005",
+      "observation": 83,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          5
+        ],
+        "bad_weights": [
+          19,
+          2,
+          30,
+          1
+        ],
+        "thresholds": [
+          30,
+          39,
+          41,
+          13
+        ]
+      },
+      "validation_f17": 0.9773462972696382,
+      "validation_objective": 0.9773141182667259,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9575650029265854,
+      "test_f17": 0.9775766772056957,
+      "baseline_test_f17": 0.9609447472521935,
+      "delta_test_f17": 0.016631929953502267,
+      "trie_nodes": 2232,
+      "baseline_trie_nodes": 26810,
+      "trie_ratio": 0.08325251771726967
+    },
+    {
+      "dataset": "th/orchid",
+      "rule": "vc_0.010",
+      "observation": 66,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          28,
+          6,
+          30,
+          17
+        ],
+        "thresholds": [
+          42,
+          6,
+          40,
+          32
+        ]
+      },
+      "validation_f17": 0.9747564129355833,
+      "validation_objective": 0.9747315289933671,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9575650029265854,
+      "test_f17": 0.9746724082048434,
+      "baseline_test_f17": 0.9609447472521935,
+      "delta_test_f17": 0.013727660952649878,
+      "trie_nodes": 1726,
+      "baseline_trie_nodes": 26810,
+      "trie_ratio": 0.06437896307348004
+    },
+    {
+      "dataset": "tr/wiktionary",
+      "rule": "max_objective",
+      "observation": 30,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "bad_weights": [
+          20,
+          24,
+          29,
+          1
+        ],
+        "thresholds": [
+          6,
+          37,
+          6,
+          2
+        ]
+      },
+      "validation_f17": 0.9943242048132196,
+      "validation_objective": 0.9942928465985217,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9831623991255609,
+      "test_f17": 0.9925432692880372,
+      "baseline_test_f17": 0.9828073023239865,
+      "delta_test_f17": 0.009735966964050657,
+      "trie_nodes": 978,
+      "baseline_trie_nodes": 1238,
+      "trie_ratio": 0.789983844911147
+    },
+    {
+      "dataset": "tr/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 30,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "bad_weights": [
+          20,
+          24,
+          29,
+          1
+        ],
+        "thresholds": [
+          6,
+          37,
+          6,
+          2
+        ]
+      },
+      "validation_f17": 0.9943242048132196,
+      "validation_objective": 0.9942928465985217,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9831623991255609,
+      "test_f17": 0.9925432692880372,
+      "baseline_test_f17": 0.9828073023239865,
+      "delta_test_f17": 0.009735966964050657,
+      "trie_nodes": 978,
+      "baseline_trie_nodes": 1238,
+      "trie_ratio": 0.789983844911147
+    },
+    {
+      "dataset": "tr/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 101,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          9,
+          30,
+          18,
+          22
+        ],
+        "thresholds": [
+          42,
+          38,
+          40,
+          41
+        ]
+      },
+      "validation_f17": 0.9840525507636043,
+      "validation_objective": 0.9840388275367222,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9831623991255609,
+      "test_f17": 0.9817478741310375,
+      "baseline_test_f17": 0.9828073023239865,
+      "delta_test_f17": -0.001059428192949019,
+      "trie_nodes": 428,
+      "baseline_trie_nodes": 1238,
+      "trie_ratio": 0.345718901453958
+    },
+    {
+      "dataset": "tr/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 127,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          26,
+          28,
+          23,
+          26
+        ],
+        "thresholds": [
+          40,
+          1,
+          31,
+          29
+        ]
+      },
+      "validation_f17": 0.9927459504251807,
+      "validation_objective": 0.9927256541573853,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9831623991255609,
+      "test_f17": 0.991480373855922,
+      "baseline_test_f17": 0.9828073023239865,
+      "delta_test_f17": 0.008673071531935528,
+      "trie_nodes": 633,
+      "baseline_trie_nodes": 1238,
+      "trie_ratio": 0.5113085621970921
+    },
+    {
+      "dataset": "tr/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 106,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "bad_weights": [
+          9,
+          1,
+          29,
+          27
+        ],
+        "thresholds": [
+          42,
+          20,
+          25,
+          40
+        ]
+      },
+      "validation_f17": 0.9905159356164642,
+      "validation_objective": 0.990501122226699,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9831623991255609,
+      "test_f17": 0.9877596966829335,
+      "baseline_test_f17": 0.9828073023239865,
+      "delta_test_f17": 0.00495239435894701,
+      "trie_nodes": 462,
+      "baseline_trie_nodes": 1238,
+      "trie_ratio": 0.37318255250403876
+    },
+    {
+      "dataset": "tr/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 106,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          2,
+          1,
+          1
+        ],
+        "bad_weights": [
+          9,
+          1,
+          29,
+          27
+        ],
+        "thresholds": [
+          42,
+          20,
+          25,
+          40
+        ]
+      },
+      "validation_f17": 0.9905159356164642,
+      "validation_objective": 0.990501122226699,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9831623991255609,
+      "test_f17": 0.9877596966829335,
+      "baseline_test_f17": 0.9828073023239865,
+      "delta_test_f17": 0.00495239435894701,
+      "trie_nodes": 462,
+      "baseline_trie_nodes": 1238,
+      "trie_ratio": 0.37318255250403876
+    },
+    {
+      "dataset": "uk/wiktionary",
+      "rule": "max_objective",
+      "observation": 86,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          2,
+          25,
+          5
+        ],
+        "thresholds": [
+          31,
+          36,
+          11,
+          21
+        ]
+      },
+      "validation_f17": 0.9780166929459823,
+      "validation_objective": 0.9779871568106671,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9127607195471815,
+      "test_f17": 0.9778793277967526,
+      "baseline_test_f17": 0.9109911412984231,
+      "delta_test_f17": 0.0668881864983295,
+      "trie_nodes": 922,
+      "baseline_trie_nodes": 3875,
+      "trie_ratio": 0.23793548387096775
+    },
+    {
+      "dataset": "uk/wiktionary",
+      "rule": "max_validation_f17",
+      "observation": 86,
+      "changed_from_max_objective": false,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          30,
+          2,
+          25,
+          5
+        ],
+        "thresholds": [
+          31,
+          36,
+          11,
+          21
+        ]
+      },
+      "validation_f17": 0.9780166929459823,
+      "validation_objective": 0.9779871568106671,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9127607195471815,
+      "test_f17": 0.9778793277967526,
+      "baseline_test_f17": 0.9109911412984231,
+      "delta_test_f17": 0.0668881864983295,
+      "trie_nodes": 922,
+      "baseline_trie_nodes": 3875,
+      "trie_ratio": 0.23793548387096775
+    },
+    {
+      "dataset": "uk/wiktionary",
+      "rule": "min_trie_above_baseline",
+      "observation": 46,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          8,
+          3,
+          13,
+          29
+        ],
+        "thresholds": [
+          41,
+          40,
+          42,
+          38
+        ]
+      },
+      "validation_f17": 0.9554401954336184,
+      "validation_objective": 0.9554246905643206,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9127607195471815,
+      "test_f17": 0.954574251322706,
+      "baseline_test_f17": 0.9109911412984231,
+      "delta_test_f17": 0.043583110024282945,
+      "trie_nodes": 484,
+      "baseline_trie_nodes": 3875,
+      "trie_ratio": 0.1249032258064516
+    },
+    {
+      "dataset": "uk/wiktionary",
+      "rule": "vc_0.002",
+      "observation": 17,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          4
+        ],
+        "bad_weights": [
+          21,
+          11,
+          9,
+          1
+        ],
+        "thresholds": [
+          38,
+          9,
+          23,
+          13
+        ]
+      },
+      "validation_f17": 0.9762046291586747,
+      "validation_objective": 0.9761840627824574,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9127607195471815,
+      "test_f17": 0.9789670414429381,
+      "baseline_test_f17": 0.9109911412984231,
+      "delta_test_f17": 0.06797590014451504,
+      "trie_nodes": 642,
+      "baseline_trie_nodes": 3875,
+      "trie_ratio": 0.1656774193548387
+    },
+    {
+      "dataset": "uk/wiktionary",
+      "rule": "vc_0.005",
+      "observation": 149,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          3,
+          1,
+          5
+        ],
+        "bad_weights": [
+          16,
+          1,
+          13,
+          1
+        ],
+        "thresholds": [
+          39,
+          22,
+          40,
+          11
+        ]
+      },
+      "validation_f17": 0.9754627924882001,
+      "validation_objective": 0.9754450772139818,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9127607195471815,
+      "test_f17": 0.9775174201496274,
+      "baseline_test_f17": 0.9109911412984231,
+      "delta_test_f17": 0.06652627885120432,
+      "trie_nodes": 553,
+      "baseline_trie_nodes": 3875,
+      "trie_ratio": 0.14270967741935484
+    },
+    {
+      "dataset": "uk/wiktionary",
+      "rule": "vc_0.010",
+      "observation": 31,
+      "changed_from_max_objective": true,
+      "fallback_to_unconstrained_minimum_trie": false,
+      "profile": {
+        "good_weights": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "bad_weights": [
+          18,
+          29,
+          30,
+          8
+        ],
+        "thresholds": [
+          40,
+          21,
+          41,
+          32
+        ]
+      },
+      "validation_f17": 0.9700502652890254,
+      "validation_objective": 0.9700341197226492,
+      "baseline_name_selected_on_validation": "cshyphen",
+      "baseline_validation_f17": 0.9127607195471815,
+      "test_f17": 0.9737308322661554,
+      "baseline_test_f17": 0.9109911412984231,
+      "delta_test_f17": 0.06273969096773235,
+      "trie_nodes": 504,
+      "baseline_trie_nodes": 3875,
+      "trie_ratio": 0.13006451612903225
+    }
+  ]
+}

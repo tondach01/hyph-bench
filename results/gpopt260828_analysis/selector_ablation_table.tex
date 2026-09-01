@@ -1,0 +1,17 @@
+\begin{table*}[tb]
+\centering\small
+\caption{Validation-only selector ablation over the 17 final per-level GP histories. Each rule selects a stored candidate before one held-out test evaluation.}
+\label{tab:final-selector-ablation}
+\begin{tabular}{l r r r r r r}
+\toprule
+Selector & $F$ wins & smaller trie & trie $\leq 1.05\times$ & $F$ within .005 & changed & median trie ratio \\
+\midrule
+max objective & 17/17 & 17/17 & 17/17 & 17/17 & 0/17 & 0.348 \\
+max validation $F_{1/7}$ & 17/17 & 17/17 & 17/17 & 17/17 & 0/17 & 0.348 \\
+minimum trie above baseline & 15/17 & 17/17 & 17/17 & 2/17 & 17/17 & 0.166 \\
+VC-0.002 & 17/17 & 17/17 & 17/17 & 17/17 & 16/17 & 0.287 \\
+VC-0.005 & 16/17 & 17/17 & 17/17 & 15/17 & 17/17 & 0.200 \\
+VC-0.010 & 16/17 & 17/17 & 17/17 & 5/17 & 17/17 & 0.190 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,2382 @@
+[
+  {
+    "dataset": "cs/cshyphen_cstenten",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "30",
+      "1/5",
+      "29",
+      "6"
+    ],
+    "thresholds": [
+      37,
+      8,
+      14,
+      31
+    ],
+    "validation_objective": 0.9716320312622392,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 477513,
+          "sha256": "7160e3a6898003d74d2035be6485a0419eff7b3b136de2dbc8ca8d25f1ad62d6"
+        },
+        "validation": {
+          "count": 59689,
+          "sha256": "ba2a2da3bb4296ba45931a8fe8c40e3a20776452ae5f0f08f70f60fc13236c1b"
+        },
+        "test": {
+          "count": 59690,
+          "sha256": "cb9f40b47b340ec74efc4306953e60d0bb9607836a8e9215485409c77a2f774e"
+        }
+      },
+      "unique_word_types": 596892,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 163570,
+      "bad": 4873,
+      "missed": 2779,
+      "precision": 0.9710703323973094,
+      "recall": 0.9832941586664182,
+      "f17": 0.9713118297550516,
+      "train_good": 1311265,
+      "train_bad": 296,
+      "train_missed": 20089,
+      "n_patterns": 4019,
+      "trie_nodes": 5434,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 163514,
+      "bad": 4813,
+      "missed": 2823,
+      "precision": 0.9714068450100103,
+      "recall": 0.9830284302350049,
+      "f17": 0.9716365831744779,
+      "trie_nodes": 5434,
+      "n_patterns": 4019
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 166179,
+        "bad": 11492,
+        "missed": 170,
+        "precision": 0.9353186507646155,
+        "recall": 0.9989780521674311,
+        "f17": 0.9365122266921003,
+        "trie_nodes": 8847,
+        "n_patterns": 6580
+      },
+      "wortliste": {
+        "good": 166151,
+        "bad": 14069,
+        "missed": 198,
+        "precision": 0.9219343025191433,
+        "recall": 0.9988097313479491,
+        "f17": 0.9233556615671512,
+        "trie_nodes": 11327,
+        "n_patterns": 8007
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 166157,
+        "bad": 11433,
+        "missed": 180,
+        "precision": 0.9356213750774255,
+        "recall": 0.9989178595261428,
+        "f17": 0.9368085936262263,
+        "trie_nodes": 8847,
+        "n_patterns": 6580
+      },
+      "wortliste": {
+        "good": 166092,
+        "bad": 13988,
+        "missed": 245,
+        "precision": 0.9223234118169702,
+        "recall": 0.9985270865772498,
+        "f17": 0.9237333259772217,
+        "trie_nodes": 11327,
+        "n_patterns": 8007
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.03479960306295127,
+    "ci_low": 0.03399064144806956,
+    "ci_high": 0.03563688436919531,
+    "opt_trie": 5434,
+    "base_trie": 8847,
+    "trie_ratio": 0.6142195094382277,
+    "test_lines": 59690,
+    "resamples": 10000,
+    "resample_seed": 20260830
+  },
+  {
+    "dataset": "cs/cshyphen_ujc",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "30",
+      "1/3",
+      "28",
+      "1/3"
+    ],
+    "thresholds": [
+      23,
+      6,
+      39,
+      1
+    ],
+    "validation_objective": 0.9897827557883065,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 83408,
+          "sha256": "201c1aa0be2ddfc858092678acdccc537567cc82959c15df168b5cb62af7fbb4"
+        },
+        "validation": {
+          "count": 10426,
+          "sha256": "bb004b67a71ef4887247501bf99f7c184a2b14677eb1406ea2ebd3a3a13407cc"
+        },
+        "test": {
+          "count": 10426,
+          "sha256": "e2793026e3e3672557f4cc6adb2c41162f594604284c88254a511fa0a61b5276"
+        }
+      },
+      "unique_word_types": 104260,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 22685,
+      "bad": 140,
+      "missed": 4461,
+      "precision": 0.9938663745892662,
+      "recall": 0.835666396522508,
+      "f17": 0.9901175920130658,
+      "train_good": 182241,
+      "train_bad": 2,
+      "train_missed": 33084,
+      "n_patterns": 1731,
+      "trie_nodes": 2935,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 22572,
+      "bad": 146,
+      "missed": 4480,
+      "precision": 0.9935733779381988,
+      "recall": 0.8343930208487358,
+      "f17": 0.9897968311767585,
+      "trie_nodes": 2935,
+      "n_patterns": 1731
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 26517,
+        "bad": 2342,
+        "missed": 629,
+        "precision": 0.9188468068886656,
+        "recall": 0.9768289987475135,
+        "f17": 0.9199389135860376,
+        "trie_nodes": 13693,
+        "n_patterns": 9124
+      },
+      "wortliste": {
+        "good": 26553,
+        "bad": 3655,
+        "missed": 593,
+        "precision": 0.879005561440678,
+        "recall": 0.97815516098136,
+        "f17": 0.880791169598325,
+        "trie_nodes": 12854,
+        "n_patterns": 8251
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 26399,
+        "bad": 2426,
+        "missed": 653,
+        "precision": 0.915836947094536,
+        "recall": 0.9758613041549609,
+        "f17": 0.9169649810313052,
+        "trie_nodes": 13693,
+        "n_patterns": 9124
+      },
+      "wortliste": {
+        "good": 26466,
+        "bad": 3653,
+        "missed": 586,
+        "precision": 0.8787144327500913,
+        "recall": 0.9783380156735176,
+        "f17": 0.8805076642692744,
+        "trie_nodes": 12854,
+        "n_patterns": 8251
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.07017867842702818,
+    "ci_low": 0.0672746753085521,
+    "ci_high": 0.0730557958082674,
+    "opt_trie": 2935,
+    "base_trie": 13693,
+    "trie_ratio": 0.21434309501204996,
+    "test_lines": 10426,
+    "resamples": 10000,
+    "resample_seed": 20260831
+  },
+  {
+    "dataset": "cs/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "25",
+      "6",
+      "16",
+      "1/4"
+    ],
+    "thresholds": [
+      41,
+      41,
+      40,
+      3
+    ],
+    "validation_objective": 0.9778920804884915,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 43145,
+          "sha256": "fa4806e0bd1a5ae2990ef6c420c5f83429f4e36a4e960abacddb415ce8b1796e"
+        },
+        "validation": {
+          "count": 5393,
+          "sha256": "a4d014c004b910e472ff6adc4f207705c10ce5e5462a9998c7ad330269433c91"
+        },
+        "test": {
+          "count": 5394,
+          "sha256": "67a8357d1d2eab0688f9f8e69ba5e449f97c92b08e57d736430d878a4bd7e627"
+        }
+      },
+      "unique_word_types": 53932,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 8600,
+      "bad": 122,
+      "missed": 3170,
+      "precision": 0.9860123824810824,
+      "recall": 0.7306711979609176,
+      "f17": 0.9791687540419174,
+      "train_good": 68039,
+      "train_bad": 3,
+      "train_missed": 24882,
+      "n_patterns": 849,
+      "trie_nodes": 1662,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 8350,
+      "bad": 128,
+      "missed": 3160,
+      "precision": 0.9849020995517811,
+      "recall": 0.7254561251086012,
+      "f17": 0.9779074887804147,
+      "trie_nodes": 1662,
+      "n_patterns": 849
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 11447,
+        "bad": 1202,
+        "missed": 323,
+        "precision": 0.90497272511661,
+        "recall": 0.9725573491928632,
+        "f17": 0.9062322367556458,
+        "trie_nodes": 8159,
+        "n_patterns": 5615
+      },
+      "wortliste": {
+        "good": 11496,
+        "bad": 1845,
+        "missed": 274,
+        "precision": 0.8617045199010569,
+        "recall": 0.9767204757858964,
+        "f17": 0.8637387505841657,
+        "trie_nodes": 7379,
+        "n_patterns": 4803
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 11180,
+        "bad": 1169,
+        "missed": 330,
+        "precision": 0.9053364644910519,
+        "recall": 0.9713292788879235,
+        "f17": 0.9065683226539909,
+        "trie_nodes": 8159,
+        "n_patterns": 5615
+      },
+      "wortliste": {
+        "good": 11219,
+        "bad": 1755,
+        "missed": 291,
+        "precision": 0.8647294589178357,
+        "recall": 0.9747176368375325,
+        "f17": 0.8666854130487179,
+        "trie_nodes": 7379,
+        "n_patterns": 4803
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.0729365172862716,
+    "ci_low": 0.06839329033139327,
+    "ci_high": 0.07754281527797795,
+    "opt_trie": 1662,
+    "base_trie": 8159,
+    "trie_ratio": 0.2037014339992646,
+    "test_lines": 5394,
+    "resamples": 10000,
+    "resample_seed": 20260832
+  },
+  {
+    "dataset": "cssk/cshyphen",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "30",
+      "11",
+      "24",
+      "15"
+    ],
+    "thresholds": [
+      42,
+      3,
+      24,
+      9
+    ],
+    "validation_objective": 0.9837312976915942,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 911855,
+          "sha256": "db3c29fd13d6dd97b3c6681b4c4dd366ea64c5d41d5601cd57b997ea539e9160"
+        },
+        "validation": {
+          "count": 83415,
+          "sha256": "c50b8b0c1a024715651ef52b067d45632c1163410614bb4209dd43e3eb00e36e"
+        },
+        "test": {
+          "count": 83416,
+          "sha256": "e384ddd4fe02a50a213128eb6638e85eba423b6b05cba333dc5f2082900c91d2"
+        }
+      },
+      "unique_word_types": 834152,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 206771,
+      "bad": 3439,
+      "missed": 5408,
+      "precision": 0.9836401693544551,
+      "recall": 0.9745120864930082,
+      "f17": 0.9834559321887181,
+      "train_good": 2153839,
+      "train_bad": 848,
+      "train_missed": 51122,
+      "n_patterns": 4719,
+      "trie_nodes": 6611,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 206298,
+      "bad": 3371,
+      "missed": 5364,
+      "precision": 0.9839222774945271,
+      "recall": 0.9746577089888596,
+      "f17": 0.9837352603986308,
+      "trie_nodes": 6611,
+      "n_patterns": 4719
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 211878,
+        "bad": 16885,
+        "missed": 301,
+        "precision": 0.9261899870171313,
+        "recall": 0.9985813864708571,
+        "f17": 0.9275348056474918,
+        "trie_nodes": 11461,
+        "n_patterns": 8483
+      },
+      "wortliste": {
+        "good": 211794,
+        "bad": 22079,
+        "missed": 385,
+        "precision": 0.9055940617343601,
+        "recall": 0.9981854943231894,
+        "f17": 0.9072772378511366,
+        "trie_nodes": 16005,
+        "n_patterns": 11387
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 211362,
+        "bad": 17013,
+        "missed": 300,
+        "precision": 0.925504105090312,
+        "recall": 0.9985826459166028,
+        "f17": 0.9268607004169518,
+        "trie_nodes": 11461,
+        "n_patterns": 8483
+      },
+      "wortliste": {
+        "good": 211306,
+        "bad": 22102,
+        "missed": 356,
+        "precision": 0.9053074444749108,
+        "recall": 0.9983180731543687,
+        "f17": 0.9069974951612435,
+        "trie_nodes": 16005,
+        "n_patterns": 11387
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.055921126541226274,
+    "ci_low": 0.055035269486068045,
+    "ci_high": 0.05680904432585395,
+    "opt_trie": 6611,
+    "base_trie": 11461,
+    "trie_ratio": 0.5768257569147544,
+    "test_lines": 83416,
+    "resamples": 10000,
+    "resample_seed": 20260833
+  },
+  {
+    "dataset": "de/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "30",
+      "1/5",
+      "29",
+      "2"
+    ],
+    "thresholds": [
+      40,
+      29,
+      32,
+      1
+    ],
+    "validation_objective": 0.9948733209697572,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 645716,
+          "sha256": "0fb13b0527521a18d88de9d5cb6a1b7d8a60f4d615fba56743de713f6d61cbf3"
+        },
+        "validation": {
+          "count": 80714,
+          "sha256": "6358867cac73750ccd1ff5efd04af19c2ef0deb0bf3799c049af90772e908668"
+        },
+        "test": {
+          "count": 80716,
+          "sha256": "19c8adbb4a52b3f53b9785d0f7de86c7558aa81f56d764757ca5dc1fae9134b7"
+        }
+      },
+      "unique_word_types": 807146,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 226121,
+      "bad": 938,
+      "missed": 12430,
+      "precision": 0.9958689151277862,
+      "recall": 0.9478937417994475,
+      "f17": 0.994861868272987,
+      "train_good": 1814104,
+      "train_bad": 366,
+      "train_missed": 94652,
+      "n_patterns": 6985,
+      "trie_nodes": 12148,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 225782,
+      "bad": 936,
+      "missed": 12224,
+      "precision": 0.9958715232138604,
+      "recall": 0.9486399502533549,
+      "f17": 0.9948808462501898,
+      "trie_nodes": 12148,
+      "n_patterns": 6985
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 236985,
+        "bad": 5824,
+        "missed": 1566,
+        "precision": 0.9760140686712602,
+        "recall": 0.99343536602236,
+        "f17": 0.9763565045773831,
+        "trie_nodes": 29614,
+        "n_patterns": 23139
+      },
+      "wortliste": {
+        "good": 237268,
+        "bad": 24857,
+        "missed": 1283,
+        "precision": 0.905171196948021,
+        "recall": 0.9946216951511417,
+        "f17": 0.9068022474912624,
+        "trie_nodes": 28108,
+        "n_patterns": 22177
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 236582,
+        "bad": 5907,
+        "missed": 1424,
+        "precision": 0.9756401321297049,
+        "recall": 0.9940169575556919,
+        "f17": 0.9760010072634686,
+        "trie_nodes": 29614,
+        "n_patterns": 23139
+      },
+      "wortliste": {
+        "good": 236759,
+        "bad": 25036,
+        "missed": 1247,
+        "precision": 0.9043679214652687,
+        "recall": 0.9947606362864801,
+        "f17": 0.9060144906295069,
+        "trie_nodes": 28108,
+        "n_patterns": 22177
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.01850536369560385,
+    "ci_low": 0.01797114277478825,
+    "ci_high": 0.019068301950013865,
+    "opt_trie": 12148,
+    "base_trie": 29614,
+    "trie_ratio": 0.4102113865063821,
+    "test_lines": 80716,
+    "resamples": 10000,
+    "resample_seed": 20260834
+  },
+  {
+    "dataset": "de/wortliste",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "20",
+      "15",
+      "23",
+      "1/5"
+    ],
+    "thresholds": [
+      41,
+      1,
+      39,
+      2
+    ],
+    "validation_objective": 0.9922115608545392,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 467688,
+          "sha256": "2c5bb5b1604ed4929995b6025f9da30b174a6386817fabefe0173c203d071000"
+        },
+        "validation": {
+          "count": 58461,
+          "sha256": "357187b458b6c81adaf3b737125b94b4d6ae02440f8af91f37630c4a371c2d91"
+        },
+        "test": {
+          "count": 58462,
+          "sha256": "8fdc84421a71c8789f4b7c85bf244d0426af92506d7ecaa233357bdd88c8e1d7"
+        }
+      },
+      "unique_word_types": 584611,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 159139,
+      "bad": 913,
+      "missed": 15499,
+      "precision": 0.9942956039287232,
+      "recall": 0.9112507014510015,
+      "f17": 0.9924866405743862,
+      "train_good": 1277078,
+      "train_bad": 23,
+      "train_missed": 120386,
+      "n_patterns": 9546,
+      "trie_nodes": 15353,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 158229,
+      "bad": 948,
+      "missed": 15544,
+      "precision": 0.9940443657061008,
+      "recall": 0.9105499703636353,
+      "f17": 0.9922246918082845,
+      "trie_nodes": 15353,
+      "n_patterns": 9546
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 172302,
+        "bad": 3942,
+        "missed": 2336,
+        "precision": 0.9776332811329748,
+        "recall": 0.9866237588611871,
+        "f17": 0.9778114846740187,
+        "trie_nodes": 44070,
+        "n_patterns": 37080
+      },
+      "wortliste": {
+        "good": 171873,
+        "bad": 17163,
+        "missed": 2765,
+        "precision": 0.9092077699485812,
+        "recall": 0.9841672488232801,
+        "f17": 0.9105948861773611,
+        "trie_nodes": 40548,
+        "n_patterns": 34602
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 171446,
+        "bad": 4026,
+        "missed": 2327,
+        "precision": 0.9770561685055166,
+        "recall": 0.9866089668705725,
+        "f17": 0.9772454112284215,
+        "trie_nodes": 44070,
+        "n_patterns": 37080
+      },
+      "wortliste": {
+        "good": 171084,
+        "bad": 17154,
+        "missed": 2689,
+        "precision": 0.9088706849839033,
+        "recall": 0.9845257893919078,
+        "f17": 0.9102696640093814,
+        "trie_nodes": 40548,
+        "n_patterns": 34602
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.014675155900367498,
+    "ci_low": 0.014044877093706287,
+    "ci_high": 0.015313410458940512,
+    "opt_trie": 15353,
+    "base_trie": 44070,
+    "trie_ratio": 0.34837758112094397,
+    "test_lines": 58462,
+    "resamples": 10000,
+    "resample_seed": 20260835
+  },
+  {
+    "dataset": "el/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "1",
+      "1/4",
+      "19",
+      "1/5"
+    ],
+    "thresholds": [
+      40,
+      36,
+      6,
+      7
+    ],
+    "validation_objective": 0.9738257573095752,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 22523,
+          "sha256": "b2ae7ac90fe6fe6348f7401e999b06b4e03560a3e440590c5f587670de54cc67"
+        },
+        "validation": {
+          "count": 2815,
+          "sha256": "71491f373440d1075cb0fa2fc496cde4808af88a906960e817f9b39f4b0b8262"
+        },
+        "test": {
+          "count": 2816,
+          "sha256": "c1bef60c873da65f410e14bcbdc3a0b33440460ff44ae0815e08e19af4e70109"
+        }
+      },
+      "unique_word_types": 28154,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 7127,
+      "bad": 178,
+      "missed": 875,
+      "precision": 0.9756331279945243,
+      "recall": 0.8906523369157711,
+      "f17": 0.9737748908995018,
+      "train_good": 56265,
+      "train_bad": 159,
+      "train_missed": 1903,
+      "n_patterns": 464,
+      "trie_nodes": 928,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 7262,
+      "bad": 181,
+      "missed": 884,
+      "precision": 0.9756818487169152,
+      "recall": 0.8914804812177756,
+      "f17": 0.9738422380938332,
+      "trie_nodes": 928,
+      "n_patterns": 464
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 7321,
+        "bad": 793,
+        "missed": 681,
+        "precision": 0.9022676854818832,
+        "recall": 0.9148962759310173,
+        "f17": 0.9025168397487106,
+        "trie_nodes": 2722,
+        "n_patterns": 1481
+      },
+      "wortliste": {
+        "good": 7335,
+        "bad": 830,
+        "missed": 667,
+        "precision": 0.8983466013472137,
+        "recall": 0.9166458385403649,
+        "f17": 0.8987054231083079,
+        "trie_nodes": 2478,
+        "n_patterns": 1245
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 7480,
+        "bad": 715,
+        "missed": 666,
+        "precision": 0.912751677852349,
+        "recall": 0.9182420820034373,
+        "f17": 0.9128608424192278,
+        "trie_nodes": 2722,
+        "n_patterns": 1481
+      },
+      "wortliste": {
+        "good": 7494,
+        "bad": 770,
+        "missed": 652,
+        "precision": 0.9068247821878025,
+        "recall": 0.9199607169162779,
+        "f17": 0.907083823550772,
+        "trie_nodes": 2478,
+        "n_patterns": 1245
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.0712580511507912,
+    "ci_low": 0.06583501591150166,
+    "ci_high": 0.07677430764388354,
+    "opt_trie": 928,
+    "base_trie": 2722,
+    "trie_ratio": 0.3409257898603968,
+    "test_lines": 2816,
+    "resamples": 10000,
+    "resample_seed": 20260836
+  },
+  {
+    "dataset": "es/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "30",
+      "1/4",
+      "24",
+      "30"
+    ],
+    "thresholds": [
+      40,
+      20,
+      40,
+      1
+    ],
+    "validation_objective": 0.9852537736349464,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 653367,
+          "sha256": "95015876654f6971de0087686416b1c5e47f347473c51957da4d2935b84589ab"
+        },
+        "validation": {
+          "count": 81670,
+          "sha256": "06ff68f7c499a96a4df31e2a07abf34c955cfd0106798b33eec5a056df886869"
+        },
+        "test": {
+          "count": 81672,
+          "sha256": "62d531ac137ef45ad3730a0118f48e043126a2fdfdc45d5e34eea63da75a8cb8"
+        }
+      },
+      "unique_word_types": 816709,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 252843,
+      "bad": 3534,
+      "missed": 14106,
+      "precision": 0.9862156121648978,
+      "recall": 0.9471584459953025,
+      "f17": 0.9854029277390675,
+      "train_good": 1999295,
+      "train_bad": 10,
+      "train_missed": 2524,
+      "n_patterns": 700,
+      "trie_nodes": 1218,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 252837,
+      "bad": 3579,
+      "missed": 13829,
+      "precision": 0.9860422126544366,
+      "recall": 0.9481411203528008,
+      "f17": 0.9852545193105787,
+      "trie_nodes": 1218,
+      "n_patterns": 700
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 253145,
+        "bad": 8089,
+        "missed": 13804,
+        "precision": 0.9690354241790885,
+        "recall": 0.9482897482290625,
+        "f17": 0.9686116190539599,
+        "trie_nodes": 1851,
+        "n_patterns": 1180
+      },
+      "wortliste": {
+        "good": 253147,
+        "bad": 21903,
+        "missed": 13802,
+        "precision": 0.9203672059625523,
+        "recall": 0.9482972402968357,
+        "f17": 0.9209096738242248,
+        "trie_nodes": 1538,
+        "n_patterns": 957
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 253141,
+        "bad": 8204,
+        "missed": 13525,
+        "precision": 0.9686085442614168,
+        "recall": 0.949281123202808,
+        "f17": 0.968214286233366,
+        "trie_nodes": 1851,
+        "n_patterns": 1180
+      },
+      "wortliste": {
+        "good": 253145,
+        "bad": 21983,
+        "missed": 13521,
+        "precision": 0.920099008461516,
+        "recall": 0.9492961232403081,
+        "f17": 0.9206653390493904,
+        "trie_nodes": 1538,
+        "n_patterns": 957
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.016791308685107587,
+    "ci_low": 0.016322034501210368,
+    "ci_high": 0.017282521030762794,
+    "opt_trie": 1218,
+    "base_trie": 1851,
+    "trie_ratio": 0.6580226904376013,
+    "test_lines": 81672,
+    "resamples": 10000,
+    "resample_seed": 20260837
+  },
+  {
+    "dataset": "is/hyphenation-is",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "26",
+      "1/3",
+      "21",
+      "15"
+    ],
+    "thresholds": [
+      42,
+      26,
+      40,
+      1
+    ],
+    "validation_objective": 0.9795420905402459,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 174646,
+          "sha256": "85f3e1fb078cb346d19f85f182fc340fc6eec230d00eeceb9fc875e13a9aaadb"
+        },
+        "validation": {
+          "count": 21830,
+          "sha256": "610456242f1a0e7f026aaf7a8f403a13e238c735f49fda676c9aac70206557dc"
+        },
+        "test": {
+          "count": 21832,
+          "sha256": "347a6490a290599591460059941cfe239f47e97da93d999834443b6fd0ee2d54"
+        }
+      },
+      "unique_word_types": 218308,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 32067,
+      "bad": 468,
+      "missed": 9469,
+      "precision": 0.9856154910096819,
+      "recall": 0.7720290832049307,
+      "f17": 0.9801919729836631,
+      "train_good": 259671,
+      "train_bad": 27,
+      "train_missed": 67777,
+      "n_patterns": 2405,
+      "trie_nodes": 4497,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 32272,
+      "bad": 497,
+      "missed": 9330,
+      "precision": 0.9848332265250694,
+      "recall": 0.7757319359646171,
+      "f17": 0.9795523902086043,
+      "trie_nodes": 4497,
+      "n_patterns": 2405
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 39626,
+        "bad": 3525,
+        "missed": 1910,
+        "precision": 0.9183101202753122,
+        "recall": 0.9540157935285054,
+        "f17": 0.9189980217399875,
+        "trie_nodes": 27816,
+        "n_patterns": 23070
+      },
+      "wortliste": {
+        "good": 39644,
+        "bad": 5796,
+        "missed": 1892,
+        "precision": 0.8724471830985916,
+        "recall": 0.9544491525423728,
+        "f17": 0.8739488981066059,
+        "trie_nodes": 25288,
+        "n_patterns": 21835
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 39759,
+        "bad": 3478,
+        "missed": 1843,
+        "precision": 0.9195596364225085,
+        "recall": 0.9556992452285947,
+        "f17": 0.9202556227042216,
+        "trie_nodes": 27816,
+        "n_patterns": 23070
+      },
+      "wortliste": {
+        "good": 39790,
+        "bad": 5572,
+        "missed": 1812,
+        "precision": 0.8771659097923372,
+        "recall": 0.9564444017114562,
+        "f17": 0.8786224683572256,
+        "trie_nodes": 25288,
+        "n_patterns": 21835
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.06119395124367566,
+    "ci_low": 0.058826196983942425,
+    "ci_high": 0.06362928709854372,
+    "opt_trie": 4497,
+    "base_trie": 27816,
+    "trie_ratio": 0.1616695427092321,
+    "test_lines": 21832,
+    "resamples": 10000,
+    "resample_seed": 20260838
+  },
+  {
+    "dataset": "it/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "27",
+      "13",
+      "22",
+      "25"
+    ],
+    "thresholds": [
+      14,
+      1,
+      27,
+      2
+    ],
+    "validation_objective": 0.9981942171416982,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 61854,
+          "sha256": "2214fd2897ff3466554da870e5c89774b8befde4c374480d13a7e017366bd9b4"
+        },
+        "validation": {
+          "count": 7731,
+          "sha256": "33ac15f018574ab67071427b27b743eb621944ef0537347b5478b5a52a39d3bb"
+        },
+        "test": {
+          "count": 7733,
+          "sha256": "923a983ebaab9f46e6f2c05b5cd44b1024f0c2e30aacbc3434bc85e83ffa7c50"
+        }
+      },
+      "unique_word_types": 77318,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 21207,
+      "bad": 20,
+      "missed": 1257,
+      "precision": 0.9990578037405191,
+      "recall": 0.9440438034188035,
+      "f17": 0.9978947606172482,
+      "train_good": 169071,
+      "train_bad": 11,
+      "train_missed": 1962,
+      "n_patterns": 445,
+      "trie_nodes": 828,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 21057,
+      "bad": 14,
+      "missed": 1213,
+      "precision": 0.999335579706706,
+      "recall": 0.9455321059721599,
+      "f17": 0.9981995716516442,
+      "trie_nodes": 828,
+      "n_patterns": 445
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 21443,
+        "bad": 96,
+        "missed": 1021,
+        "precision": 0.9955429685686429,
+        "recall": 0.9545495014245015,
+        "f17": 0.9946886234489157,
+        "trie_nodes": 1927,
+        "n_patterns": 1033
+      },
+      "wortliste": {
+        "good": 21480,
+        "bad": 170,
+        "missed": 984,
+        "precision": 0.9921478060046189,
+        "recall": 0.9561965811965812,
+        "f17": 0.9914023081027291,
+        "trie_nodes": 1624,
+        "n_patterns": 801
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 21309,
+        "bad": 89,
+        "missed": 961,
+        "precision": 0.9958407327787644,
+        "recall": 0.9568477772788505,
+        "f17": 0.9950297542333942,
+        "trie_nodes": 1927,
+        "n_patterns": 1033
+      },
+      "wortliste": {
+        "good": 21342,
+        "bad": 154,
+        "missed": 928,
+        "precision": 0.9928358764421288,
+        "recall": 0.9583295913785361,
+        "f17": 0.9921214160996826,
+        "trie_nodes": 1624,
+        "n_patterns": 801
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.0032061371683325124,
+    "ci_low": 0.0024390979988444667,
+    "ci_high": 0.004016346754429572,
+    "opt_trie": 828,
+    "base_trie": 1927,
+    "trie_ratio": 0.4296834457706279,
+    "test_lines": 7733,
+    "resamples": 10000,
+    "resample_seed": 20260839
+  },
+  {
+    "dataset": "nl/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "23",
+      "1/5",
+      "30",
+      "28"
+    ],
+    "thresholds": [
+      7,
+      1,
+      36,
+      11
+    ],
+    "validation_objective": 0.9921047487605297,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 422684,
+          "sha256": "d6627a0d9f1588de09c5a08c6484071555a57cf48e85c69b854126feedfc65ce"
+        },
+        "validation": {
+          "count": 52835,
+          "sha256": "baca48925345c3a0d47fe9b1f805e0fd80a00db86be65e852adf609a35b9a3d3"
+        },
+        "test": {
+          "count": 52836,
+          "sha256": "eca43a534a2947896a3516973955faa4de9dfaee941ce693108a9b37376b923f"
+        }
+      },
+      "unique_word_types": 528355,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 139334,
+      "bad": 971,
+      "missed": 9525,
+      "precision": 0.9930793628167207,
+      "recall": 0.9360132743065586,
+      "f17": 0.9918699325892351,
+      "train_good": 1121269,
+      "train_bad": 516,
+      "train_missed": 71925,
+      "n_patterns": 8448,
+      "trie_nodes": 11680,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 139386,
+      "bad": 934,
+      "missed": 9618,
+      "precision": 0.9933437856328392,
+      "recall": 0.9354513972779255,
+      "f17": 0.9921158019350051,
+      "trie_nodes": 11680,
+      "n_patterns": 8448
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 147670,
+        "bad": 2933,
+        "missed": 1189,
+        "precision": 0.9805249563421712,
+        "recall": 0.9920125756588449,
+        "f17": 0.9807521007767116,
+        "trie_nodes": 27916,
+        "n_patterns": 22187
+      },
+      "wortliste": {
+        "good": 147533,
+        "bad": 13901,
+        "missed": 1326,
+        "precision": 0.913890506336955,
+        "recall": 0.9910922416514957,
+        "f17": 0.9153164890729454,
+        "trie_nodes": 26230,
+        "n_patterns": 20949
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 147757,
+        "bad": 2927,
+        "missed": 1247,
+        "precision": 0.9805752435560511,
+        "recall": 0.9916310971517543,
+        "f17": 0.9807939441249409,
+        "trie_nodes": 27916,
+        "n_patterns": 22187
+      },
+      "wortliste": {
+        "good": 147634,
+        "bad": 14038,
+        "missed": 1370,
+        "precision": 0.9131698748082537,
+        "recall": 0.9908056159566186,
+        "f17": 0.9146031709844662,
+        "trie_nodes": 26230,
+        "n_patterns": 20949
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.01111783181252346,
+    "ci_low": 0.010502992023153268,
+    "ci_high": 0.011753342576940948,
+    "opt_trie": 11680,
+    "base_trie": 27916,
+    "trie_ratio": 0.4183980512967474,
+    "test_lines": 52836,
+    "resamples": 10000,
+    "resample_seed": 20260840
+  },
+  {
+    "dataset": "pl/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "29",
+      "1/5",
+      "28",
+      "29"
+    ],
+    "thresholds": [
+      24,
+      1,
+      35,
+      30
+    ],
+    "validation_objective": 0.9918724523366047,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 113444,
+          "sha256": "237e5e1d1acbfea7f5dde1cefd3fbcaa1fce7eeee427c1cff0cd53763189724e"
+        },
+        "validation": {
+          "count": 14180,
+          "sha256": "641490b4d6f443d1e31667455aba95085899a4e68a280d98fb35314b15906737"
+        },
+        "test": {
+          "count": 14181,
+          "sha256": "a5d98f93c7e2cb72d7a361fa12ba856d9e6b86986f2e3f19337326c2f18bb868"
+        }
+      },
+      "unique_word_types": 141805,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 26988,
+      "bad": 158,
+      "missed": 4047,
+      "precision": 0.9941796213070065,
+      "recall": 0.869598840019333,
+      "f17": 0.9913391894880138,
+      "train_good": 217460,
+      "train_bad": 27,
+      "train_missed": 21327,
+      "n_patterns": 1507,
+      "trie_nodes": 2366,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 27404,
+      "bad": 146,
+      "missed": 4062,
+      "precision": 0.9947005444646098,
+      "recall": 0.8709082819551262,
+      "f17": 0.9918807947786906,
+      "trie_nodes": 2366,
+      "n_patterns": 1507
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 29452,
+        "bad": 1775,
+        "missed": 1583,
+        "precision": 0.943158164409005,
+        "recall": 0.9489930723376833,
+        "f17": 0.9432741593099482,
+        "trie_nodes": 7187,
+        "n_patterns": 5105
+      },
+      "wortliste": {
+        "good": 29449,
+        "bad": 3100,
+        "missed": 1586,
+        "precision": 0.9047589787704692,
+        "recall": 0.9488964072821009,
+        "f17": 0.9056014504875961,
+        "trie_nodes": 6748,
+        "n_patterns": 4664
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 29851,
+        "bad": 1764,
+        "missed": 1615,
+        "precision": 0.9442037007749486,
+        "recall": 0.9486747600584758,
+        "f17": 0.9442927089126225,
+        "trie_nodes": 7187,
+        "n_patterns": 5105
+      },
+      "wortliste": {
+        "good": 29877,
+        "bad": 3177,
+        "missed": 1589,
+        "precision": 0.9038845525503721,
+        "recall": 0.9495010487510328,
+        "f17": 0.9047538870773153,
+        "trie_nodes": 6748,
+        "n_patterns": 4664
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.048065030178065626,
+    "ci_low": 0.04569916231210854,
+    "ci_high": 0.05047138874674892,
+    "opt_trie": 2366,
+    "base_trie": 7187,
+    "trie_ratio": 0.32920550994851816,
+    "test_lines": 14181,
+    "resamples": 10000,
+    "resample_seed": 20260841
+  },
+  {
+    "dataset": "pt/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "30",
+      "1/5",
+      "22",
+      "22"
+    ],
+    "thresholds": [
+      23,
+      2,
+      6,
+      10
+    ],
+    "validation_objective": 0.9927629475184631,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 35439,
+          "sha256": "b55acd9772aa949ff16b45c5700e68b43d482e8158650ba38df92d1330c7aa79"
+        },
+        "validation": {
+          "count": 4429,
+          "sha256": "cc098bbbc3a28b4d219fcadfcf4686704255bf97ed0d090ec799b847be5b9f9e"
+        },
+        "test": {
+          "count": 4431,
+          "sha256": "727e4b014eb6df40ff40125464a7f9ad5479bdcd2a22ab746fa3e26e17ee55fa"
+        }
+      },
+      "unique_word_types": 44299,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 11338,
+      "bad": 62,
+      "missed": 820,
+      "precision": 0.994561403508772,
+      "recall": 0.9325546964961342,
+      "f17": 0.9932405678063206,
+      "train_good": 88002,
+      "train_bad": 6,
+      "train_missed": 994,
+      "n_patterns": 519,
+      "trie_nodes": 961,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 11370,
+      "bad": 68,
+      "missed": 806,
+      "precision": 0.9940549047036196,
+      "recall": 0.9338042049934296,
+      "f17": 0.9927737942644392,
+      "trie_nodes": 961,
+      "n_patterns": 519
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 11480,
+        "bad": 292,
+        "missed": 678,
+        "precision": 0.9751953788651037,
+        "recall": 0.9442342490541208,
+        "f17": 0.9745562712865841,
+        "trie_nodes": 1405,
+        "n_patterns": 794
+      },
+      "wortliste": {
+        "good": 11481,
+        "bad": 805,
+        "missed": 677,
+        "precision": 0.9344782679472571,
+        "recall": 0.9443164994242474,
+        "f17": 0.9346730231922002,
+        "trie_nodes": 1213,
+        "n_patterns": 685
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 11491,
+        "bad": 315,
+        "missed": 685,
+        "precision": 0.9733186515331188,
+        "recall": 0.9437417871222076,
+        "f17": 0.9727089576243927,
+        "trie_nodes": 1405,
+        "n_patterns": 794
+      },
+      "wortliste": {
+        "good": 11497,
+        "bad": 835,
+        "missed": 679,
+        "precision": 0.9322899772948426,
+        "recall": 0.9442345597897503,
+        "f17": 0.9325259066516991,
+        "trie_nodes": 1213,
+        "n_patterns": 685
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.018684296519736576,
+    "ci_low": 0.01594191821397265,
+    "ci_high": 0.02137823349377856,
+    "opt_trie": 961,
+    "base_trie": 1405,
+    "trie_ratio": 0.6839857651245551,
+    "test_lines": 4431,
+    "resamples": 10000,
+    "resample_seed": 20260842
+  },
+  {
+    "dataset": "ru/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "30",
+      "5",
+      "13",
+      "1/4"
+    ],
+    "thresholds": [
+      42,
+      26,
+      33,
+      1
+    ],
+    "validation_objective": 0.9579665759627597,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 121946,
+          "sha256": "b6023ea47f08c194014773dc0165635c001ba12901a2c145f90d3b06e306b0aa"
+        },
+        "validation": {
+          "count": 15243,
+          "sha256": "4657c91af139b06000af359875e76f0d2425e096f0c38cdc41af7bafddca8f90"
+        },
+        "test": {
+          "count": 15244,
+          "sha256": "2be36eae9cb7a125ff878be39b08227e0ff9795ab2c03b8c3a8718ae56830a57"
+        }
+      },
+      "unique_word_types": 152433,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 22322,
+      "bad": 654,
+      "missed": 19591,
+      "precision": 0.9715355153203342,
+      "recall": 0.5325793906425215,
+      "f17": 0.9557802827177697,
+      "train_good": 182767,
+      "train_bad": 388,
+      "train_missed": 150787,
+      "n_patterns": 5322,
+      "trie_nodes": 10299,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 22156,
+      "bad": 595,
+      "missed": 19412,
+      "precision": 0.9738473034152345,
+      "recall": 0.5330061585835257,
+      "f17": 0.9580003580178265,
+      "trie_nodes": 10299,
+      "n_patterns": 5322
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 38800,
+        "bad": 4803,
+        "missed": 3113,
+        "precision": 0.88984702887416,
+        "recall": 0.9257271013766611,
+        "f17": 0.8905373520744011,
+        "trie_nodes": 46978,
+        "n_patterns": 30654
+      },
+      "wortliste": {
+        "good": 39408,
+        "bad": 7680,
+        "missed": 2505,
+        "precision": 0.836901121304791,
+        "recall": 0.9402333404910171,
+        "f17": 0.8387446923985571,
+        "trie_nodes": 38780,
+        "n_patterns": 26651
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 38524,
+        "bad": 4582,
+        "missed": 3044,
+        "precision": 0.8937038927295504,
+        "recall": 0.9267705927636644,
+        "f17": 0.8943420860800776,
+        "trie_nodes": 46978,
+        "n_patterns": 30654
+      },
+      "wortliste": {
+        "good": 39164,
+        "bad": 7438,
+        "missed": 2404,
+        "precision": 0.8403931161752715,
+        "recall": 0.9421670515781371,
+        "f17": 0.8422126511677518,
+        "trie_nodes": 38780,
+        "n_patterns": 26651
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.06524293064336861,
+    "ci_low": 0.06207873305355542,
+    "ci_high": 0.06843257324223949,
+    "opt_trie": 10299,
+    "base_trie": 46978,
+    "trie_ratio": 0.21923027800246925,
+    "test_lines": 15244,
+    "resamples": 10000,
+    "resample_seed": 20260843
+  },
+  {
+    "dataset": "th/orchid",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "25",
+      "1/5",
+      "30",
+      "15"
+    ],
+    "thresholds": [
+      17,
+      1,
+      14,
+      25
+    ],
+    "validation_objective": 0.9808697053417081,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 27744,
+          "sha256": "408eb7053e4c21816781644a8976bd093fad3ad720d659afaba2669a8efa6370"
+        },
+        "validation": {
+          "count": 3468,
+          "sha256": "ceb466fe81a2941c1f6cdd4ddb32f3cb390930b9e961c10221b912dd439b2e32"
+        },
+        "test": {
+          "count": 3469,
+          "sha256": "d7d50a06a323eda758b0c9e68f695b78004690c06d547f144fad47ce5c44571c"
+        }
+      },
+      "unique_word_types": 34681,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 15268,
+      "bad": 160,
+      "missed": 5748,
+      "precision": 0.9896292455276121,
+      "recall": 0.7264940997335364,
+      "f17": 0.9825119564266115,
+      "train_good": 122647,
+      "train_bad": 147,
+      "train_missed": 43778,
+      "n_patterns": 2720,
+      "trie_nodes": 5022,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 14969,
+      "bad": 179,
+      "missed": 5770,
+      "precision": 0.9881832585159757,
+      "recall": 0.7217802208399634,
+      "f17": 0.9809421080982608,
+      "trie_nodes": 5022,
+      "n_patterns": 2720
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 19827,
+        "bad": 798,
+        "missed": 1189,
+        "precision": 0.9613090909090909,
+        "recall": 0.9434240578606776,
+        "f17": 0.9609447472521935,
+        "trie_nodes": 26810,
+        "n_patterns": 17832
+      },
+      "wortliste": {
+        "good": 20093,
+        "bad": 1123,
+        "missed": 923,
+        "precision": 0.9470682503770739,
+        "recall": 0.956081081081081,
+        "f17": 0.9472468414105223,
+        "trie_nodes": 22538,
+        "n_patterns": 15429
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 19599,
+        "bad": 863,
+        "missed": 1140,
+        "precision": 0.9578242596031669,
+        "recall": 0.9450311008245335,
+        "f17": 0.9575650029265854,
+        "trie_nodes": 26810,
+        "n_patterns": 17832
+      },
+      "wortliste": {
+        "good": 19852,
+        "bad": 1165,
+        "missed": 887,
+        "precision": 0.944568682495123,
+        "recall": 0.9572303389748783,
+        "f17": 0.9448186321356365,
+        "trie_nodes": 22538,
+        "n_patterns": 15429
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.02156720917441801,
+    "ci_low": 0.01900039384076339,
+    "ci_high": 0.024194375125091757,
+    "opt_trie": 5022,
+    "base_trie": 26810,
+    "trie_ratio": 0.18731816486385677,
+    "test_lines": 3469,
+    "resamples": 10000,
+    "resample_seed": 20260844
+  },
+  {
+    "dataset": "tr/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "20",
+      "24",
+      "29",
+      "1/3"
+    ],
+    "thresholds": [
+      6,
+      37,
+      6,
+      2
+    ],
+    "validation_objective": 0.9942928465985217,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 12475,
+          "sha256": "2697b60d474744355129b377a926208eab9111cc90b515f8de90f83d499cc13e"
+        },
+        "validation": {
+          "count": 1559,
+          "sha256": "da0f4604b1543623ca7ae47fa92decf1a69a27ae53d669cab8ffca9e64140bf8"
+        },
+        "test": {
+          "count": 1560,
+          "sha256": "31686116ec58d6509f8357e4ae09f3d9fccea861f983f6deb36b27bd365fb373"
+        }
+      },
+      "unique_word_types": 15594,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 3333,
+      "bad": 19,
+      "missed": 321,
+      "precision": 0.9943317422434368,
+      "recall": 0.9121510673234812,
+      "f17": 0.9925432692880372,
+      "train_good": 27548,
+      "train_bad": 4,
+      "train_missed": 797,
+      "n_patterns": 517,
+      "trie_nodes": 978,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 3283,
+      "bad": 13,
+      "missed": 300,
+      "precision": 0.9960558252427184,
+      "recall": 0.9162712810493999,
+      "f17": 0.9943242048132196,
+      "trie_nodes": 978,
+      "n_patterns": 517
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 3439,
+        "bad": 57,
+        "missed": 215,
+        "precision": 0.9836956521739131,
+        "recall": 0.9411603721948549,
+        "f17": 0.9828073023239865,
+        "trie_nodes": 1238,
+        "n_patterns": 774
+      },
+      "wortliste": {
+        "good": 3442,
+        "bad": 466,
+        "missed": 212,
+        "precision": 0.8807574206755373,
+        "recall": 0.9419813902572524,
+        "f17": 0.8819038053559898,
+        "trie_nodes": 1179,
+        "n_patterns": 741
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 3382,
+        "bad": 55,
+        "missed": 201,
+        "precision": 0.983997672388711,
+        "recall": 0.943901758303098,
+        "f17": 0.9831623991255609,
+        "trie_nodes": 1238,
+        "n_patterns": 774
+      },
+      "wortliste": {
+        "good": 3381,
+        "bad": 502,
+        "missed": 202,
+        "precision": 0.8707185166108679,
+        "recall": 0.9436226625732627,
+        "f17": 0.872066030435904,
+        "trie_nodes": 1179,
+        "n_patterns": 741
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.009735966964050657,
+    "ci_low": 0.006034158926624225,
+    "ci_high": 0.013707480575558267,
+    "opt_trie": 978,
+    "base_trie": 1238,
+    "trie_ratio": 0.789983844911147,
+    "test_lines": 1560,
+    "resamples": 10000,
+    "resample_seed": 20260845
+  },
+  {
+    "dataset": "uk/wiktionary",
+    "n_levels": 4,
+    "pattern_ranges": [
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        5
+      ],
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        7
+      ]
+    ],
+    "weight_ratios": [
+      "30",
+      "2",
+      "25",
+      "5"
+    ],
+    "thresholds": [
+      31,
+      36,
+      11,
+      21
+    ],
+    "validation_objective": 0.9779871568106671,
+    "patgen": "/home/dev/patgen-10x",
+    "split_evidence": {
+      "splits": {
+        "train": {
+          "count": 12486,
+          "sha256": "b0d40572c3e58d1968491f1b9dde6d7505895047b64c35775b6e2493e5768e26"
+        },
+        "validation": {
+          "count": 1560,
+          "sha256": "6b955d2f109bbf98603b391c3b6dd12aa7bfba58b6f9ddff8a442fe899cc1fc6"
+        },
+        "test": {
+          "count": 1562,
+          "sha256": "07a03610564a8a6cd41f4c4afcab10d1399b36edc51b425e9d1594fc80e3d89b"
+        }
+      },
+      "unique_word_types": 15608,
+      "grouped_hash_membership_ok": true,
+      "surface_disjoint_ok": true,
+      "content_line_overlap": {
+        "train_vs_validation": 0,
+        "train_vs_test": 0,
+        "validation_vs_test": 0
+      }
+    },
+    "optimized": {
+      "good": 3304,
+      "bad": 59,
+      "missed": 846,
+      "precision": 0.9824561403508771,
+      "recall": 0.796144578313253,
+      "f17": 0.9778793277967526,
+      "train_good": 26196,
+      "train_bad": 241,
+      "train_missed": 5390,
+      "n_patterns": 427,
+      "trie_nodes": 922,
+      "reproduces_selected_profile": true
+    },
+    "validation_optimized": {
+      "good": 3213,
+      "bad": 56,
+      "missed": 867,
+      "precision": 0.9828693790149893,
+      "recall": 0.7875,
+      "f17": 0.9780166929459823,
+      "trie_nodes": 922,
+      "n_patterns": 427
+    },
+    "hand_baselines": {
+      "cshyphen": {
+        "good": 3844,
+        "bad": 377,
+        "missed": 306,
+        "precision": 0.9106846718787017,
+        "recall": 0.9262650602409639,
+        "f17": 0.9109911412984231,
+        "trie_nodes": 3875,
+        "n_patterns": 2573
+      },
+      "wortliste": {
+        "good": 3858,
+        "bad": 598,
+        "missed": 292,
+        "precision": 0.8657989228007181,
+        "recall": 0.9296385542168675,
+        "f17": 0.8669896716315946,
+        "trie_nodes": 3702,
+        "n_patterns": 2482
+      }
+    },
+    "validation_hand_baselines": {
+      "cshyphen": {
+        "good": 3767,
+        "bad": 361,
+        "missed": 313,
+        "precision": 0.9125484496124031,
+        "recall": 0.9232843137254902,
+        "f17": 0.9127607195471815,
+        "trie_nodes": 3875,
+        "n_patterns": 2573
+      },
+      "wortliste": {
+        "good": 3788,
+        "bad": 589,
+        "missed": 292,
+        "precision": 0.8654329449394562,
+        "recall": 0.9284313725490196,
+        "f17": 0.866609014746995,
+        "trie_nodes": 3702,
+        "n_patterns": 2482
+      }
+    },
+    "best_baseline": "cshyphen",
+    "manuscript_baseline": "cshyphen",
+    "manuscript_consistent": true,
+    "delta_f17": 0.0668881864983295,
+    "ci_low": 0.05888201464039557,
+    "ci_high": 0.07476172742585727,
+    "opt_trie": 922,
+    "base_trie": 3875,
+    "trie_ratio": 0.23793548387096775,
+    "test_lines": 1562,
+    "resamples": 10000,
+    "resample_seed": 20260846
+  }
+]

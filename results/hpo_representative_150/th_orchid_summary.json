@@ -1,0 +1,112 @@
+{
+  "dataset": "th/orchid",
+  "budget_evals": 150,
+  "rounds": 30,
+  "batch_size": 5,
+  "nfold": 10,
+  "objective": "F17+Trie(w=0.0005)",
+  "trie_normalizer": 39691.0,
+  "bounds": [
+    [
+      1,
+      30
+    ],
+    [
+      1,
+      30
+    ],
+    [
+      1,
+      30
+    ],
+    [
+      1,
+      30
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "pat_ranges": [
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      7
+    ]
+  ],
+  "good_weight": 3,
+  "seed": 42,
+  "rows": [
+    {
+      "label": "Hand-tuned (cshyphen)",
+      "params": null,
+      "f_17": 0.9656111549917077,
+      "trie_nodes": 28587.0,
+      "search_f17": null,
+      "score": null
+    },
+    {
+      "label": "Hand-tuned (wortliste)",
+      "params": null,
+      "f_17": 0.9523943101530721,
+      "trie_nodes": 24009.5,
+      "search_f17": null,
+      "score": null
+    },
+    {
+      "label": "GP (ours)",
+      "params": [
+        30,
+        7,
+        29,
+        1,
+        1
+      ],
+      "f_17": 0.9730083087588065,
+      "trie_nodes": 32666.5,
+      "search_f17": 0.9980813999355316,
+      "score": 0.9976472586944442
+    },
+    {
+      "label": "Random Search",
+      "params": [
+        22,
+        7,
+        5,
+        1,
+        1
+      ],
+      "f_17": 0.9729697075799276,
+      "trie_nodes": 30090.7,
+      "search_f17": 0.997454947545002,
+      "score": 0.9970549198309107
+    },
+    {
+      "label": "TPE",
+      "params": [
+        29,
+        5,
+        25,
+        1,
+        1
+      ],
+      "f_17": 0.9727662774235161,
+      "trie_nodes": 32464.6,
+      "search_f17": 0.9980540681080677,
+      "score": 0.9976234163230283
+    }
+  ],
+  "unique_evaluations": 391
+}

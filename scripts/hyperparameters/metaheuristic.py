@@ -28,7 +28,7 @@ class Metaheuristic:
         """
         while self.new_population():
             continue
-        #self.scorer.clean_unused(self.get_ids())
+        self.scorer.clean_unused(self.get_ids())
         self.scorer.clear_cache()
 
     def get_ids(self):

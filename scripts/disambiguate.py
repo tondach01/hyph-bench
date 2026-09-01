@@ -61,7 +61,7 @@ def disambiguate(file: str, hyphenation_mark: str = "-", outfile: str = ""):
                 words[word].append(new)
 
     if not outfile:
-        outfile = file.rsplit(".", 1)[0] + ".wlh"
+        outfile = file+"_dis.wlh"
 
     with open(outfile, "w") as out:
         for word in sorted(words.keys()):
@@ -83,7 +83,7 @@ if __name__ == "__main__":
 
     before, after = disambiguate(args.file, hyphenation_mark=args.hyphmark, outfile=args.outfile)
     if args.verbose:
-        print(f"Disambiguated {args.file} into {args.outfile if args.outfile else args.file.rsplit('.', 1)[0] + '.wlh'}, ambiguous hyphenations reduced from {before} to {after}")
+        print(f"Disambiguated {args.file} into {args.outfile if args.outfile else args.file+'_dis.wlh'}, ambiguous hyphenations reduced from {before} to {after}")
     else:
         if "\\" in args.file:
             split = args.file.split("\\")

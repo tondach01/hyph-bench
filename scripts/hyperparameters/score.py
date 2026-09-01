@@ -11,24 +11,12 @@ class PatgenScorer:
     """
     def __init__(self, patgen_path: str, wordlist_path: str, translate_path: str, verbose: bool = False, tmp_suffix: str = ""):
         self.patgen_path: str = patgen_path
-        self.wordlist_path: str = wordlist_path
-        self.translate_path: str = translate_path
+        self.wordlist_path: str = os.path.abspath(wordlist_path)
+        self.translate_path: str = os.path.abspath(translate_path)
         self.verbose = verbose
+        self.initial_suffix = tmp_suffix
 
-        wl_dir = wordlist_path.split("/")
-        if len(wl_dir) > 1:
-            tmp_path = "/".join(wl_dir[:-1])
-        else:
-            tmp_path = "."
-        if "tmp"+tmp_suffix not in os.listdir(tmp_path):
-            os.mkdir(tmp_path+"/tmp"+tmp_suffix)
-
-        self.temp_dir: str = tmp_path+"/tmp"+tmp_suffix
-
-        if "0.pat" not in os.listdir(self.temp_dir):
-            os.system(f"touch {self.temp_dir}/0.pat")
-
-        self.max_id: int = 0
+        self.__create_temp_env(tmp_suffix)
 
         self._cached: dict = dict()
 
@@ -46,31 +34,33 @@ class PatgenScorer:
             stats = self._cached[s_hash]
             s.stats = stats.copy()
 
-        with open(f"{self.temp_dir}/{run_id}.in", "w") as par:
-            par.write("\n".join([f"{s.level} {s.level}",
-                                 f"{s.pat_start} {s.pat_finish}",
-                                 f"{s.good_weight} {s.bad_weight} {s.threshold}",
-                                 "y",
-                                 ""]
-                                )
-                      )
+        cwd = os.getcwd()
+        try:
+            os.chdir(self.temp_dir)
 
-        command = " ".join([f"cat {self.temp_dir}/{run_id}.in | (",
-                            self.patgen_path,
-                            self.wordlist_path,
-                            f"{self.temp_dir}/{s.prev}.pat",
-                            f"{self.temp_dir}/{run_id}.pat",
-                            self.translate_path, ") >",
-                            f"{self.temp_dir}/{run_id}.log"])
-        os.system(command)
+            with open(f"{run_id}.in", "w") as par:
+                par.write("\n".join([f"{s.level} {s.level}",
+                                     f"{s.pat_start} {s.pat_finish}",
+                                     f"{s.good_weight} {s.bad_weight} {s.threshold}",
+                                     "y",
+                                     ""]
+                                    )
+                          )
 
-        for f in os.listdir():
-            if f.startswith("pattmp."):
-                os.system(f"mv {f} {self.temp_dir}/{run_id}.pattmp")
+            command = " ".join([f"cat {run_id}.in | (",
+                                self.patgen_path,
+                                self.wordlist_path,
+                                f"{s.prev}.pat",
+                                f"{run_id}.pat",
+                                self.translate_path, ") >",
+                                f"{run_id}.log"])
+            os.system(command)
 
-        stats = self.get_statistics(run_id)
-        stats["n_patterns"] = self.count_patterns(run_id)
-        self._cached[s_hash] = stats
+            stats = self.get_statistics(run_id)
+            stats["n_patterns"] = self.count_patterns(run_id)
+            self._cached[s_hash] = stats
+        finally:
+            os.chdir(cwd)
 
         s.stats = stats
         s.timestamp = datetime.datetime.now().strftime('%Y%m%d%H%M%S')
@@ -85,7 +75,7 @@ class PatgenScorer:
         :return: number of patterns read
         """
         n_patterns = 0
-        with open(f"{self.temp_dir}/{run_id}.pat") as outfile:
+        with open(f"{run_id}.pat") as outfile:
             for _ in outfile:
                 n_patterns += 1
         return n_patterns
@@ -98,8 +88,9 @@ class PatgenScorer:
         """
         tp, fp, fn = 0, 0, 0
         trie_nodes = 0
+        level_patterns = 0
 
-        with open(f"{self.temp_dir}/{run_id}.log") as out:
+        with open(f"{run_id}.log") as out:
             for line in out:
                 stat = re.match(r"(?P<tp>\d+) good, (?P<fp>\d+) bad, (?P<fn>\d+) missed", line)
                 if stat is not None:
@@ -118,9 +109,17 @@ class PatgenScorer:
 
         return {"tp": tp, "fp": fp, "fn": fn, "trie_nodes" : trie_nodes, "level_patterns": level_patterns}
 
+    def dump_bad(self, output_file: str, levels: int):
+        pattmp_path = os.path.join(self.temp_dir, f"pattmp.{levels}")
+        os.system(f"grep '\\.' {pattmp_path} > {output_file}")
+
+    def export_patterns(self, output_path: str, levels: int):
+        patterns_path = os.path.join(self.temp_dir, f"{levels}.pat")
+        os.system(f"mv {patterns_path} {output_path}")
+
     def clean(self):
         """
-        Delete al temporary files used during computations.
+        Delete all temporary files used during computations.
         """
         os.system("rm -rf "+self.temp_dir)
 
@@ -149,19 +148,20 @@ class PatgenScorer:
         Reset the object to initial state
         :param tmp_suffix: suffix to temporary directory name
         """
-        wl_dir = self.wordlist_path.split("/")
-        if len(wl_dir) > 1:
-            tmp_path = "/".join(wl_dir[:-1])
-        else:
-            tmp_path = "."
-        if "tmp"+tmp_suffix not in os.listdir(tmp_path):
-            os.mkdir(tmp_path + "/tmp" + tmp_suffix)
+        if (os.path.exists(self.temp_dir)):
+            self.clean()
 
-        self.temp_dir: str = tmp_path + "/tmp" + tmp_suffix
+        self.__create_temp_env(self.initial_suffix + tmp_suffix)
+        self.clear_cache()
+
+    def __create_temp_env(self, tmp_suffix: str):
+        wl_dir = os.path.dirname(self.wordlist_path)
+        self.temp_dir: str = os.path.join(wl_dir, "tmp" + tmp_suffix)
+
+        if not os.path.exists(self.temp_dir):
+            os.mkdir(self.temp_dir)
 
         if "0.pat" not in os.listdir(self.temp_dir):
             os.system(f"touch {self.temp_dir}/0.pat")
 
         self.max_id: int = 0
-
-        self.clear_cache()

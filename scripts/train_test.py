@@ -1,15 +1,17 @@
 import argparse
 import os
 import sys
+import shutil
 
-from hyperparameters import combine, score, sample, metaheuristic
-from hyphenator.hyphenator import Hyphenator
+from .hyperparameters import combine, score, sample, metaheuristic
+from .hyphenator.hyphenator import Hyphenator
+from .dataset_split import rank_word_entries, resolve_word_entries
 
 class Validator:
     """
     Class for evaluation of patgen runs and their parameters. Abstract class, instantiate one of its subclasses
     """
-    def __init__(self, model: combine.Combiner, translate_file: str):
+    def __init__(self, model: combine.Combiner, translate_file: str, tmp_suffix: str = ""):
         """
         Create superclass validator. Should not be called by itself.
         :param model: model to evaluate
@@ -19,6 +21,7 @@ class Validator:
         self.hyphenation_mark = "-"
         self.translate_file = translate_file
         self.results = None
+        self.tmp_dir_name = f"test{tmp_suffix}"
 
     def process_results(self, results: list):
         """
@@ -28,16 +31,31 @@ class Validator:
         """
         self.results = dict()
         good_total, bad_total, missed_total = 0, 0, 0
+        good_total_sq, bad_total_sq, missed_total_sq = 0, 0, 0
         nodes_total = 0
+        n = len(results)
+
         for (good, bad, missed), trie_nodes in results:
             good_total += good
+            good_total_sq += good ** 2
             bad_total += bad
+            bad_total_sq += bad ** 2
             missed_total += missed
+            missed_total_sq += missed ** 2
             nodes_total += trie_nodes
-        self.results["good"] = good_total / len(results)
-        self.results["bad"] = bad_total / len(results)
-        self.results["missed"] = missed_total / len(results)
-        self.results["trie_nodes"] = nodes_total / len(results)
+
+        good_mean = good_total / n
+        bad_mean = bad_total / n
+        missed_mean = missed_total / n
+
+        self.results["good"] = good_mean
+        self.results["bad"] = bad_mean
+        self.results["missed"] = missed_mean
+        self.results["trie_nodes"] = nodes_total / n
+
+        self.results["good_variance"] = (good_total_sq / n - good_mean ** 2) / n
+        self.results["bad_variance"] = (bad_total_sq / n - bad_mean ** 2) / n
+        self.results["missed_variance"] = (missed_total_sq / n - missed_mean ** 2) / n
 
     def precision(self):
         """
@@ -75,13 +93,25 @@ class Validator:
         :param name: dataset name
         :param profile: parameter profile name
         :param tabular: output in LaTeX tabular format
-        :return: statistics in desired format
+        :return: a dict with results and statistics in desired format
         """
+        results = {
+            "f_17": self.f_score(1/7),
+            "bad": self.results["bad"],
+            "good": self.results["good"],
+            "missed": self.results["missed"],
+            "trie_nodes": self.results["trie_nodes"],
+            "good_variance": self.results["good_variance"],
+            "bad_variance": self.results["bad_variance"],
+            "missed_variance": self.results["missed_variance"]
+        }
+
         if not tabular:
-            return str(self.precision(), self.recall())
+            return results, f"precision={self.precision():.4f}, recall={self.recall():.4f}"
+        
         f_score = round(self.f_score(1/7), 4)
         trie_nodes = round(self.results["trie_nodes"], 1)
-        return f"{lang} & {name} & {profile} & {f_score:.4f} & {trie_nodes:.1f} \\\\"
+        return results, f"{lang} & {name} & {profile} & {f_score:.4f} & {trie_nodes:.1f} \\\\"
 
     def train_patterns(self, train_file: str, tmp_suffix: str = ""):
         """
@@ -141,15 +171,22 @@ class NFoldCrossValidator(Validator):
     """
     N-fold cross-validation
     """
-    def __init__(self, model: combine.Combiner, translate_file: str, n: int):
-        """
-        Create validator
-        :param model: model to evaluate
-        :param translate_file: path to translate file
-        :param n: number of folds
-        """
-        super().__init__(model, translate_file)
+    def __init__(
+        self,
+        model: combine.Combiner,
+        translate_file: str,
+        n: int,
+        tmp_suffix: str = "",
+        seed: int = 42,
+    ):
+        """Create a deterministic, surface-form-disjoint cross-validator."""
+        super().__init__(model, translate_file, tmp_suffix=tmp_suffix)
         self.n = n
+        self.seed = seed
+        self._entries_path = ""
+        self._entries = []
+        self._weighted = False
+
 
     def n_fold_split(self, wordlist_file: str, index: int = 0, outfile_train: str = "", outfile_test: str = "", tmp_suffix: str = ""):
         """
@@ -167,29 +204,34 @@ class NFoldCrossValidator(Validator):
         else:
             wl_dir = p[0]
 
-        if "test" not in os.listdir(wl_dir):
-            os.mkdir(wl_dir + "/test")
+        tmp_dir = os.path.abspath(os.path.join(wl_dir, self.tmp_dir_name))
+        if not os.path.exists(tmp_dir):
+            os.mkdir(tmp_dir)
 
         if not outfile_train:
-            outfile_train = wl_dir + "/test/data.train" + tmp_suffix
+            outfile_train = os.path.join(tmp_dir, f"data.train{tmp_suffix}")
         train = open(outfile_train, "w")
 
         if not outfile_test:
-            outfile_test = wl_dir + "/test/data.test" + tmp_suffix
+            outfile_test = os.path.join(tmp_dir, f"data.test{tmp_suffix}")
         test = open(outfile_test, "w")
 
-        with open(wordlist_file) as wordlist:
-            for i, line in enumerate(wordlist):
-                if i % self.n == index:
-                    test.write(line)
-                else:
-                    train.write(line)
+        if self._entries_path != wordlist_file:
+            self._entries, self._weighted, _ = resolve_word_entries(wordlist_file)
+            rank_word_entries(self._entries, self.seed)
+            self._entries_path = wordlist_file
+        for position, (_, annotation, priority) in enumerate(self._entries):
+            if position % self.n == index:
+                test.write(annotation + "\n")
+            else:
+                repetitions = priority if self._weighted else 1
+                train.write((annotation + "\n") * repetitions)
 
         train.close()
         test.close()
-        return outfile_train, outfile_test
+        return outfile_train, outfile_test, tmp_dir
 
-    def validate(self, wordlist_file: str, verbose: bool = False):
+    def validate(self, wordlist_file: str, verbose: bool = False, fixed_test: str = None):
         """
         Perform n-fold cross-validation of a model against given dataset
         :param wordlist_file: path to wordlist
@@ -202,16 +244,17 @@ class NFoldCrossValidator(Validator):
             if verbose:
                 print(f"Validation step {i+1}/{self.n}")
                 print("Creating train-test split...")
-            train, test = self.n_fold_split(wordlist_file, index=i, tmp_suffix=suffix)
+            train, test, tmp_dir = self.n_fold_split(wordlist_file, index=i, tmp_suffix=suffix)
             if verbose:
                 print("Generating patterns...")
             patterns, trie_nodes = self.train_patterns(train, tmp_suffix=suffix)
             if verbose:
                 print("Validation on test set...")
-            results.append((self.validate_patterns(test, patterns), trie_nodes))
+            results.append((self.validate_patterns(test if fixed_test is None else fixed_test, patterns), trie_nodes))
             os.remove(train)
             os.remove(test)
             os.remove(patterns)
+            shutil.rmtree(tmp_dir)
         self.process_results(results)
         return results
 
@@ -222,13 +265,17 @@ def extract_files(data_directory: str):
     :param data_directory: directory to be searched
     :return: (wordlist name, translate file name, input parameters file name), if they are found '' otherwise
     """
+    files = sorted(os.listdir(data_directory))
+    preferred_suffixes = ("_dis.wlh", "_expanded.wlh", ".wlh")
     wl_file, tr_file = "", ""
-    for file in os.listdir(data_directory):
-        if file.endswith("_dis.wlh") or file.endswith("_expanded.wlh"):
-            wl_file = data_directory + "/" + file
-        elif file.endswith(".tra"):
-            tr_file = data_directory + "/" + file
-
+    for suffix in preferred_suffixes:
+        candidates = [file for file in files if file.endswith(suffix)]
+        if candidates:
+            wl_file = os.path.join(data_directory, candidates[0])
+            break
+    translate_files = [file for file in files if file.endswith(".tra")]
+    if translate_files:
+        tr_file = os.path.join(data_directory, translate_files[0])
     if not wl_file or not tr_file:
         print(f"Wordlist or translate file not present in {data_directory} directory", file=sys.stderr)
 
@@ -270,5 +317,6 @@ if __name__ == "__main__":
     path = datadir.split("/")
     language = "" if len(path) < 2 else path[-2]
     d_name = "" if len(path) < 1 else path[-1]
-    print(validator.report(lang=language, name=d_name, profile=args.profile, tabular=args.tabular))
+    _, report = validator.report(lang=language, name=d_name, profile=args.profile, tabular=args.tabular)
+    print(report)
 

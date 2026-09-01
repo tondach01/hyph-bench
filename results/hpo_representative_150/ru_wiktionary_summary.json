@@ -1,0 +1,112 @@
+{
+  "dataset": "ru/wiktionary",
+  "budget_evals": 150,
+  "rounds": 30,
+  "batch_size": 5,
+  "nfold": 10,
+  "objective": "F17+Trie(w=0.0005)",
+  "trie_normalizer": 152608.0,
+  "bounds": [
+    [
+      1,
+      30
+    ],
+    [
+      1,
+      30
+    ],
+    [
+      1,
+      30
+    ],
+    [
+      1,
+      30
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "pat_ranges": [
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      7
+    ]
+  ],
+  "good_weight": 3,
+  "seed": 42,
+  "rows": [
+    {
+      "label": "Hand-tuned (cshyphen)",
+      "params": null,
+      "f_17": 0.8924904717458185,
+      "trie_nodes": 50958.7,
+      "search_f17": null,
+      "score": null
+    },
+    {
+      "label": "Hand-tuned (wortliste)",
+      "params": null,
+      "f_17": 0.8410802740530929,
+      "trie_nodes": 42052.3,
+      "search_f17": null,
+      "score": null
+    },
+    {
+      "label": "GP (ours)",
+      "params": [
+        17,
+        1,
+        30,
+        1,
+        1
+      ],
+      "f_17": 0.9172563900171762,
+      "trie_nodes": 66321.3,
+      "search_f17": 0.9957455492294417,
+      "score": 0.9955126158314547
+    },
+    {
+      "label": "Random Search",
+      "params": [
+        10,
+        27,
+        12,
+        1,
+        1
+      ],
+      "f_17": 0.8909881707402536,
+      "trie_nodes": 46926.5,
+      "search_f17": 0.9945865924023753,
+      "score": 0.9944221318236377
+    },
+    {
+      "label": "TPE",
+      "params": [
+        29,
+        5,
+        22,
+        1,
+        1
+      ],
+      "f_17": 0.918634265129101,
+      "trie_nodes": 61949.1,
+      "search_f17": 0.9955071231947171,
+      "score": 0.9952906175069419
+    }
+  ],
+  "unique_evaluations": 395
+}
